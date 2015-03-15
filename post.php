@@ -55,20 +55,20 @@ class event extends post {
 		$this->status = $status;
 	}
 	
-	public function createEvent($title, $destination, $district, $eventDate, $description, $lastEditTime, $limitation, $conn) {
-		$this->title = $title;
-		$this->destination = $destination;
-		$this->district = $district;
-		$this->eventDate = $eventDate;
-		$this->description = $description;
-		$this->lastEditTime = $lastEditTime;
-		$this->likedNum = 0;
-		$this->parNum = 0;
-		$this->limitation = $limitation;
-		$this->status = true;
+	public function createEvent($title, $ownerID, $district, $eventDate, $limitation, $conn) {
+		// $this->title = $title;
+		// $this->destination = $destination;
+		// $this->district = $district;
+		// $this->eventDate = $eventDate;
+		// $this->description = $description;
+		// $this->lastEditTime = $lastEditTime;
+		// $this->likedNum = 0;
+		// $this->parNum = 0;
+		// $this->limitation = $limitation;
+		// $this->status = true;
 	
-		$sql = "INSERT INTO event(title, destination, district, eventDate, description, lastEditTime, limitation) 
-		VALUES ('$title', '$destination', '$district', '$eventDate', '$description', '$lastEditTime', '$limitation')";
+		$sql = "INSERT INTO event(ownerID, title, district, eventDate, limitation, status) 
+		VALUES ('$ownerID', '$title', '$district', '$eventDate', '$limitation', 1)";
 		if($conn->query($sql) == TRUE){
 			echo "succeed\n";
 		}
