@@ -1,7 +1,4 @@
 <?php
-/**
- * Created by Chris on 9/29/2014 3:42 PM.
- */
 
 require_once 'core/init.php';
 
@@ -13,14 +10,8 @@ $user = new User(); //Current
 
 if($user->isLoggedIn()) {
 ?>
-
-    <p>Hello, <a href="profile.php?user=<?php echo escape($user->data()->username);?>"><?php echo escape($user->data()->username); ?></p>
-
-    <ul>
-        <li><a href="update.php">Update Profile</a></li>
-        <li><a href="changepassword.php">Change Password</a></li>
-        <li><a href="logout.php">Log out</a></li>
-    </ul>
+    <?php include'personal.php';?>
+    
 <?php
 
     if($user->hasPermission('admin')) {
@@ -28,5 +19,7 @@ if($user->isLoggedIn()) {
     }
 
 } else {
-    echo '<p>You need to <a href="login.php">login</a> or <a href="register.php">register.</a></p>';
+    echo '<p>You need to <a href="login.php">login</a> or <a href="register.php">register</a>.</p>';/*else {
+    echo '<p>You need to <a href="#login" data-toggle="modal">login</a> or <a href="#register" data-toggle="modal">register</a>.</p>';
+}*/
 }

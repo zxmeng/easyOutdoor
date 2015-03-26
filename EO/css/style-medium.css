@@ -73,6 +73,14 @@
 
 	#main {
 		margin: 0;
-		padding: 6em 4em;
+		padding: 3em 4em;
 		width: 100%;
 	}
+
+@media only screen and (min-width: 480px) {
+    .masonry {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}

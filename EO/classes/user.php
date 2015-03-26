@@ -123,4 +123,15 @@ class User {
     public function isLoggedIn() {
         return $this->isLoggedIn;
     }
+
+    public function listuser(){
+        $sql = "SELECT id FROM users";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
+
+    public function activated(){
+        
+    }
 }

@@ -4,7 +4,7 @@
 /* Basic */
 
 	body {
-		background-color: #ffffff;/*#1f1815*/
+		background-color: #e4e4e4;/*#1f1815*/
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -935,7 +935,7 @@
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
-		padding: 15em 0em 0 0;
+		padding: 10em 0em 0 0;
 		position: fixed;
 		text-align: center;
 		top: 0;
@@ -1014,9 +1014,8 @@
 	#main {
 
 		margin-left: 25%;
-		max-width: 54em;
-		padding: 8em 4em 4em 4em;
-		width: calc(100% - 25%);
+		padding: 3em 4em 4em 4em;
+		width: 75%;
 	}
 
 		#main > section {
@@ -1243,3 +1242,109 @@
 		opacity: 1.0 !important;
 	}
 
+	/*masonry*/
+	.wrapper {
+    width: 95%;
+    margin: 5em auto;
+}
+
+.masonry {
+    margin: 1.5em 0;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+}
+
+.item {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    
+    /*box-shadow: 2px 2px 4px 0 #ccc;*/
+}
+.masonry { /* Masonry container */
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 1;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    column-gap: 1em;
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
+}
+
+.item { /* Masonry bricks or child elements */
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+.item-name{
+	font-size: 1.8em;
+	font-weight: bold;
+	line-height: 1.5em;
+	color: #696969;
+}
+
+.item-picture{
+	width:100%;
+	height: auto;
+	margin: 0.3em auto 0.3em auto;
+}
+
+.header-picture{
+	width:70%;
+	height: auto;
+	margin: 0.3em auto 0.3em auto;
+}
+
+.icon{
+	width:50%;
+	min-width: 150px;
+	height: auto;
+	margin: 0.3em auto 1em auto;
+}
+
+.name{
+	font-size: 1.8em;
+	font-weight: bold;
+	line-height: 1.5em;
+}
+
+.notification-container{
+	background-color: rgba(105, 105, 105, 0.6);
+	border-radius: 10px;
+	margin:10px auto;
+	width:90%;
+	height: 50%;
+	padding: 3px;
+}
+
+.notification-header{
+	min-height: 16.42857143px;
+	padding: 6px;
+	border-bottom: 1px solid #e5e5e5;
+	text-align: left;
+	font-weight: bold;
+	color:#ffffff;
+}
+
+.notification{
+	background-color: rgba(225, 221, 221, 0.8);
+	border-radius: 5px;
+	margin:10px auto;
+	width:98%;
+	text-align: left;
+	font-size:0.9em;
+	padding: 6px;
+	color:#000000;
+}

@@ -51,3 +51,16 @@
 		margin-left: 0;
 		padding-left: 0;
 	}
+
+@media only screen and (min-width: 10px) {
+    .masonry {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+    .header-picture{
+    	width:100%;
+		height: auto;
+		margin: 0.3em auto 0.3em auto;
+    }
+}

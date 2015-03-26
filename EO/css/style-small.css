@@ -70,3 +70,11 @@
 		.poptrox-popup .nav-previous:before {
 			margin-top: -1em;
 		}
+
+@media only screen and (min-width: 10px) {
+    .masonry {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}

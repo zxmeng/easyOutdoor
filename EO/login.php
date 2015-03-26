@@ -1,7 +1,4 @@
 <?php
-/**
- * Created by Chris on 9/29/2014 3:52 PM.
- */
 
 require_once 'core/init.php';
 
@@ -33,7 +30,7 @@ if(Input::exists()) {
     }
 }
 ?>
-
+<img src="images/logo.png">
 <form action="" method="post">
     <div class="field">
         <label for='username'>Username</label>
@@ -53,4 +50,5 @@ if(Input::exists()) {
 
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
     <input type="submit" value="Login">
+
 </form>
