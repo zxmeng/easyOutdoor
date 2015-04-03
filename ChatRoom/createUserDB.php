@@ -8,25 +8,23 @@ $dbname = "test";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname) or die("unable to connect");
 
-$sql = "CREATE TABLE Event (
+$sql = "CREATE TABLE User (
 ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-ownerID INT UNSIGNED NOT NULL,
-FOREIGN KEY (ownerID) REFERENCES User (ID),
-title VARCHAR(30) NOT NULL,
-destination VARCHAR(30) NOT NULL,
-district VARCHAR(50) NOT NULL,
-eventDate DATETIME NOT NULL,
-
+email VARCHAR(30) NOT NULL UNIQUE,
+password VARCHAR(30) NOT NULL,
+phone INT NOT NULL UNIQUE,
+photo BLOB,
+first VARCHAR(30) NOT NULL,
+last VARCHAR(30) NOT NULL,
 description TEXT,
-lastEditTime DATETIME NOT NULL,
-likedNum INT,
-parNum INT,
-limitation INT
+joinTime DATETIME NOT NULL,
+lastLoginTime DATETIME NOT NULL,
+status BOOLEAN DEFAULT FALSE
 )";
 
 if($conn->query($sql) == TRUE){
 	echo "succeed";
 }
-else echo "Error".$conn->error;
+else echo "Error: ".$conn->error;
 $conn->close();
 ?>

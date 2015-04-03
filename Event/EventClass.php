@@ -1,8 +1,9 @@
 <?php
-
+require_once('DBClass.php');
+// DB interface for event
 class Event{
 
-    private $db;
+    public $db;
     // public $title;
     // public $id;
     // public $ownerID;
@@ -19,9 +20,8 @@ class Event{
         // $this->limitation = $var5;
         // $this->profilePhoto = $var6;
 
-    // Create connection
-        $this->db = new mysqli(DB_HOST, DB_USER, DB_PSW, DB_NAME) or die("unable to connect");
-        echo "<p>Event: connencted to database.</p>";
+        // Create connection
+        $this->db = new Database();
     }
 
     // // Create an event, return BOOL
@@ -40,14 +40,9 @@ class Event{
     // }
 
     public function getTotalEvents(){
-        $conn = new mysqli(DB_HOST, DB_USER, DB_PSW, DB_NAME) or die("unable to connect");
-        echo "<p>I am getTotalEvent</p>";
         $sql = "SELECT COUNT(*)
                 FROM event";
-        $result = $conn->query($sql);
-        echo "<p>the result is #";
-        echo $result;
-        echo "#</p>";
+        $result =  $this->db->query($sql);
         return $result;
     }
 
@@ -63,11 +58,10 @@ class Event{
     public function getAllEvents(){
        // echo "GET ALL EVENTS";
         $sql = "SELECT event.*, user.username, user.profilePhoto
-                FROM event, user 
+                FROM event, user
                 WHERE event.ownerID = user.ID AND event.status = true
                 ORDER BY eventDate";
-        $result = $this->db->query($sql);
-        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        $resultArray = $this->db->query($sql);
         return $resultArray;
     }
 

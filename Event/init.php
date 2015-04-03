@@ -6,5 +6,5 @@ session_start();
 // Include Config, set up DB and relative paths
 require_once('config.php');
 require_once('EventClass.php');
-require_once('Page.php');
+require_once('DBClass.php');
 
