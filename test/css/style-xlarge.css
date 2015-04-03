@@ -1,0 +1,13 @@
+/* Basic */
+
+	body, input, select, textarea {
+		font-size: 12pt;
+	}
+
+@media only screen and (min-width: 1200px) {
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 1;
+    }
+}
