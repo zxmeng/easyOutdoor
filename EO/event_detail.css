@@ -1,0 +1,17 @@
+.icon{
+	width:50%;
+	min-width: 150px;
+	height: auto;
+	margin: 0.3em auto 1em auto;
+}
+
+.event-photo{
+	width:70%;
+	height: auto;
+	margin: 0.3em auto 0.3em auto;
+}
+
+.comment-content{
+	width:70%;
+	height: auto;
+}
