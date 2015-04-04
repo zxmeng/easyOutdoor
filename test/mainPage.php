@@ -9,111 +9,36 @@
 		<?php include_once('eventList.php'); ?>
 	</div>
 
-	<div class="button" type="button" id="back" onclick="loadEventList()">
-		Fresh
+	<div class="button" type="button" id="back" onclick="loadAllEvent()">
+		Home
 	</div>
 
 </div>
 
+<div class="createbutton">
+	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreate(<?php echo 1; ?>)">
+	<i class="glyphicon glyphicon-plus"></i>
+	</button>
+</div>
 
-<script>
-
-function loadEvent(eid, uid)
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
-			document.getElementById("back").innerHTML = "Back";
-        }
-    }
-    	var data = "?eid=" + eid + "&uid=" + uid;
-	xmlhttp.open("GET","goToEventPage.php"+data, true);
-	//window.alert(data);
-	xmlhttp.send();
-}
-
-function loadEventList()
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Fresh";
-        }
-    }
-	xmlhttp.open("GET","goToMainPage.php", true);
-	//window.alert(data);
-	xmlhttp.send();
-}
-
-function loadAllEvent()
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //document.getElementById("back").innerHTML = "Fresh";
-        }
-    }
-	xmlhttp.open("GET","goToMainPage.php", true);
-	//window.alert(data);
-	xmlhttp.send();
-}
-
-function loadCalendar()
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //document.getElementById("back").innerHTML = "Fresh";
-        }
-    }
-	xmlhttp.open("GET","goToCalendar.php", true);
-	//window.alert(data);
-	xmlhttp.send();
-}
-
-function loadMap()
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //document.getElementById("back").innerHTML = "Fresh";
-        }
-    }
-	xmlhttp.open("GET","goToMap.php", true);
-	//window.alert(data);
-	xmlhttp.send();
-}
-
-function loadReference()
-{
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //document.getElementById("back").innerHTML = "Fresh";
-        }
-    }
-	xmlhttp.open("GET","goToReference.php", true);
-	//window.alert(data);
-	xmlhttp.send();
-}
-
+<script src="mainScript.js">
+// function clickBack(){
+// 	switch(backFlag){
+// 		case 1:
+// 			loadAllEvent();
+// 			break;
+// 		case 2:
+// 			loadCalendar());
+// 			break;
+// 		case 3:
+// 			loadMap();
+// 			break;
+// 		case 4:
+// 			loadRecommendation();
+// 			break;
+// 		default:
+// 			loadAllEvent();
+// 			break;
+// 	}
+// }
 </script>
-

@@ -233,7 +233,6 @@
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		text-align: center;
 		width: 100%;
 		min-width: 10em;
 	}
@@ -1347,4 +1346,289 @@
 	font-size:0.9em;
 	padding: 6px;
 	color:#000000;
+}
+
+/*single event*/
+.bannercontainer{
+  	z-index: 0;
+	max-height:250px;
+	overflow:hidden;
+  	width:100%
+}
+
+.bannercontainer img{
+  	width:100%;
+  	height:auto; 
+}
+
+.eventinfo{
+	height:350px;
+}
+
+.eventdetail{
+	width: 45%; 
+	height: 70%;
+	float: left;  
+	margin: 20px;
+}
+
+.eventbuttons{
+	width: 45%; 
+	height: 20%;
+	float: left;  
+	margin: 20px;
+	padding:right;
+}
+
+.eventmap{
+	width: 45%; 
+	height: 100%;
+	border:2px solid black; 
+	float: right;  
+	margin: 20px 20px 0 0;
+}
+
+.eventparticipant{
+	margin:20px 20px 20px 20px;
+}
+
+.eventparticipant hr{
+	margin:10px 0 10px 0;
+	display: block;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #8b8f8f;
+}
+
+.participantcontainer{
+	display: inline;
+	overflow:hidden;
+  	width:50px;
+  	height: 50px;
+}
+
+.participantcontainer img{
+	background:url(URL-of-image) no-repeat;
+	background-size:720px 480px;
+	background-position:-160px 0px;
+	height:50px;
+	width:50px;
+	border-radius:50%;
+	overflow:hidden;
+	margin:10px 0 10px 10px; 
+}
+.eventcomment{
+
+}
+
+.commentcontainer{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	margin:10px auto;
+	width:90%;
+	min-height: 90px;
+	padding: 3px;
+}
+
+.commentheader{
+  	float:left;
+	overflow:hidden;
+  	width:100px;
+  	text-align: center;
+}
+
+.commentheader img{
+	background:url(URL-of-image) no-repeat;
+	background-size:720px 480px;
+	background-position:-160px 0px;
+	height:70px;
+	width:70px;
+	border-radius:50%;
+	overflow:hidden;
+
+}
+
+.commentcontent{
+	min-height: 80%;
+}
+
+.commentinfo{
+	max-height: 20%;
+}
+
+/*chatroom*/
+.chatheader{
+  	float:left;
+	overflow:hidden;
+  	width:60px;
+  	text-align: center;
+  	min-height: 50px;
+}
+
+.chatheader img{
+	background:url(URL-of-image) no-repeat;
+	background-size:720px 480px;
+	background-position:-160px 0px;
+	height:50px;
+	width:50px;
+	border-radius:50%;
+	overflow:hidden;
+}
+
+.chatroom{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	margin:10px auto 10px auto;
+	width:90%;
+	height: 95%;
+	padding: 3px;
+	position: fixed;
+	right:10px;
+	left:10px;
+}
+
+.chatroomheader{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	margin:10px auto 10px auto;
+	width:98%;
+	padding: 3px;
+	overflow: hidden;
+}
+
+.chatroomheader h2{
+	color:#003366;
+	margin:0 0 0 8pt ;
+}
+
+.chatmain{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	margin:0 auto 0 auto;
+	width:98%;
+	height: 70%;
+	padding: 3px;
+	overflow: hidden;
+	position: relative;
+}
+
+.message{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	margin-bottom: 10px;
+	width:80%;
+	height: 100%;
+	padding: 3px;
+	min-height: 80px;
+	overflow-y:scroll;
+	overflow-x: hidden;
+	display: inline-block;
+	position: relative;
+	float: left;
+}
+.parti{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	width:20%;
+	height: 100%;
+	padding: 3px;
+	min-height: 80px;
+	overflow-y:scroll;
+	overflow-x: hidden;
+	display: inline-block;
+	position: relative;
+	float: right;
+}
+
+.chatmessage{
+	min-height: 50px;
+	width:100%;
+	margin-top: 5px;
+}
+
+.chatcontent{
+	width:90%;
+	max-height:50px;
+	line-height: 50px;
+}
+
+.chatcontent p{
+	word-wrap: break-word;
+	overflow: hidden;
+}
+.chatname{
+	line-height: 50px;
+	overflow: hidden;
+}
+.chatwritecontainer{
+	width:50%;
+	display: inline-block;
+}
+
+.chatbutton{
+	width:10%;
+	display: inline;
+}
+
+/*friend page*/
+.friendmain{margin: 10px auto 10px auto;}
+
+.friendlist{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	width:35%;
+	height: 100%;
+	padding: 3px;
+	min-height: 80px;
+	margin:5px 5px 5px 5px;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+	float: left;
+}
+
+.frienddetail{
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	width:60%;
+	min-width: 350px;
+	height: inherit;
+	padding: 3px;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+	margin:5px 5px 5px 5px;
+	float: right;
+}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+.createbutton{
+	position: fixed;
+	top:0px;
+	right:0px;
+	margin: 10px 10px 0 0;
 }

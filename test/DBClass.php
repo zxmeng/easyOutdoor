@@ -14,8 +14,14 @@ class DataBase{
 	}
 
 	public function query($sql){
-		$result = $this->db->query($sql);
-		$resultArray = $result->fetch_all(MYSQLI_ASSOC);
-		return $resultArray;
+		$result = $this->db->query($sql) or trigger_error($this->db->error."[$sql]");
+		//$resultArray = $result->fetch_all(MYSQLI_ASSOC);
+		return $result;
+	}
+
+	public function getInsertedID(){
+		$id = $this->db->insert_id;
+		echo $id;
+		return $id;
 	}
 }

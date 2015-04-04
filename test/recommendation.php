@@ -13,8 +13,8 @@
 		<div class="button" type="button" id="map" onclick="loadMap()">
 		MAP
 		</div>
-		| 	
-		<div class="button" type="button" id="recommendation" onclick="loadRecommendation()">
+		|
+		<div class="button" type="button" id="reference" onclick="loadRecommendation()">
 		RECOMMENDATION
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 <div class="masonry">				
 	<?php
 		$event = new Event();
-		$events = $event->getAllEvents();
+		$events = $event->getRecommendation();
 		$event->db->close();
 		foreach($events as $event){ 
 	?>
