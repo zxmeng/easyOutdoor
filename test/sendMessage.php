@@ -1,5 +1,5 @@
 <?php
-	require_once('config/DBClass.php');
+	require_once('DBClass.php');
 	header("Content-type: text/html; charset=utf-8");
 	
 	if(empty($_POST['userID'])){ exit(); }

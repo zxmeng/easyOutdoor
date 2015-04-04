@@ -14,8 +14,8 @@
 		MAP
 		</div>
 		| 	
-		<div class="button" type="button" id="recommendation" onclick="loadRecommendation()">
-		RECOMMENDATION
+		<div class="button" type="button" id="reference" onclick="loadReference()">
+		REFERENCE
 		</div>
 	</div>
 </div>

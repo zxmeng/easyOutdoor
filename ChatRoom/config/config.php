@@ -11,7 +11,7 @@ define("DB_NAME", "test");
 define("SITE_TITLE", "WLCOME TO EASYOUTDOOR");
 
 //Paths
-define('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].':3306/easyOutdoor/chatRoom/');
+define('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].':3306/easyOutdoor/');
 
 //echo "<p>success</p>";
 

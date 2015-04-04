@@ -14,14 +14,17 @@ class DataBase{
 	}
 
 	public function query($sql){
-		$result = $this->db->query($sql) or trigger_error($this->db->error."[$sql]");
+		$result = $this->db->query($sql)  or trigger_error($this->db->error."[$sql]");
 		//$resultArray = $result->fetch_all(MYSQLI_ASSOC);
 		return $result;
 	}
 
-	public function getInsertedID(){
-		$id = $this->db->insert_id;
-		echo $id;
-		return $id;
+	public function getUserName($uid) {
+		$sql = "SELECT nickname
+				FROM user
+				WHERE uid = $uid";
+		$res = $this->db->query($sql);
+		$nameArray = mysqli_fetch_array($res);;
+		return $nameArray['nickname'];
 	}
 }
