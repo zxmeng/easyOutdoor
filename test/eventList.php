@@ -45,7 +45,7 @@
    		</div>
 
    		<div align="right">
-   			<div class="button" type="button" onclick="loadEvent( <?php echo $event['eid'].', '.$event['uid']; ?> )">
+   			<div class="button" type="button" onclick="loadEvent( <?php echo $event['eid'].', 1'; ?> )">
    				More Infomation
    			</div>
    		</div>		   		

@@ -7,7 +7,6 @@
 
 	if($cNums == 0){ ?>
 		<div><h2>No comment now</br></h2></div>
-		<hr>
 		<!--while loop to list all comment-->
 <?php } else {
 	foreach($comments as $comment){ 

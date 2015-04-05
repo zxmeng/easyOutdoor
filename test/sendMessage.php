@@ -2,22 +2,17 @@
 	require_once('DBClass.php');
 	header("Content-type: text/html; charset=utf-8");
 	
-	if(empty($_POST['userID'])){ exit(); }
-	$userID = $_POST['userID'];
-	$roomID = $_POST['roomID'];
+	if(empty($_POST['uid'])){ exit(); }
+	$uid = $_POST['uid'];
+	$eid = $_POST['eid'];
 	$content = $_POST['content'];
-	// $userID = 4;
-	// $roomID = 2;
-	// $content = 'Hello2222';
-
 
 	// Create connection
 	$db = new DataBase();
 
-	$sql = "INSERT INTO message (rid, uid, content, time)
-			VALUES ('{$roomID}', '{$userID}', '{$content}', now())";
+	$sql = "INSERT INTO message (eid, uid, content, time)
+			VALUES ('{$eid}', '{$uid}', '{$content}', now())";
 
-	// $res = mysql_query($sql, $link);
 	$res = $db->query($sql);
 
 	if(!$res){

@@ -1,22 +1,23 @@
 <?php
 	session_start();
 
-	require_once('DBClass.php');
 	require_once('messageClass.php');
+	require_once('EventClass.php');
 
-    // Create connection
-	$db = new DataBase();
+	$eid = $_GET['eid'];
+	$uid = $_GET['uid'];
+	// $uid = $_SESSION['uid'];
+	// $eid = 2;
+	// $uid = 2;
 
-	// $roomID = $_GET['roomID'];
-	// $userID = $_SESSION['userID'];
-	$roomID = 2;
-	$userID = 2;
+    // $getEventTitle = "SELECT title
+    //                   FROM event
+    //                   WHERE eid = $eid";
+    // $title = $db->query($getEventTitle);
+    // $row = mysqli_fetch_array($title);
 
-    $getRoomName = "SELECT rname
-                    FROM chatroom
-                    WHERE rID = $roomID";
-    $roomName = $db->query($getRoomName);
-    $row = mysqli_fetch_array($roomName);
+    $event = new Event();
+    $eInfo = $event->getEvent($eid); 
 ?>
 
 <html>
@@ -64,24 +65,21 @@
 	function sendMessage(){
         var http_request = createAjaxObject();
         if(http_request){
-            var url = "sendMessage.php";
-            var userID = "<?php echo $userID; ?>";
-            var roomID = "<?php echo $roomID; ?>";
-            // alert(userID);
-            // alert(roomID);
+            var uid = "<?php echo $uid; ?>";
+            var eid = "<?php echo $eid; ?>";
+
             var content = document.getElementById("sendBox").value;
             if (content == "") {
             	alert ("Please enter the message content");
             	return;
             }
             // alert(content);
-            var data = "userID=" + userID + "&roomID=" + roomID + "&content=" + content;
+            var data = "uid=" + uid + "&eid=" + eid + "&content=" + content;
             // alert(data);
 
-            http_request.open("post", url, true);
+            http_request.open("POST", "sendMessage.php", true);
             http_request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             http_request.onreadystatechange = function(){
-            	// alert("here");
 				if(http_request.readyState == 4 && http_request.status == 200){
 					var res = http_request.responseText;
 					if(res != ""){
@@ -98,9 +96,9 @@
 	function viewMessage(){
 		var http_request = createAjaxObject();
 		if (http_request){
-			var roomID = "<?php echo $roomID; ?>";
-			var userID = "<?php echo $userID; ?>";
-			var data = "roomID=" + roomID + "&userID=" + userID;
+			var eid = "<?php echo $eid; ?>";
+			var uid = "<?php echo $uid; ?>";
+			var data = "eid=" + eid + "&uid=" + uid;
 			// alert(data);
 			http_request.open("GET", "goToMessageViewer.php?"+data, true);
 			http_request.onreadystatechange = function(){
@@ -123,24 +121,29 @@
 
 <body onload="viewMessage()">
 	<div class="chatroomheader">
-		<h2 align="center">ChatRoom <font color='#58ACFA'> <?php echo $row['rname']; ?> </font></h2>
+		<h2 align="center">ChatRoom For Event - <font color='#58ACFA'> <?php echo $eInfo['title']; ?> </font></h2>
 	</div>
 	<div class="chatmain">
-			<div id="messageViewer" class="message">
-			</div>
+			<div id="messageViewer" class="message"></div>
 
 			<div class="parti">
 			<h2 align="center">Participants:</h2>
-			<!--each participant-->
-				<div class="chatmessage">
-					<div class="chatheader">
-						<img src="images/cuhk-test.jpg"><br>
+				<?php 
+					$users = $event->getParticipants($eid);
+					$event->db->close();
+					foreach($users as $user){ 
+				?>
+					<!--each participant-->
+					<div class="chatmessage">
+						<div class="chatheader">
+							<img src="<?php echo $user['uPhoto']; ?>" alt="file not found"><br>
+						</div>
+						<div class="chatname">
+							<p><?php echo $user['nickname']; ?></p>
+						</div>
 					</div>
-					<div class="chatname">
-						<p>USERNAME</p>
-					</div>
-				</div>
-			<!--end message-->
+					<!--end message-->
+				<?php } ?>
 			</div>
 	</div>
 	<style type="text/css">

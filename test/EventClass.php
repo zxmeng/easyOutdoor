@@ -93,7 +93,7 @@ class Event{
     }
 
     public function getParticipants($eid){
-        $sql = "SELECT user.uPhoto, user.uid
+        $sql = "SELECT user.uPhoto, user.uid, user.nickname
                 FROM participation, user
                 WHERE participation.eid = $eid AND participation.uid = user.uid
                 ORDER BY participation.time DESC LIMIT 9";

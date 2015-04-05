@@ -86,7 +86,6 @@ require_once('CommentClass.php');
 			$cNums = mysqli_num_rows($comments);
 			if($cNums == 0){ ?>
 				<div><h2>No comment now</br></h2></div>
-				<hr>
 		<?php } else {
 			foreach($comments as $comment){ 
 		?>

@@ -1,10 +1,10 @@
 <?php
-	require_once("DBClass.php");
+	require_once('DBClass.php');
 	require_once('messageClass.php');
 
 	// we get $uid and $rid from the page
 	$messageList = new Message();
-	$messages = $messageList->getAllMessages($rid);
+	$messages = $messageList->getAllMessages($eid);
 
 ?>
 
@@ -15,7 +15,7 @@
 		<!--each message-->
 		<div class="chatmessage">
 			<div class="chatheader">
-				<img src="images/cuhk-test.jpg"><br>
+				<img src="images/cuhk.jpg"><br>
 			</div>
 			<div class="chatcontent">
 				<p>

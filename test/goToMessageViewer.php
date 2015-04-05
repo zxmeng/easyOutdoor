@@ -2,12 +2,12 @@
 	require_once("Page.php");
 	// show messages
 
-	$rid = $_GET['roomID'];
-	$uid = $_GET['userID'];
+	$eid = $_GET['eid'];
+	$uid = $_GET['uid'];
 
 	$page = new Page('messageViewer.php');
 	$page->uid = $uid;
-	$page->rid = $rid;
+	$page->eid = $eid;
 
 	echo $page;
 
