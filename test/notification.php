@@ -29,13 +29,13 @@
 <?php
 		foreach($commentNoti as $noti){ 
 ?>
-		<div class="commentcontainer">
+		<div class="commentcontainer" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
 			<div class="commentcontent">
 			<!-- 	<img src="images/cuhk.jpg"><br> -->
-				<?php echo $noti['nickname']." commented on your event ".$noti['title'] ?>
+				<?php echo $noti['nickname']." commented on your event ".$noti['title']; ?>
 			</div>
 			<div class="commentinfo">
-			<?php echo $noti['time'] ?>
+			<?php echo $noti['time']; ?>
 			</div>
 		</div>
 <?php 
@@ -51,7 +51,7 @@
 <?php
 		foreach($mentionNoti as $noti){ 
 ?>
-		<div class="commentcontainer">
+		<div class="commentcontainer" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
 			<div class="commentcontent">
 			<!-- 	<img src="images/cuhk.jpg"><br> -->
 				<?php echo $noti['nickname']." mentioned you on event ".$noti['title']; ?>
@@ -95,7 +95,7 @@
 <?php
 		foreach($joinNoti as $noti){ 
 ?>
-		<div class="commentcontainer">
+		<div class="commentcontainer" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
 			<div class="commentcontent">
 			<!-- 	<img src="images/cuhk.jpg"><br> -->
 				<?php echo $noti['nickname']." participated in your event ".$noti['title']; ?>
