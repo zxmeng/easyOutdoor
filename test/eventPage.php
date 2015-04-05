@@ -5,10 +5,27 @@ require_once('CommentClass.php');
 
 
 <?php 
-   $event = new Event();
-   $eInfo = $event->getEvent($eid); 
-   $commentList = new Comment();
-   $comments = $commentList->getComments($eid);
+	$event = new Event();
+	$eInfo = $event->getEvent($eid); 
+
+	$commentList = new Comment();
+	$comments = $commentList->getComments($eid);
+
+	$isOwner = 0;
+	$isPar = 0;
+	$isLike = 0;
+
+	if($uid == $eInfo['uid']){
+		$isOwner = 1;
+	}
+	else {
+		if($event->checkLike($eid, $uid) > 0){
+			$isLike = 1;
+		}
+		if($event->checkJoin($eid, $uid) > 0){
+			$isPar = 1;
+		}
+	}
 ?>
 
 <div class="bannercontainer">
@@ -28,14 +45,15 @@ require_once('CommentClass.php');
 	<!--button-->
 	<div class="eventbuttons" style="padding:right">
 
-	<?php if($uid == $eInfo['uid']) {?>
+	<?php 
+		if($isOwner) {?>
 			<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> 
 	<?php 
 		} else{
 	?>
 			<input id="like" type="submit" name="submit" 
 			value="<?php 
-						if($event->checkLike($eid, $uid) < 1){
+						if($isLike == 0){
 							echo "Like";
 						}
 						else {
@@ -46,7 +64,7 @@ require_once('CommentClass.php');
 
 			<input id="join" type="submit" name="submit" 
 			value="<?php 
-						if($event->checkJoin($eid, $uid) < 1){
+						if($isPar == 0){
 							echo "Join";
 						}
 						else {
@@ -56,6 +74,13 @@ require_once('CommentClass.php');
 			onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
 	<?php 				
 		} 
+	?>
+	<?php
+		if($isOwner || $isPar){
+	?>
+		<input id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">
+	<?php
+		}
 	?>
 		</div>
 </div><br>

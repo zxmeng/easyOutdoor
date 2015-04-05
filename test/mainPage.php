@@ -5,13 +5,11 @@
 		<img class="header-picture"src="images/logo@20150303.png" >
 	</div>
 
-	<div id="change">
-		<?php include_once('eventList.php'); ?>
-	</div>
+	<div id="change"><?php include_once('eventList.php'); ?></div>
 
-	<div class="button" type="button" id="back" onclick="loadAllEvent()">
-		Home
-	</div>
+	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
+
+	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo 1; ?>)">Notification</div>
 
 </div>
 
@@ -26,6 +24,8 @@
 	<i class="glyphicon glyphicon-plus">R</i>
 	</button>
 </div>
+
+<div id="notiBox"></div>
 
 <script src="mainScript.js"></script>
 <script src="eventScript.js"></script>

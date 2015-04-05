@@ -141,7 +141,6 @@ function clickSubmit(uid){
 
 }
 
-
 function createEvent(uid, name){
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();
@@ -247,3 +246,23 @@ function previewImage(flag) {
         };
     }
 };
+
+function clickChatroom(eid, uid)
+{
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    //window.alert("Here!");
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("change").innerHTML= xmlhttp.responseText;
+            document.getElementById("back").innerHTML = "Back";
+            //backFlag = 0;
+        }
+    }
+    
+    var data = "?eid=" + eid + "&uid=" + uid;
+
+    xmlhttp.open("GET","goToChatroom.php"+data, true);
+    //window.alert(data);
+    xmlhttp.send();
+}

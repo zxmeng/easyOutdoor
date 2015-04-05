@@ -88,3 +88,31 @@ function loadRecommendation()
 	//window.alert(data);
 	xmlhttp.send();
 }
+
+var notiFlag = 0;
+
+function loadNotification(uid)
+{
+	if(notiFlag==0){
+		var xmlhttp;
+		xmlhttp = new XMLHttpRequest();
+		//window.alert("Here!");
+		xmlhttp.onreadystatechange=function() {
+	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+	            document.getElementById("notiBox").innerHTML= xmlhttp.responseText;
+				notiFlag = 1;
+	        }
+	    }
+	    
+	    var data = "?uid=" + uid;
+
+		xmlhttp.open("GET","goToNotification.php"+data, true);
+		//window.alert(data);
+		xmlhttp.send();
+	}
+
+	else{
+		document.getElementById("notiBox").innerHTML = "";
+		notiFlag = 0;
+	}
+}
