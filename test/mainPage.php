@@ -9,7 +9,7 @@
 
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
 
-	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo 1; ?>)">Notification</div>
+	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo 2; ?>)">Notification</div>
 
 </div>
 
