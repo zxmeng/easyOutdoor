@@ -70,3 +70,20 @@ function atUser(uid){
     ruid = uid;
     // alert("ruid = "+ruid);
 }
+
+function refreshComment(eid){
+    // alert("function");
+    var http_request = createAjaxObject();
+    if(http_request){
+        var data = "eid=" + eid;
+        // alert(data);
+        http_request.onreadystatechange = function() {
+            if (http_request.readyState == 4 && http_request.status == 200) {
+                // alert(http_request.responseText);
+                document.getElementById("commentList").innerHTML = http_request.responseText;
+            }
+        }
+        http_request.open("GET", "goToCommentList.php?"+data, true);
+        http_request.send();
+    }
+}
