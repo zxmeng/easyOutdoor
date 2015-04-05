@@ -26,7 +26,22 @@ CREATE TABLE Event (
 	ePhoto VARCHAR(100),
 	likeNo INT,
 	parNo INT,
-	limitation INT,
+	limitation INT NOT NULL,
+	postTime DATETIME NOT NULL,
+	lastEditTime DATETIME NOT NULL
+);
+
+CREATE TABLE Review (
+	pid INT AUTO_INCREMENT PRIMARY KEY,
+	uid INT NOT NULL REFERENCES User,
+	title VARCHAR(30) NOT NULL,
+	venue VARCHAR(30) NOT NULL,
+	district VARCHAR(30) NOT NULL,
+	eDate DATETIME NOT NULL,
+	eDescription VARCHAR(1000) NOT NULL,
+	ePhoto VARCHAR(100),
+	likeNo INT,
+	parNo INT NOT NULL,
 	postTime DATETIME NOT NULL,
 	lastEditTime DATETIME NOT NULL
 );
@@ -73,5 +88,11 @@ CREATE TABLE Participation(
 CREATE TABLE LikeEvent(
 	uid INT NOT NULL REFERENCES User,
 	eid INT NOT NULL REFERENCES Event,
+	time DATETIME NOT NULL
+);
+
+CREATE TABLE LikeReview(
+	uid INT NOT NULL REFERENCES User,
+	rid INT NOT NULL REFERENCES Review,
 	time DATETIME NOT NULL
 );

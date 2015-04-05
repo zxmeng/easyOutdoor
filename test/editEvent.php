@@ -63,7 +63,7 @@
                     <form enctype="multipart/form-data" method="post" name="imageFile">
                         <div class="field">
                             <label>Upload Image File</label>
-                            <img id="e_img" src="<?php echo $event['ePhoto']?>" alt="file not found" style="width: 100px; height: 100px;">
+                            <img id="e_img" src="<?php echo $event['ePhoto']; ?>" alt="file not found" style="width: 100px; height: 100px;">
                             <input type="file" name="image" id="e_image" accept="image/*" onchange="previewImage(1)" required />
                         </div>
                     </form>

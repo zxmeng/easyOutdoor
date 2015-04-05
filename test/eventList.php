@@ -34,7 +34,7 @@
    		</div>
 
    		<div class="item-picture">
-   			<img class="item-picture" src="<?php echo BASE_URL; ?><?php echo $event['ePhoto']; ?>" alt="file not found">
+   			<img class="item-picture" src="<?php echo $event['ePhoto']; ?>" alt="file not found">
    		</div>
 
    		<div class="item-infomation">

@@ -1,17 +1,36 @@
 
 <?php
  	require_once('EventClass.php');
- 	$event = new Event();
+ 	require_once('ReviewClass.php');
+ 	
+ 	if($flag < 2){
+	 	$event = new Event();
 
- 	$eid = $_GET['eid'];
-	$uid = $_GET['uid'];
-	$flag = $_GET['flag'];
+	 	$eid = $_GET['eid'];
+		$uid = $_GET['uid'];
+		$flag = $_GET['flag'];
 
-	if($flag == 1){
-		$event->like($eid,$uid);
+		if($flag == 1){
+			$event->like($eid,$uid);
+		}
+		else{
+			$event->unlike($eid,$uid);
+		}
+		$event->db->close();
 	}
-	else{
-		$event->unlike($eid,$uid);
+	else {
+		$review = new Review();
+
+	 	$pid = $_GET['pid'];
+		$uid = $_GET['uid'];
+		$flag = $_GET['flag'];
+
+		if($flag == 3){
+			$review->like($pid,$uid);
+		}
+		else{
+			$review->unlike($pid,$uid);
+		}
+		$review->db->close();
 	}
-	$event->db->close();
 ?>

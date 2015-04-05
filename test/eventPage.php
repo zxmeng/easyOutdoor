@@ -1,13 +1,13 @@
 <?php 
 require_once('EventClass.php'); 
-require_once('commentClass.php');
+require_once('CommentClass.php');
 ?>
 
 
 <?php 
-   $event = new event();
+   $event = new Event();
    $eInfo = $event->getEvent($eid); 
-   $commentList = new comment();
+   $commentList = new Comment();
    $comments = $commentList->getComments($eid);
 ?>
 
@@ -27,7 +27,7 @@ require_once('commentClass.php');
 	</div>
 	<!--button-->
 	<div class="eventbuttons" style="padding:right">
-<p><?php echo "uid is: ".$uid; echo "eid is: ".$eid; ?></p>
+
 	<?php if($uid == $eInfo['uid']) {?>
 			<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> 
 	<?php 

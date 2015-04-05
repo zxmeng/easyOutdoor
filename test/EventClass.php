@@ -104,10 +104,10 @@ class Event{
 
     // // Return the ongoing events in which a user creates or currently participates
     public function getEventsByUser($uid){
-        $sql = "SELECT event.*, user.nickname, user.profilePhoto
+        $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user, participation 
                 WHERE event.uid = user.uid
-                AND ( event.ID = participation.eventID AND participation.userID = $userID ) 
+                OR ( event.eid = participation.eid AND participation.uid = $uid ) 
                 ORDER BY event.eDate ASC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
