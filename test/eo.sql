@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-04-04 18:41:16
+-- Generation Time: 2015-04-05 09:07:03
 -- 服务器版本： 5.6.21
 -- PHP Version: 5.6.3
 
@@ -67,16 +67,18 @@ CREATE TABLE IF NOT EXISTS `event` (
   `limitation` int(11) DEFAULT NULL,
   `postTime` datetime NOT NULL,
   `lastEditTime` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `event`
 --
 
 INSERT INTO `event` (`eid`, `uid`, `title`, `venue`, `district`, `eDate`, `eDescription`, `ePhoto`, `likeNo`, `parNo`, `limitation`, `postTime`, `lastEditTime`) VALUES
-(1, 1, 'gogo', 'cuhk', 'shatin', '2015-04-05 09:04:00', 'trytrytry', 'C:fakepathg.jpg', 0, 1, 10, '2015-04-01 05:19:35', '2015-04-04 15:21:35'),
-(2, 2, 'asf', 'asf', 'shatin', '2015-01-01 01:01:00', 'assdasf', 'C:fakepathg.jpg', 0, 1, 2, '2015-04-04 21:06:25', '2015-04-04 15:28:16'),
-(3, 2, '12e12', '1e21', 'shatin', '1970-01-01 01:01:00', '12e12e', 'C:fakepathg.jpg', 0, 1, 23, '2015-04-04 15:31:45', '2015-04-04 15:54:55');
+(1, 1, 'gogo', 'cuhk', 'shatin', '2015-04-05 09:04:00', 'trytrytry', 'uploads/p2015587282.jpg', 0, 1, 10, '2015-04-01 05:19:35', '2015-04-05 07:52:14'),
+(2, 2, 'asf', 'asf', 'shatin', '2015-01-01 01:01:00', 'assdasf', 'uploads/p745808222.jpg', 0, 1, 2, '2015-04-04 21:06:25', '2015-04-05 09:06:35'),
+(3, 2, '12e12', '1e21', 'shatin', '2016-01-01 01:01:00', '12e12e', 'uploads/IMG_0254.JPG', 0, 1, 23, '2015-04-04 15:31:45', '2015-04-05 07:05:22'),
+(4, 2, '44444', 'pppp', 'shatin', '2015-01-01 01:01:00', 'hahahahahahahaha', 'uploads/p2124438358.jpg', 0, 1, 111, '2015-04-05 07:04:03', '2015-04-05 07:51:52'),
+(5, 2, 'cccc', 'wqrqr', 'shatin', '2015-06-06 01:00:00', 'ddddd', 'uploads/p2068198364.jpg', 0, 1, 322, '2015-04-05 07:15:18', '2015-04-05 07:15:18');
 
 -- --------------------------------------------------------
 
@@ -231,7 +233,7 @@ MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `message`
 --
