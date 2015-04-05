@@ -10,6 +10,6 @@ define("DB_NAME", "eo");
 define("SITE_TITLE", "WLCOME TO EASYOUTDOOR");
 
 //Paths
-define('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].':8080/test/');
+define('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/easyOutdoor/test/');
 
 ?>

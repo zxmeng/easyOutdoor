@@ -152,8 +152,7 @@
 	 <tr>
 	   <th class="tg-031e">
 	   <textarea id="sendBox" onkeydown="javascript:buttonOnClick();" 
-	   name="comment" rows="5" cols="40" style="width:100%;height:100%;">
-	   </textarea>
+	   name="comment" rows="5" cols="40" style="width:100%;height:100%;"></textarea>
 	   </th>
 	   <th class="tg-031e"><input type="submit" id="subbutton" name="submit" 
 	   value="Send" style="width:100%;height:100%;" onclick="sendMessage()"> 

@@ -1,4 +1,5 @@
 <?php
+	if ($show == 0) {
 	require_once("DBClass.php");
 	// $uid = 3;
 
@@ -17,9 +18,6 @@
 	$arrayB = $resB->fetch_all(MYSQLI_ASSOC);
 
 ?>
-
-
-
 <div>
 <br>
 <select name="friendlist" onchange="atUser(this.value)">
@@ -32,10 +30,16 @@
 		</option>
 	<?php } ?>
 	<?php foreach($arrayB as $row){ ?>
-		<option value="<?php echo $row['userB']; ?>">
+		<option value="<?php echo $row['uidB']; ?>">
 			<?php echo $db->getUserName($row['uidB']); ?>
 		</option>
 	<?php } ?>
 </select>
-<!-- <p> Friend List</p>  -->
 </div>
+
+<?php }else{ ?>
+
+<div>
+</div>
+
+<?php } ?>
