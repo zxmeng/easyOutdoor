@@ -31,11 +31,12 @@
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 			<link rel="stylesheet" href="css/masonry-lawrence.css" />
 		</noscript>
+		<link rel="stylesheet" href="css/chatroom.css" />
 
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 
-	<body id="top">
+	<body id="top" onload="">
 
 		<!-- Header -->
 			<header id="header">

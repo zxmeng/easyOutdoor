@@ -16,7 +16,23 @@
 		if(!$res){
 			die; //Sending failed
 		}
+
+		$cid = $db->getInsertedID();
+
+		// Insert notification
+		$notifyOwner = "INSERT INTO notification (type, fid)
+						VALUES ('comment', '{$cid}')";
+		$res = $db->query($notifyOwner);
+		if(!res) die;
+
+		if ($ruid != 0){
+			$notifyMention = "INSERT INTO notification (type, fid)
+							  VALUES ('mention', '{$cid}')";
+			$res = $db->query($notifyMention);
+			if(!res) die;
+		}
 		echo "succeed";
+
 	// }
 	// else {
 	// 	$sql = "INSERT INTO comment (content, suid, eid, time)

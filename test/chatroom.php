@@ -1,131 +1,18 @@
 <?php
-	session_start();
-
 	require_once('messageClass.php');
 	require_once('EventClass.php');
-
-	$eid = $_GET['eid'];
-	$uid = $_GET['uid'];
-	// $uid = $_SESSION['uid'];
-	// $eid = 2;
-	// $uid = 2;
-
-    // $getEventTitle = "SELECT title
-    //                   FROM event
-    //                   WHERE eid = $eid";
-    // $title = $db->query($getEventTitle);
-    // $row = mysqli_fetch_array($title);
 
     $event = new Event();
     $eInfo = $event->getEvent($eid); 
 ?>
 
-<html>
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Event's Chatroom</title>
-
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.poptrox.min.js"></script>
-	<script src="js/skel.min.js"></script>
-	<script src="js/init.js"></script>
-	<noscript>
-		<link rel="stylesheet" href="css/skel.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/style-xlarge.css" />
-		<link rel="stylesheet" href="css/masonry-lawrence.css" />
-	</noscript>
-	<link rel="stylesheet" href="css/chatroom.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-
-	<script type="text/javascript">
-    //Define the global variable: http_request
-    var http_request;
-
-    //create the Ajax object
-    function createAjaxObject(){
-        if(window.ActiveXObject){
-            // code for IE6, IE5
-            var newRequest = new ActiveXObject("Microsoft.XMLHTTP");
-        }else{
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            var newRequest = new XMLHttpRequest();
-        }
-        return newRequest;
-    }
-
-	function sendMessage(){
-        var http_request = createAjaxObject();
-        if(http_request){
-            var uid = "<?php echo $uid; ?>";
-            var eid = "<?php echo $eid; ?>";
-
-            var content = document.getElementById("sendBox").value;
-            if (content == "") {
-            	alert ("Please enter the message content");
-            	return;
-            }
-            // alert(content);
-            var data = "uid=" + uid + "&eid=" + eid + "&content=" + content;
-            // alert(data);
-
-            http_request.open("POST", "sendMessage.php", true);
-            http_request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            http_request.onreadystatechange = function(){
-				if(http_request.readyState == 4 && http_request.status == 200){
-					var res = http_request.responseText;
-					if(res != ""){
-						//sending success, write the message into 'messageBox'
-						document.getElementById("sendBox").value = "";  //Clear the sendBox
-					}
-				}
-			}
-            http_request.send(data);
-        }
-	}
-
-	setInterval(viewMessage, 500); //send the request twice a second
-	function viewMessage(){
-		var http_request = createAjaxObject();
-		if (http_request){
-			var eid = "<?php echo $eid; ?>";
-			var uid = "<?php echo $uid; ?>";
-			var data = "eid=" + eid + "&uid=" + uid;
-			// alert(data);
-			http_request.open("GET", "goToMessageViewer.php?"+data, true);
-			http_request.onreadystatechange = function(){
-				if(http_request.readyState == 4 && http_request.status == 200){
-					document.getElementById("messageViewer").innerHTML = http_request.responseText;				
-				}
-			}
-			http_request.send();
-		}
-	}
-
-	function buttonOnClick() { 
-		if (event.keyCode == 13) { 
-			document.getElementById("subbutton").click(); 
-			return false; 
-		}
-	}
-	</script>
-</head>
-
-<body onload="viewMessage()">
+<div>
 	<div class="chatroomheader">
 		<h2 align="center">ChatRoom For Event - <font color='#58ACFA'> <?php echo $eInfo['title']; ?> </font></h2>
 	</div>
 	<div class="chatmain">
+			<!-- ##### need to limit the heigh of this div!!!!! -->
 			<div id="messageViewer" class="message"></div>
-
 			<div class="parti">
 			<h2 align="center">Participants:</h2>
 				<?php 
@@ -152,19 +39,14 @@
 		.tg th{overflow:hidden;vertical-align: middle;}
 	</style>
 	<table class="tg" style="width:98%;margin:10px auto 10px auto;">
-	 <tr>
-	   <th class="tg-031e">
-	   <textarea id="sendBox" onkeydown="javascript:buttonOnClick();" 
-	   name="comment" rows="5" cols="40" style="width:100%;height:100%;"></textarea>
-	   </th>
-	   <th class="tg-031e"><input type="submit" id="subbutton" name="submit" 
-	   value="Send" style="width:100%;height:100%;" onclick="sendMessage()"> 
-	   </th>
-	 </tr>
+	<tr>
+		<th class="tg-031e">
+		<textarea id="sendBox" onkeydown="javascript:buttonOnClick();" 
+		name="comment" rows="5" cols="40" style="width:100%;height:100%;"></textarea>
+		</th>
+		<th class="tg-031e"><input type="submit" id="subbutton" name="submit" 
+		value="Send" style="width:100%;height:100%;" onclick="sendMessage(<?php echo $uid.', '.$eid; ?>)"> 
+		</th>
+	</tr>
 	</table>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+</div>
