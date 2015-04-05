@@ -23,12 +23,15 @@
 		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    	<script src="mapWithSearchBox.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 			<link rel="stylesheet" href="css/masonry-lawrence.css" />
 		</noscript>
+
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 
