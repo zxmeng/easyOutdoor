@@ -102,10 +102,8 @@ function loadNotification(uid)
 	            document.getElementById("notiBox").innerHTML= xmlhttp.responseText;
 				notiFlag = 1;
 	        }
-	    }
-	    
+	    }    
 	    var data = "?uid=" + uid;
-
 		xmlhttp.open("GET","goToNotification.php"+data, true);
 		//window.alert(data);
 		xmlhttp.send();
