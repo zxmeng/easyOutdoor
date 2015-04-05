@@ -15,6 +15,7 @@
 
             //$time = $origin->format('YYYY-MM-DDThh:mm:ss.ms');
             $et->db->close();
+            
         ?>
 
 
@@ -23,7 +24,7 @@
             </div>
 
             <div class = "modal-body">
-               
+
                     <div class="field">
                         <label for='username'>Title</label>
                         <input type="text" name="title" id="e_title" value="<?php echo $event['title'];?>">
@@ -59,26 +60,73 @@
                         <textarea class="form-control" rows="3" name="description" id="e_description"><?php echo $event['eDescription'];?></textarea>
                     </div>
 
-                    <div class="field">
-                        <label for='username'>Image</label>
-                        <input type="file" name="image" id="e_image" accept="image/*" value="">
-                        
-                    </div>
+                    <form enctype="multipart/form-data" method="post" name="imageFile">
+                        <div class="field">
+                            <label>Upload Image File</label>
+                            <img id="e_img" src="<?php echo $event['ePhoto']?>" alt="file not found" style="width: 100px; height: 100px;">
+                            <input type="file" name="image" id="e_image" accept="image/*" onchange="previewImage(1)" required />
+                        </div>
+                    </form>
 
 
-<!--     <form method="post" enctype="multipart/form-data"  action="upload.php">
-      <input type="file" name="images[]" id="images" />
-      <button type="submit" id="btn">Upload Files!</button>
-    </form>
-<script src="upload.js"></script> -->
+
 
                     <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
                      <div class = "modal-footer">
-                        <input type="submit" value="Update" onclick="clickUpdate(<?php echo $eid.','.$uid; ?>)">
-                        <input type="reset" value="Reset">
+                        <div id="output"></div>
+                        <!-- <a href="javascript:sendForm()">Stash the file!</a> -->
+                        <input type="button" value="Update" onclick="clickUpdate(<?php echo $eid.','.$uid; ?>)">
+                        <!-- </div>  -->
+                        <!-- <input type="button" value="Reset" 
+                        onclick="resetDefault(<?php //echo '$event[\'title\']'.','.$datetime.','.$event['district'].','.$event['venue'].','.$event['limitation'].','.$event['eDescription']; ?>)"
+                        > -->
+                       <!--  </div> --> 
                     </div>
                 
             </div>       
        <!--  </div>
     </div>
 </div> -->
+
+
+<script>
+
+   // function PreviewImage() {
+   //      var oFReader = new FileReader();
+   //      oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+   //      oFReader.onload = function (oFREvent) {
+   //          document.getElementById("uploadPreview").src = oFREvent.target.result;
+   //      };
+   //  };
+
+
+// function readURL(input) {
+
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
+
+//         reader.onload = function (e) {
+//             $('#e_img').attr('src', e.target.result);
+//         }
+
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
+
+// $("#e_image").change(function(){
+//     readURL(this);
+// });
+// function resetDefault(title, dt, district, venue, limit, description){
+
+//   document.getElementById("e_title").value = title;
+//   document.getElementById("e_time").value = dt;
+//   document.getElementById("e_district").value = district;
+//   document.getElementById("e_venue").value = venue;
+//   document.getElementById("e_limitation").value = limit;
+//   document.getElementById("e_description").value = description;
+//   document.getElementById("e_image").value = "";
+  
+// }
+
+</script>

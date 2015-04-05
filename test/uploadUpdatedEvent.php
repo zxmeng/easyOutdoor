@@ -22,6 +22,6 @@
     $page = new Page('eventPage.php');
     $page->uid = $uid;
     $page->eid = $eid;
-    echo $uid;
+    //echo $uid;
     echo $page;
 ?>

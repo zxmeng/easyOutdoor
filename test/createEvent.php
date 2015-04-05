@@ -43,16 +43,18 @@
                     <textarea class="form-control" rows="3" name="description" id="c_description" value=""></textarea>
                 </div>
 
-                <div class="field">
-                    <label for='username'>Image</label>
-                    <input type="file" name="image" id="c_image" accept="image/*" value="">
-                    <!-- please modify UI of  this filed, the choose file button -->
-                </div>
+                <form enctype="multipart/form-data" method="post" name="imageFile">
+                    <div class="field">
+                        <label>Upload Image File</label>
+                         <img id="c_img" src="images/cuhk.jpg" style="width: 100px; height: 100px;">
+                        <input type="file" name="image" id="c_image" accept="image/*"  onchange="previewImage(0)" required />
+                    </div>
+                </form>
 
                 <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
                  <div class = "modal-footer">
                     <input type="button" value="Create" onclick="clickSubmit(<?php echo 2; ?>)">
-                    <input type="reset" value="Reset">
+                    <!-- <input type="button" value="Reset" onclick="resetEmpty()"> -->
                 </div>
                 
             </div>       
@@ -60,3 +62,18 @@
     </div>
 </div> -->
 
+<script>
+
+// function resetEmpty(){
+
+//   document.getElementById("c_title").value = "";
+//   document.getElementById("c_time").value = "";
+//   document.getElementById("c_district").value = "";
+//   document.getElementById("c_venue").value = "";
+//   document.getElementById("c_limitation").value = "";
+//   document.getElementById("c_description").value = "";
+//   document.getElementById("c_image").value = "";
+
+// }
+
+</script>

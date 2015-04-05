@@ -9,7 +9,7 @@
 
 	// Assign variables
 	$page->eid = $eid;
-	$page->uid = 2;
+	$page->uid = $uid;
 
 	echo $page;
 ?>

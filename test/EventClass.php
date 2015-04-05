@@ -25,19 +25,33 @@ class Event{
     }
 
     // // Create an event, return BOOL
-    // public function createEvent($data){
-    //     $sql = "INSERT INTO event(title, destination, district, eventDate, description, lastEditTime, limitation) 
-    //             VALUES ('$data['title']', '$data['destination']', '$data['district']', '$data['eventDate']', '$data['description']', '$data['lastEditTime']', '$data['limitation']')";
-    //     return $this->db->query($sql);        
-    // }
+    public function createEvent($uid, $title, $venue, $district, $time, $description, $image, $limit){
+        $now = date("Y-m-d H:i:s");
+        $sql = "INSERT INTO event(uid, title, venue, district, eDate, eDescription, ePhoto, likeNo, parNo, limitation, postTime, lastEditTime) 
+                VALUES ($uid, '$title', '$venue', '$district', '$time', '$description', '$image', 0, 1, $limit, '$now', '$now')";
+        $this->db->query($sql);
+        //echo $sql;
+        return $this->db->getInsertedID();
+    }
 
     // Edit an event, return BOOL
-    // public function editEvent($data, $eventID){
-    //     $sql = "UPDATE event
-    //             SET title = $data['title'], destination = $data['destination'], district = $data['district'], eventDate = $data['eventDate'], description = $data['description'], lastEditTime = $data['lastEditTime'], limitation = $data['limitation']
-    //             WHERE ID = $eventID";
-    //     return $this->db->query($sql);        
-    // }
+    public function editEvent($eid, $title, $venue, $district, $time, $description, $image, $limit) {
+        $now = date("Y-m-d H:i:s");
+        if($image!=""){
+            $sql = "UPDATE event
+                    SET event.title = '$title', event.venue = '$venue', event.district = '$district', event.eDate = '$time', 
+                    event.eDescription = '$description', event.lastEditTime = '$now', event.limitation = $limit, event.ePhoto = '$image'
+                    WHERE event.eid= $eid";
+        }
+        else {
+            $sql = "UPDATE event
+                SET event.title = '$title', event.venue = '$venue', event.district = '$district', event.eDate = '$time', 
+                event.eDescription = '$description', event.lastEditTime = '$now', event.limitation = $limit
+                WHERE event.eid= $eid";
+        }
+        $this->db->query($sql);
+        return;
+    }
 
     // public function getTotalEvents(){
     //     $sql = "SELECT COUNT(*)
@@ -61,14 +75,25 @@ class Event{
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
                 WHERE event.uid = user.uid
-                ORDER BY event.eDate";
+                ORDER BY event.eDate ASC";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
+
+    public function getRecommendation(){
+       // echo "GET ALL EVENTS";
+        $sql = "SELECT event.*, user.nickname, user.uPhoto
+                FROM event, user
+                WHERE event.uid = user.uid AND event.likeNo > 10
+                ORDER BY event.likeNo DESC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
         return $resultArray;
     }
 
     public function getParticipants($eid){
-        $sql = "SELECT user.uPhoto
+        $sql = "SELECT user.uPhoto, user.uid
                 FROM participation, user
                 WHERE participation.eid = $eid AND participation.uid = user.uid
                 ORDER BY participation.time DESC LIMIT 9";
@@ -83,7 +108,7 @@ class Event{
                 FROM event, user, participation 
                 WHERE event.uid = user.uid
                 AND ( event.ID = participation.eventID AND participation.userID = $userID ) 
-                ORDER BY event.eDate";
+                ORDER BY event.eDate ASC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
         return $resultArray;

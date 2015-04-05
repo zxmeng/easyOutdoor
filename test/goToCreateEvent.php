@@ -4,7 +4,7 @@
  	require_once('Page.php');
 
 	$uid = $_GET['uid'];
-	echo "User: ".$uid;
+	//echo "User: ".$uid;
 
 	$page = new Page('createEvent.php');
 	$page->uid = $uid;

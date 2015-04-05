@@ -27,9 +27,9 @@ require_once('commentClass.php');
 	</div>
 	<!--button-->
 	<div class="eventbuttons" style="padding:right">
-
+<p><?php echo "uid is: ".$uid; echo "eid is: ".$eid; ?></p>
 	<?php if($uid == $eInfo['uid']) {?>
-			<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid; ?>)"> 
+			<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> 
 	<?php 
 		} else{
 	?>
@@ -68,10 +68,11 @@ require_once('commentClass.php');
 		$users = $event->getParticipants($eid);
 		$event->db->close();
 		foreach($users as $user){ 
+			//echo "<p> user is: ".$user['uid']."</p>";
 	?>
 <!--while loop to list every participant (limit to 9) -->
 	<div class="participantcontainer">
-		<img src="<?php echo $user['uPhoto']; ?>">
+		<img src="<?php echo $user['uPhoto']; ?>" alt="file not found">
 	</div>
 	 <?php } ?>
 </div>
@@ -117,4 +118,3 @@ require_once('commentClass.php');
 		</form>
 	</div>
 </div>
-

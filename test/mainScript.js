@@ -9,7 +9,9 @@ function loadEvent(eid, uid)
 			document.getElementById("back").innerHTML = "Back";
         }
     }
-    	var data = "?eid=" + eid + "&uid=" + uid;
+    
+    var data = "?eid=" + eid + "&uid=" + uid;
+
 	xmlhttp.open("GET","goToEventPage.php"+data, true);
 	//window.alert(data);
 	xmlhttp.send();
@@ -27,6 +29,7 @@ function loadAllEvent()
             //backFlag = 1;
         }
     }
+
 	xmlhttp.open("GET","goToEventList.php", true);
 	//window.alert(data);
 	xmlhttp.send();
@@ -44,6 +47,7 @@ function loadCalendar()
             //backFlag = 2;
         }
     }
+
 	xmlhttp.open("GET","goToCalendar.php", true);
 	//window.alert(data);
 	xmlhttp.send();
@@ -61,6 +65,7 @@ function loadMap()
             //backFlag = 3;
         }
     }
+
 	xmlhttp.open("GET","goToMap.php", true);
 	//window.alert(data);
 	xmlhttp.send();
@@ -78,6 +83,7 @@ function loadRecommendation()
             //backFlag = 4;
         }
     }
+
 	xmlhttp.open("GET","goToRecommendation.php", true);
 	//window.alert(data);
 	xmlhttp.send();
@@ -95,7 +101,9 @@ function clickCreate(uid)
 			//backFlag = 1;
         }
     }
-    	var data = "?uid=" + uid;
+    
+    var data = "?uid=" + uid;
+
 	xmlhttp.open("GET","goToCreateEvent.php"+data, true);
 	//window.alert(data);
 	xmlhttp.send();
@@ -113,47 +121,53 @@ function clickEdit(eid, uid)
 			//backFlag = 0;
         }
     }
-    	var data = "?eid=" + eid + "&uid=" + uid;
+    
+    var data = "?eid=" + eid + "&uid=" + uid;
+
 	xmlhttp.open("GET","goToEditEvent.php"+data, true);
 	//window.alert(data);
 	xmlhttp.send();
 }
 
-// $(':file').change(function(){
-//     var file = this.files[0];
-//     var name = file.name;
-//     var size = file.size;
-//     var type = file.type;
-//     //Your validation
-// });
 
-// $(':button').click(function(){
-//     var formData = new FormData($('form')[0]);
-//     $.ajax({
-//         url: 'upload.php',  //Server script to process data
-//         type: 'POST',
-//         xhr: function() {  // Custom XMLHttpRequest
-//             var myXhr = $.ajaxSettings.xhr();
-//             if(myXhr.upload){ // Check if upload property exists
-//                 myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
-//             }
-//             return myXhr;
-//         },
-//         //Ajax events
-//         beforeSend: beforeSendHandler,
-//         success: completeHandler,
-//         error: errorHandler,
-//         // Form data
-//         data: formData,
-//         //Options to tell jQuery not to process data or worry about content-type.
-//         cache: false,
-//         contentType: false,
-//         processData: false
-//     });
-// });
+// function resetDefault(title, dt, district, venue, limit, description){
 
+//   document.getElementById("e_title").value = title;
+//   document.getElementById("e_time").value = dt;
+//   document.getElementById("e_district").value = district;
+//   document.getElementById("e_venue").value = venue;
+//   document.getElementById("e_limitation").value = limit;
+//   document.getElementById("e_description").value = description;
+//   //document.getElementById("e_image").value = "";
+  
+// }
 
 function clickUpdate(eid, uid){
+
+	var fileData = new FormData(document.forms.namedItem("imageFile"));
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onload = function(event) {
+        if (xmlhttp.status == 200) {
+          //oOutput.innerHTML = "Uploaded!";
+          var name = xmlhttp.responseText;
+          //window.alert(name);
+          updateEvent(eid,uid,name);
+          //return name;
+        } else {
+          document.getElementById("output").innerHTML = "Error " + xmlhttp.status + " occurred uploading your file.<br \/>";
+          //return null;
+        }
+    };
+
+    xmlhttp.open("POST", "upload.php", true);
+    xmlhttp.send(fileData);
+
+}
+
+function updateEvent(eid,uid,name){
+
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();
     //window.alert("Here!");
@@ -173,8 +187,8 @@ function clickUpdate(eid, uid){
     var venue = document.getElementById("e_venue").value;
     var limit = document.getElementById("e_limitation").value;
     var description = document.getElementById("e_description").value;
-    var image = document.getElementById("e_image").value;
-    window.alert(image);
+    var image = name;
+    //window.alert(image);
     var data = "?eid=" + eid + "&uid=" + uid + "&title=" + title + "&time=" + time 
              + "&district=" + district + "&venue=" + venue + "&limit=" 
              + limit + "&description=" + description + "&image=" + image;
@@ -184,8 +198,56 @@ function clickUpdate(eid, uid){
     xmlhttp.send();  
 }
 
+// function sendForm() {
+//     //var oOutput = document.getElementById("output");
+//     var fileData = new FormData(document.forms.namedItem("imageFile"));
+
+//     var xmlhttp = new XMLHttpRequest();
+
+//     xmlhttp.onload = function(oEvent) {
+//         if (xmlhttp.status == 200) {
+//           //oOutput.innerHTML = "Uploaded!";
+//           name = xmlhttp.responseText;
+//           window.alert(name);
+//           //return name;
+//         } else {
+//           document.getElementById("output").innerHTML = "Error " + xmlhttp.status + " occurred uploading your file.<br \/>";
+//           //return null;
+//         }
+//     };
+
+//     xmlhttp.open("POST", "upload.php", true);
+//     xmlhttp.send(fileData);
+// }
+
+
 function clickSubmit(uid){
-    var xmlhttp;
+
+	var fileData = new FormData(document.forms.namedItem("imageFile"));
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onload = function(event) {
+        if (xmlhttp.status == 200) {
+          //oOutput.innerHTML = "Uploaded!";
+          var name = xmlhttp.responseText;
+          //window.alert(name);
+          createEvent(uid,name);
+          //return name;
+        } else {
+          document.getElementById("output").innerHTML = "Error " + xmlhttp.status + " occurred uploading your file.<br \/>";
+          //return null;
+        }
+    };
+
+    xmlhttp.open("POST", "upload.php", true);
+    xmlhttp.send(fileData);
+
+    
+}
+
+function createEvent(uid, name){
+	var xmlhttp;
     xmlhttp = new XMLHttpRequest();
     //window.alert("Here!");
     xmlhttp.onreadystatechange=function() {
@@ -203,7 +265,7 @@ function clickSubmit(uid){
     var venue = document.getElementById("c_venue").value;
     var limit = document.getElementById("c_limitation").value;
     var description = document.getElementById("c_description").value;
-    var image = document.getElementById("c_image").value;
+    var image = name;
 
     var data = "?uid=" + uid + "&title=" + title + "&time=" + time 
              + "&district=" + district + "&venue=" + venue + "&limit=" 
@@ -212,6 +274,7 @@ function clickSubmit(uid){
     xmlhttp.open("GET","uploadCreatedEvent.php"+data, true);
     //window.alert(data);
     xmlhttp.send();  
+
 }
 
 function clickLike(eid, uid)
@@ -268,4 +331,95 @@ function clickJoin(eid, uid)
 	xmlhttp.open("GET","joinClick.php"+data, true);
 	//window.alert(data);
 	xmlhttp.send();
+}
+
+function previewImage(flag) {
+   	if(flag==1){
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("e_image").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("e_img").src = oFREvent.target.result;
+        };
+    }
+    else if(flag==0){
+ 		var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("c_image").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("c_img").src = oFREvent.target.result;
+        };
+    }
+};
+
+
+
+var ruid = 0;
+
+
+function createAjaxObject(){
+    if(window.ActiveXObject){
+        // code for IE6, IE5
+        var newRequest = new ActiveXObject("Microsoft.XMLHTTP");
+    }else{
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        var newRequest = new XMLHttpRequest();
+    }
+    return newRequest;
+}
+
+function sendComment(eid, suid){
+    // alert("function");
+    var http_request = createAjaxObject();
+    if(http_request){
+        var content = document.getElementById("commentBox").value;
+        if (content == "") {
+            alert ("Please enter the comment content");
+            return;
+        }
+
+        var data = "suid=" + suid+ "&eid=" + eid + "&content=" + content + "&ruid=" + ruid;
+        // alert("data = " + data);
+
+        http_request.open("GET", "sendComment.php?"+data, true);
+        http_request.onreadystatechange = function(){
+            if(http_request.readyState == 4 && http_request.status == 200){
+                var res = http_request.responseText;
+                if(res != ""){
+                    document.getElementById("commentBox").value = "";  //Clear the commentBox
+                    document.getElementById("friendList").innerHTML = ""; //Close the friendList
+                    ruid = 0; // reset the global variable
+                }
+            }
+        }
+        http_request.send();
+        
+    }
+}
+
+function showFriendList(uid){
+    var http_request = createAjaxObject();
+    if(http_request){
+        var data = "uid=" + uid;
+
+        if (window.XMLHttpRequest){ // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else { // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("friendList").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "goToFriendList.php?"+data, true);
+        xmlhttp.send();
+    }
+}
+
+function atUser(uid){
+    ruid = uid;
+    // alert("ruid = "+ruid);
 }
