@@ -1,8 +1,11 @@
 <?php
 	require_once('messageClass.php');
 	require_once('EventClass.php');
-
     $event = new Event();
+
+    $jStatus = $event->checkJoin($eid, $uid);
+
+    if ($jStatus > 0){
     $eInfo = $event->getEvent($eid); 
 ?>
 
@@ -50,3 +53,9 @@
 	</tr>
 	</table>
 </div>
+
+<?php }else{ ?>
+<div>
+	<div class="chatmain">Error: you have not join this event.</div>
+</div>
+<?php } ?>

@@ -17,13 +17,13 @@
 					AND notification.fid = comment.cid AND notification.type = 'comment' AND notification.status = 0 
 					ORDER BY comment.time";
 			$result = $this->db->query($sql);
-			$resultArray = $result->fetch_all(MYSQLI_ASSOC);
+			// $resultArray = $result->fetch_all(MYSQLI_ASSOC);
 			$update = "UPDATE notification, user, comment, event
 					   SET notification.status = 1
 					   WHERE event.eid = comment.eid AND event.uid = $uid AND user.uid = comment.suid
 					   AND notification.fid = comment.cid AND notification.type = 'comment' AND notification.status = 0";
 			$this->db->query($update);
-			return $resultArray;
+			return $result;
 		}
 
 		public function getMentionNoti($uid){
@@ -33,13 +33,13 @@
 					AND notification.fid = comment.cid AND notification.type = 'mention' AND notification.status = 0 
 					ORDER BY comment.time";
 			$result = $this->db->query($sql);
-			$resultArray = $result->fetch_all(MYSQLI_ASSOC);
+			// $resultArray = $result->fetch_all(MYSQLI_ASSOC);
 			$update = "UPDATE notification, user, comment, event
 					   SET notification.status = 1
 					   WHERE event.eid = comment.eid AND comment.ruid = $uid AND user.uid = comment.suid
 					   AND notification.fid = comment.cid AND notification.type = 'mention' AND notification.status = 0";
 			$this->db->query($update);
-			return $resultArray;
+			return $result;
 		}
 		
 		public function getFollowNoti($uid){
@@ -49,13 +49,13 @@
 					AND notification.type = 'follow' AND notification.status = 0
 					ORDER BY follow.time";
 			$result = $this->db->query($sql);
-			$resultArray = $result->fetch_all(MYSQLI_ASSOC);
+			// $resultArray = $result->fetch_all(MYSQLI_ASSOC);
 			$update = "UPDATE notification, user, follow
 					   SET notification.status = 1
 					   WHERE user.uid = follow.uidA AND follow.uidB = $uid AND notification.fid = follow.foid
 					   AND notification.type = 'follow' AND notification.status = 0";
 			$this->db->query($update);
-			return $resultArray;
+			return $result;
 		}
 
 		public function getJoinNoti($uid){
@@ -66,13 +66,13 @@
 					ORDER BY participation.time";
 
 			$result = $this->db->query($sql);
-			$resultArray = $result->fetch_all(MYSQLI_ASSOC);
+			// $resultArray = $result->fetch_all(MYSQLI_ASSOC);
 			$update = "UPDATE notification, user, participation, event
 					   SET notification.status = 1
 					  WHERE event.eid = participation.eid AND event.uid = $uid AND participation.uid = user.uid
 					   AND notification.fid = participation.jid AND notification.type = 'join' AND notification.status = 0";
 			$this->db->query($update);
-			return $resultArray;
+			return $result;
 		}
 
 		// public function getChatNoti($uid){

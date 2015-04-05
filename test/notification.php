@@ -19,7 +19,10 @@
 	// $chatNoti = $notification->getChatNoti($uid);
 	// $rno = mysqli_num_rows($chatNoti);
 ?>
+<!-- 
 
+<div class="eventcomment">
+	<div id="commentList"> -->
 		<!--while loop to list all comment-->
 <?php 
 
@@ -108,3 +111,5 @@
 		}
 	} 
 ?>
+<!-- </div>
+</div> -->
