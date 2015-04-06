@@ -43,4 +43,4 @@
 				<?php include_once('left.php');?>
 			</header>
 
-		
+	<script src="userScript.js"></script>

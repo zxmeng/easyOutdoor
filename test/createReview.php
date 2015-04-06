@@ -35,7 +35,7 @@
 
                 <div class="field">
                     <label for='password'>No. of Participants</label>
-                    <input type="number" name="limitation" id="r_parNo" value="" required>
+                    <input type="number" name="limitation" id="r_parNo" value="" min="1" required>
                 </div>
 
                 <div class="field">

@@ -35,7 +35,7 @@
 
                 <div class="field">
                     <label for='password'>Max No. of Participants</label>
-                    <input type="number" name="limitation" id="c_limitation" value="" required>
+                    <input type="number" name="limitation" id="c_limitation" value="" min="2" required>
                 </div>
 
                 <div class="field">

@@ -26,9 +26,7 @@
 </div> -->
 
 <div class="eventcomment">
-	<h2>Comments</h2>
-	<div id="notiBox">
-	</div>
+	<div id="notiBox"></div>
 </div>
 
 <script src="mainScript.js"></script>
