@@ -13,12 +13,13 @@ function loadEvent(eid, uid)
     var data = "?eid=" + eid + "&uid=" + uid;
 
 	xmlhttp.open("GET","goToEventPage.php"+data, true);
-	//window.alert(data);
+	// window.alert(data);
 	xmlhttp.send();
 }
 
 function loadAllEvent()
 {
+	// alert("Into load");
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 	//window.alert("Here!");
@@ -26,6 +27,8 @@ function loadAllEvent()
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
             document.getElementById("back").innerHTML = "Home";
+            guid = 0;
+			geid = 0;
             //backFlag = 1;
         }
     }

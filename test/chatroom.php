@@ -3,10 +3,11 @@
 	require_once('EventClass.php');
     $event = new Event();
 
-    $jStatus = $event->checkJoin($eid, $uid);
-
-    if ($jStatus > 0){
     $eInfo = $event->getEvent($eid); 
+    $jStatus = $event->checkJoin($eid, $uid);
+    
+    if (($jStatus > 0) || ($uid == $eInfo['uid'])) {
+    
 ?>
 
 <div>

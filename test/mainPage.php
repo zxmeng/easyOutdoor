@@ -13,17 +13,17 @@
 
 </div>
 
-<!-- <div class="createbutton">
+<div class="createbutton">
 	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php //echo 1; ?>)">
 	<i class="glyphicon glyphicon-plus">E</i>
 	</button>
-</div> -->
+</div>
 
-<div class="createbutton">
+<!-- <div class="createbutton">
 	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateReview(<?php echo 1; ?>)">
 	<i class="glyphicon glyphicon-plus">R</i>
 	</button>
-</div>
+</div> -->
 
 <div class="eventcomment">
 	<h2>Comments</h2>
