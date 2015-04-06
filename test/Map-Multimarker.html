@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map" style="width: 500px; height: 400px;"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['中西區', 22.38864, 114.2917155, 4],
+      ['南區', 22.2864, 114.3015, 5],
+      ['離島區', 22.2988, 114.35715, 3],
+      ['西貢區', 22.2999, 114.30175, 2],
+      ['沙田區', 22.264, 114.341715, 1],
+      ['大埔區北區', 22.29, 114.301715, 2],
+      ['元朗屯門區', 22.295, 114.30615, 2],
+      ['西貢區', 22.2966, 114.35175, 2],
+    ];
+
+
+    var contentString = [];
+    contentString[0] = 
+      '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+    contentString[1] = 
+          '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+    contentString[2] = 
+          '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+    contentString[3] = 
+          '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+      contentString[4]=
+            '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+      contentString[5]=
+            '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+       contentString[6]=
+      '<div id="description">'+
+      '<h1 class="firstHeading">郊野公园</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '<p><b>some park</b>, is worth visiting</p>'+
+      '</div>'+
+      '</div>';
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(22.298864, 114.301715),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < 7; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        icon: 'http://www.google.com/mapfiles/kml/pal2/icon12.png'
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(contentString[i]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>
