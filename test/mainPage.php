@@ -39,17 +39,17 @@
 	if($logged==1){
 ?>
 
-		<div class="createbutton">
+<!-- 		<div class="createbutton">
 			<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)">
 			<i class="glyphicon glyphicon-plus">E</i>
 			</button>
-		</div>
+		</div> -->
 
-		<!-- <div class="createbutton">
+		<div class="createbutton">
 			<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateReview(<?php //echo $_SESSION['id']; ?>)">
 			<i class="glyphicon glyphicon-plus">R</i>
 			</button>
-		</div> -->
+		</div>
 <?php
 	}
 ?>

@@ -29,7 +29,7 @@ function loadReview(pid, uid)
         }
     }
     
-    var data = "?pid=" + id + "&uid=" + uid;
+    var data = "?pid=" + pid + "&uid=" + uid;
 
 	xmlhttp.open("GET","goToReviewPage.php"+data, true);
 	// window.alert(data);

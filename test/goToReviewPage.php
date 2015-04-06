@@ -5,7 +5,7 @@
 	$pid = $_GET['pid'];
 	$uid = $_GET['uid'];
 
-	$page = new Page('reviewtPage.php');
+	$page = new Page('reviewPage.php');
 
 	// Assign variables
 	$page->pid = $pid;

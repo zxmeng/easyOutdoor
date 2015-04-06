@@ -15,6 +15,7 @@
 		    <h1>EasyOutdoor</h1>
 		    <font color='#58ACFA'><?php echo $nickname; ?>:</font> Logged in
 		</div>
+
 		<p>
 		<div class="button" type="button" id="friend" onclick="clickFriend(<?php echo $_SESSION['id']; ?>)">Friend List</div><br>
 		</p><p>
@@ -22,6 +23,7 @@
 		</p><p>
 		<div class="button" type="button" id="notification" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div><br>
 		</p><p>
+
 		<div id="notiBox"></div>
 		</p>
 
