@@ -45,6 +45,15 @@ function mapSearch(district){
     xmlhttp.send();
 }
 
+function smallMap(venue){
+    if(venue=='Ma On Shan'){
+        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=6\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+    }
+    else if(venue=='beitan'){
+        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=9\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+    }
+}
+
 function loadDistrictEvents(district){
 
     // alert("eee");

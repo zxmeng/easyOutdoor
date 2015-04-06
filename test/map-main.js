@@ -42,14 +42,14 @@
         '<div id="description">'+
         '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Sai Kung' +'\')">Sai Kung</h1>'+
         '<div id="bodyContent">'+
-        '<p><b>Pak Tam Country Trail</b>, Hardness: ★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'beitan' + '\')"><b>Pak Tam Country Trail</b>, Hardness: ★★</p>'+
         '</div>'+
         '</div>';
       contentString[4]=
         '<div id="description">'+
         '<h1 class="firstHeading" onclick="mapSearch(\'' + 'Sha Tin' + '\')">Sha Tin</h1>'+
         '<div id="bodyContent">'+
-        '<p><b>Ma On Shan Country Trail</b>, Hardness: ★★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'Ma On Shan' + '\')"><b>Ma On Shan Country Trail</b>, Hardness: ★★★</p>'+
         '</div>'+
         '</div>';
       contentString[5]=
