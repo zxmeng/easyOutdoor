@@ -210,6 +210,7 @@ function clickJoin(eid, uid)
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("join").value = "Unjoin";
+                clickChatroom(eid, uid);
 	        }
 	    }
 	    flag = 1; 
@@ -218,9 +219,10 @@ function clickJoin(eid, uid)
     	xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("join").value = "Join";
+                document.getElementById("chatroom").type = "hidden";
 	        }
 	    }
-	    flag = 0; 
+	    flag = 0;
     }
     var data = "?eid=" + eid + "&uid=" + uid + "&flag=" + flag;
 	xmlhttp.open("GET","joinClick.php"+data, true);
