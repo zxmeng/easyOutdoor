@@ -44,3 +44,4 @@
 			</header>
 
 	<script src="userScript.js"></script>
+	<script src="searchScript.js"></script>

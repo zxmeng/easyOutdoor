@@ -205,11 +205,13 @@ class Event{
     //     return $resultArray;
     // }
 
-    // // Return the events on that day
+    // Return the events on that day
     public function getEventsByDate($date){
+        $start = $date . " 00:00:00";
+        $end = $date . " 23:59:59";
         $sql = "SELECT event.*, user.*
                 FROM event, user 
-                WHERE event.uid = user.uid AND event.eDate = '$date'
+                WHERE event.uid = user.uid AND event.eDate > '$start' AND event.eDate < '$end'
                 ORDER BY event.lastEditTime DESC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
