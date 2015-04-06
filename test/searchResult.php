@@ -24,7 +24,8 @@ $et->db->close();
 ?>
 
 
-<div class="masonry">
+<div class="masonry" id="searchResults">
+
    <?php if(empty($events)){ ?>
       <div align="center"><h2>No event in <?php echo $data; ?> now<br></h2></div>
    <?php
