@@ -83,7 +83,7 @@ function updateReview(pid,uid,name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Back";
+            document.getElementById("back").innerHTML = "Home";
         }
     }
     
@@ -150,7 +150,7 @@ function createReview(uid, name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Back";
+            document.getElementById("back").innerHTML = "Home";
         }
     }
     var title = document.getElementById("r_title").value;

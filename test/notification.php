@@ -24,92 +24,120 @@
 <div class="eventcomment">
 	<div id="commentList"> -->
 		<!--while loop to list all comment-->
-<?php 
+<div class="notification-container">
 
-	if($cno != 0) {
+
+<?php 
+	if(($cno+$mno+$fno+$jno)==0){
 ?>
-		<div><h2>Comment:</br></h2></div>
+	<div class="notification-header">No new notification</div>
+
+<?php	
+	}
+	else{
+
+?>
+	<div class="notification-header">Notification</div>
 <?php
-		foreach($commentNoti as $noti){ 
-?>
-		<div class="commentcontainer" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
-			<div class="commentcontent">
-			<!-- 	<img src="images/cuhk.jpg"><br> -->
-				<?php echo $noti['nickname']." commented on your event ".$noti['title']; ?>
+		if($cno != 0) {
+	?>
+			<div class="notification-header">Comment</div>
+	<?php
+			foreach($commentNoti as $noti){ 
+	?>
+				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
+					<div class="commentcontent">
+					<!-- 	<img src="images/cuhk.jpg"><br> -->
+						<?php echo $noti['nickname']." commented on your event ".$noti['title']; ?>
+					</div>
+					<div class="commentinfo">
+					<?php echo $noti['time']; ?>
+					</div>
+				</div>
+	<?php 
+			}
+	?>
 			</div>
-			<div class="commentinfo">
-			<?php echo $noti['time']; ?>
-			</div>
-		</div>
-<?php 
-		}
-	} 
-?>
+	<?php
+		} 
+	?>
 
-<?php 
+	<?php 
 
-	if($mno != 0) {
-?>
-		<div><h2>Mention:</br></h2></div>
-<?php
-		foreach($mentionNoti as $noti){ 
-?>
-		<div class="commentcontainer" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
-			<div class="commentcontent">
-			<!-- 	<img src="images/cuhk.jpg"><br> -->
-				<?php echo $noti['nickname']." mentioned you on event ".$noti['title']; ?>
+		if($mno != 0) {
+	?>
+			<div class="notification-header">Mention</div>
+	<?php
+			foreach($mentionNoti as $noti){ 
+	?>
+				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
+					<div class="commentcontent">
+					<!-- 	<img src="images/cuhk.jpg"><br> -->
+						<?php echo $noti['nickname']." mentioned you on event ".$noti['title']; ?>
+					</div>
+					<div class="commentinfo">
+					<?php echo $noti['time']; ?>
+					</div>
+				</div>
+	<?php 
+			}
+	?>
 			</div>
-			<div class="commentinfo">
-			<?php echo $noti['time']; ?>
-			</div>
-		</div>
-<?php 
-		}
-	} 
-?>
+	<?php
+		} 
+	?>
 
-<?php 
+	<?php 
 
-	if($fno != 0) {
-?>
-		<div><h2>Follow:</br></h2></div>
-<?php
-		foreach($followNoti as $noti){ 
-?>
-		<div class="commentcontainer">
-			<div class="commentcontent">
-			<!-- 	<img src="images/cuhk.jpg"><br> -->
-				<?php echo $noti['nickname']." followed you"; ?>
+		if($fno != 0) {
+	?>
+			<div class="notification-header">Follow</div>
+	<?php
+			foreach($followNoti as $noti){ 
+	?>
+				<div class="notification">
+					<div class="commentcontent">
+					<!-- 	<img src="images/cuhk.jpg"><br> -->
+						<?php echo $noti['nickname']." followed you"; ?>
+					</div>
+					<div class="commentinfo">
+					<?php echo $noti['time']; ?>
+					</div>
+				</div>
+	<?php 
+			}
+	?>
 			</div>
-			<div class="commentinfo">
-			<?php echo $noti['time']; ?>
-			</div>
-		</div>
-<?php 
-		}
-	} 
-?>
+	<?php
+		} 
+	?>
 
-<?php 
+	<?php 
 
-	if($jno != 0) {
-?>
-		<div><h2>Participate:</br></h2></div>
-<?php
-		foreach($joinNoti as $noti){ 
-?>
-		<div class="commentcontainer" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
-			<div class="commentcontent">
-			<!-- 	<img src="images/cuhk.jpg"><br> -->
-				<?php echo $noti['nickname']." participated in your event ".$noti['title']; ?>
+		if($jno != 0) {
+	?>
+			<div class="notification-header">Participate</div>
+	<?php
+			foreach($joinNoti as $noti){ 
+	?>
+			<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
+				<div class="commentcontent">
+				<!-- 	<img src="images/cuhk.jpg"><br> -->
+					<?php echo $noti['nickname']." participated in your event ".$noti['title']; ?>
+				</div>
+				<div class="commentinfo">
+				<?php echo $noti['time']; ?>
+				</div>
 			</div>
-			<div class="commentinfo">
-			<?php echo $noti['time']; ?>
+	<?php 
+			}
+	?>
 			</div>
-		</div>
-<?php 
-		}
-	} 
+	<?php
+		} 
+	}
 ?>
+	</div>
+</div>
 <!-- </div>
 </div> -->

@@ -1,4 +1,4 @@
-Main -->
+<!-- Main --> 
 
 <div id="main">
 	<div align="center">
@@ -7,11 +7,19 @@ Main -->
 
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
+	<div id="map" style="width: 500px; height: 400px;" type="hidden"></div>
+
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
+
 <?php
+
+	if (session_status() == PHP_SESSION_NONE) {
+    	session_start();
+	}
+	
 	if($logged==1){
 ?>
-	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div>
+	
 <?php
 	}
 ?>
@@ -21,7 +29,7 @@ Main -->
 	if($logged==1){
 ?>
 <div class="createbutton">
-	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php //echo $_SESSION['id']; ?>)">
+	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)">
 	<i class="glyphicon glyphicon-plus">E</i>
 	</button>
 </div>
@@ -34,9 +42,6 @@ Main -->
 <?php
 	}
 ?>
-<div class="eventcomment">
-	<div id="notiBox"></div>
-</div>
 
 <script src="mainScript.js"></script>
 <script src="eventScript.js"></script>

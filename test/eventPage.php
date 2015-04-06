@@ -1,6 +1,11 @@
 <?php 
 require_once('EventClass.php'); 
 require_once('CommentClass.php');
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 ?>
 
 

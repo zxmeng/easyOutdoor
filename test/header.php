@@ -23,8 +23,13 @@
 		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+
 		<script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
     	<script src="mapWithSearchBox.js"></script>
+    	 <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  		<script src="map-main.js" type="text/javascript"></script>
+  		
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />

@@ -1,8 +1,9 @@
 function loadEvent(eid, uid)
 {
+	// window.alert("Here!");
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
+
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
@@ -27,7 +28,6 @@ function loadAllEvent()
             document.getElementById("change").innerHTML= xmlhttp.responseText;
             guid = 0;
 			geid = 0;
-            //backFlag = 1;
         }
     }
 
@@ -44,7 +44,6 @@ function loadCalendar()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 2;
         }
     }
 
@@ -60,8 +59,12 @@ function loadMap()
 	//window.alert("Here!");
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
+            document.getElementById("change").innerHTML= "";
+
+            document.getElementById("map").type="visible";
+            initialize();
             //backFlag = 3;
+
         }
     }
 
@@ -78,7 +81,6 @@ function loadRecommendation()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 4;
         }
     }
 
@@ -91,11 +93,11 @@ var notiFlag = 0;
 
 function loadNotification(uid)
 {
-	window.alert("HAHA");
+	// window.alert("HAHA");
 	if(notiFlag==0){
 		var xmlhttp;
 		xmlhttp = new XMLHttpRequest();
-		window.alert("Here!");
+		// window.alert("Here!");
 
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
@@ -105,7 +107,7 @@ function loadNotification(uid)
 	    }    
 	    var data = "?uid=" + uid;
 
-		window.alert(data);		
+		// window.alert(data);		
 		
 		xmlhttp.open("GET","goToNotification.php"+data, true);
 		xmlhttp.send();

@@ -40,7 +40,7 @@ if(isset($_POST['Register'])){
 				require 'PHPmailer/Send_Mail.php';
 				$to = "$email";
 				$subject = "EasyOutdoor: Activate Your Account and Join Awesome Activities Now!";
-				$body = "Hello $nickname,\n\nYou registered and need to activate your account. Click the link below or paste it into the URL bar of your browser\n\n http://localhost:8888/test/activate.php?code=$code\n\nThanks!";
+				$body = "Hello $nickname,\n\nYou registered and need to activate your account. Click the link below or paste it into the URL bar of your browser\n\n http://localhost:8080/easyOutdoor/test/activate.php?code=$code\n\nThanks!";
 				Send_Mail($to,$subject,$body);
 				//end email (HAVE TO CHANGE THE LINK IN BODY SINCE THE SERVER SET UP IS DIFFERENT IN EVERY PC) lawrence!!!!!!!!!!!!!!
 
