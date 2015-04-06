@@ -48,7 +48,7 @@
 
                     <div class="field">
                         <label for='password'>No. of Participants</label>
-                        <input type="number" name="parNo" id="e_parNo" value="<?php echo $review['parNo'];?>">
+                        <input type="number" name="parNo" id="e_parNo" value="<?php echo $review['parNo'];?>" min="1">
                     </div>
 
                     <div class="field">

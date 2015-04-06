@@ -52,7 +52,7 @@
 
                     <div class="field">
                         <label for='password'>Max No. of Participants</label>
-                        <input type="number" name="limitation" id="e_limitation" value="<?php echo $event['limitation'];?>">
+                        <input type="number" name="limitation" id="e_limitation" value="<?php echo $event['limitation'];?>" min="2">
                     </div>
 
                     <div class="field">
