@@ -11,6 +11,15 @@ class User{
         $this->db = new Database();
     }
 
+	public function getInfo($uid) {
+		$sql = "SELECT user.*
+				FROM user
+				WHERE uid = $uid";
+		$res = $this->db->query($sql);
+		$infoArray = mysqli_fetch_array($res);;
+		return $infoArray;
+	}
+
     public function getUserName($uid) {
 		$sql = "SELECT nickname
 				FROM user

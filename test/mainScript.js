@@ -6,7 +6,6 @@ function loadEvent(eid, uid)
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-			document.getElementById("back").innerHTML = "Back";
         }
     }
     
@@ -26,7 +25,6 @@ function loadAllEvent()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
             guid = 0;
 			geid = 0;
             //backFlag = 1;
@@ -46,7 +44,6 @@ function loadCalendar()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
             //backFlag = 2;
         }
     }
@@ -64,7 +61,6 @@ function loadMap()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
             //backFlag = 3;
         }
     }
@@ -82,7 +78,6 @@ function loadRecommendation()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
             //backFlag = 4;
         }
     }
