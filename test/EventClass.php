@@ -61,7 +61,7 @@ class Event{
         $now = date("Y-m-d H:i:s");
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
-                WHERE event.uid = user.uid AND event.eDate > '$now'
+                WHERE event.uid = user.uid
                 ORDER BY event.eDate ASC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
