@@ -1,23 +1,11 @@
 <?php
 
-	require_once("DBClass.php");
+	require_once("UserClass.php");
 	require_once("EventClass.php");
-	// $uid = 3;
 
-	$db = new DataBase();
-
-	// $sqlB = "SELECT uidB
-	// 		 FROM Friend
-	// 		 WHERE uidA = $uid";
-	// $sqlA = "SELECT uidA
-	// 		 FROM Friend
-	// 		 WHERE uidB = $uid";
-	// $resA = $db->query($sqlA);
-	// $resB = $db->query($sqlB);
-
-	// $arrayA = $resA->fetch_all(MYSQLI_ASSOC);
-	// $arrayB = $resB->fetch_all(MYSQLI_ASSOC);
+	$ur = new User();
 	$et = new Event();
+	$friends = $ur->getFriends($uid);
 	$events = $et->getEventsCreatedByUser($uid);
 ?>
 
@@ -26,15 +14,21 @@
 				<h2 style="padding:5px;">Friends</h2>
 				<hr style="margin:3px 0 3px 0;">
 			<!--each participant-->
+			<?php
+				foreach($friends as $friend){
+			?>
 				<div class="chatmessage">
 					<div class="chatheader">
-						<img src="images/cuhk-test.jpg"><br>
+						<img src="<?php echo $friend['uPhoto']; ?>"><br>
 					</div>
 					<div class="chatcontent">
-						<p><?php echo $db->getUserName($uid); ?></p>
+						<p><?php echo $friend['nickname']; ?></p>
 					</div>
 				</div>
 			<!--end message-->
+			<?php
+				}
+			?>
 </div>
 
 			<div class="frienddetail" >
@@ -72,6 +66,5 @@
 				   <!--end 1 event-->
 			</div>
 <!--end button-->
-
 	
 </div>

@@ -3,7 +3,7 @@
 	require_once('NotiClass.php');
 
    	$notification = new Notification();
-
+ 
 	$commentNoti = $notification->getCommentNoti($uid);
 	$cno = mysqli_num_rows($commentNoti);
 
