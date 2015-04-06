@@ -7,12 +7,13 @@ CREATE TABLE User (
 	nickname VARCHAR(20) NOT NULL UNIQUE,
 	email VARCHAR(30) NOT NULL UNIQUE,
 	password VARCHAR(30) NOT NULL,
-	phone INT NOT NULL UNIQUE,
-	uPhoto VARCHAR(100) NOT NULL,
-	uProfule VARCHAR(100),
-	joinTime DATETIME NOT NULL,
-	lastLoginTime DATETIME NOT NULL,
-	status TINYINT NOT NULL
+	phone INT UNIQUE,
+	uPhoto VARCHAR(100),
+	uProfile VARCHAR(100),
+	joinTime DATETIME,
+	lastLoginTime DATETIME,
+	status TINYINT NOT NULL,
+	code INT
 );
 
 CREATE TABLE Event (

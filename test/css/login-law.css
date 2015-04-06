@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+body{
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	margin:0px;
+}
+
+h1{
+	font-size:50px;
+	color:#666;
+}
+
+a{
+	color:#009999;
+	text-decoration:none;
+}
+a:honver{
+	color:#066;
+}
+
+.container{
+	width:50%;
+	padding:10px;
+	background-color:#FFF;
+	border:1px solid #ccc;
+	margin:20px auto;
+}
+
+.center{
+	text-align:center;
+}
+.login{
+	position: fixed; /* or absolute */
+	top: 40%;
+	left: 25%;
+}
+/* CSS Document */
+

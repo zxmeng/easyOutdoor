@@ -1,0 +1,141 @@
+@charset "utf-8";
+.body
+{
+  background-image : url(top-img.png);
+  /*To create image referenced in CSS, use 'Export Selected CSS' command.*/
+  background-repeat : no-repeat;
+}
+	.x35_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+}
+.x34_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+}
+.input_1_
+{
+	background : #FFFEFF;
+	background : rgba(255, 254, 255, 1);
+	opacity : 0.8;
+	filter: alpha(opacity=80) progid:DXImageTransform.Microsoft.Alpha(opacity=80) ;
+}
+.x33_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+}
+.x31__1_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+}
+.logo-long
+{
+	background-image : url(logo-long.png);
+	background-repeat : no-repeat;
+}
+.logo
+{
+	background-image : url(logo.png);
+	background-repeat : no-repeat;
+	opacity : 0.8;
+	filter: alpha(opacity=80) progid:DXImageTransform.Microsoft.Alpha(opacity=80) ;
+}
+.botton-create
+{
+	background-image : url(botton-create.png);
+	background-repeat : no-repeat;
+}
+.x31__2_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+}
+.body
+{
+	background-image : url(top-img.png);
+	background-repeat : no-repeat;
+}
+.create-event
+{
+	background-image : url(create-event.png);
+	background-repeat : no-repeat;
+}
+.x31_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+}
+.create-review
+{
+	background-image : url(create-review.png);
+	background-repeat : no-repeat;
+}
+input
+{
+	background : #FFFEFF;
+	background : rgba(255, 254, 255, 1);
+	opacity : 0.8;
+	filter: alpha(opacity=80) progid:DXImageTransform.Microsoft.Alpha(opacity=80) ;
+}
+.logo-long_1_
+{
+	border-style : Solid;
+	border-color : #231F20;
+	border-color : rgba(35, 31, 32, 1);
+	border-width : 6px;
+}
+.NormalCharacterStyle9
+{
+	font-family : Myriad Pro;
+	font-size : 12px;
+	color : #FFFFFF;
+	color : rgb(255, 255, 255);
+	opacity : 0.8;
+	filter: alpha(opacity=80) progid:DXImageTransform.Microsoft.Alpha(opacity=80) ;
+}
+.botton-create_1_
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+	opacity : 0.3;
+	filter: alpha(opacity=30) progid:DXImageTransform.Microsoft.Alpha(opacity=30) ;
+}
+.search-background
+{
+	background : #231F20;
+	background : rgba(35, 31, 32, 1);
+	opacity : 0.7;
+	border-radius : 11px;
+	-moz-border-radius : 11px;
+	-webkit-border-radius : 11px;
+	filter: alpha(opacity=70) progid:DXImageTransform.Microsoft.Alpha(opacity=70) ;
+}
+
+.login-background
+{
+  background : #2D2D2D;
+  border-style : Solid;
+  border-width : 0px;
+  opacity : 0.2;
+  width: 20%;
+  height: 1000px;
+  filter: alpha(opacity=20) progid:DXImageTransform.Microsoft.Alpha(opacity=20) ;
+}
+.NormalCharacterStyle1
+{
+	font-family : Tamil MN;
+	font-size : 12px;
+	color : #FFFFFF;
+	color : rgb(255, 255, 255);
+}
+.NormalCharacterStyle
+{
+	font-family : Tamil MN;
+	font-size : 12px;
+	color : #FFFFFF;
+	color : rgb(255, 255, 255);
+}
