@@ -1,4 +1,4 @@
-<!-- Main -->
+Main -->
 
 <div id="main">
 	<div align="center">

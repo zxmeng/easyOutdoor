@@ -16,17 +16,17 @@ class User{
 				FROM user
 				WHERE uid = $uid";
 		$res = $this->db->query($sql);
-		$nameArray = mysqli_fetch_array($res);;
+		$nameArray = mysqli_fetch_array($res);
 		return $nameArray['nickname'];
 	}
 
 	public function getFriends($uid) {
 		$sqlB = "SELECT user.*
 				 FROM friend, user
-				 WHERE friend.uidA = $uid AND user.uid = friend.uidA";
+				 WHERE friend.uidA = $uid AND user.uid = friend.uidB";
 		$sqlA = "SELECT user.*
 				 FROM friend, user
-				 WHERE friend.uidB = $uid AND user.uid = friend.uidB";
+				 WHERE friend.uidB = $uid AND user.uid = friend.uidA";
 
 		$resA = $this->db->query($sqlA);
 		$resB = $this->db->query($sqlB);
@@ -37,6 +37,26 @@ class User{
 		$result = array_merge($arrayA, $arrayB);
 		return $result;
 	}
+
+	public function getUser($uid) {
+		$sql = "SELECT *
+				FROM user
+				WHERE uid = $uid";
+		$res = $this->db->query($sql);
+		$Array = mysqli_fetch_array($res);
+		// echo $Array['uPhoto'];
+		return $Array;
+	}
+
+	public function checkFollow($uid, $auid){
+        $sql = "SELECT COUNT(*) AS total
+                FROM follow
+                WHERE uidA = $uid AND uidB = $auid";
+        $result = $this->db->query($sql);
+        $data = $result->fetch_assoc();
+        $count = $data['total'];
+        return $count;
+    }
 }
 
 ?>
