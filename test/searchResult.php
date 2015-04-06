@@ -4,11 +4,16 @@ require_once('EventClass.php');
 if (session_status() == PHP_SESSION_NONE) {
    session_start();
 }
-   
 
-$event = new Event();
-$events = $event->getEventsByDate($data);
-// $event->db->close();
+$et = new Event();
+
+if($flag == "calendar"){
+   $events = $et->getEventsByDate($data);
+}
+else if($flag == 'map'){
+   $events = $et->getEventsByDistrict($data);
+}
+$et->db->close();
 echo "here";
 ?>
 

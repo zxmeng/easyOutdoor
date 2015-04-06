@@ -100,7 +100,7 @@ class Review{
         $now = date("Y-m-d H:i:s");
         $sql = "SELECT review.*, user.*
                 FROM review, user 
-                WHERE review.uid = user.uid AND review.distrcit = '$district'
+                WHERE review.uid = user.uid AND review.district = '$district'
                 ORDER BY review.postTime";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
