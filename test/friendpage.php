@@ -3,12 +3,8 @@
 	require_once("UserClass.php");
 	require_once("EventClass.php");
 
-<<<<<<< HEAD
-	$db = new DataBase();
 
-=======
 	$ur = new User();
->>>>>>> 5bb29a2aebf76259bf58b0508cf5abe329bc4837
 	$et = new Event();
 	$friends = $ur->getFriends($uid);
 	$events = $et->getEventsCreatedByUser($uid);
