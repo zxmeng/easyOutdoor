@@ -6,6 +6,8 @@
       session_start();
    }
 
+         echo $district;
+
    if($flag == "event"){
       $et = new Event();
       $events = $et->getEventsByDistrict($district);
@@ -42,6 +44,8 @@
    }
 
    else if($flag == 'review'){
+      echo $district;
+
       $re = new Review();
       $reviews = $re->getReviewsByDistrict($district);
       $re->db->close();

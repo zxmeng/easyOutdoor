@@ -47,7 +47,7 @@ function mapSearch(district){
 
 function loadDistrictEvents(district){
 
-    alert("eee");
+    // alert("eee");
     info = "?district=" + district + "&flag=event";
 
     var xmlhttp;
