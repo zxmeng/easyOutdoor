@@ -7,8 +7,6 @@
 
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
-	<div id="map" style="width: 500px; height: 400px;" type="hidden"></div>
-
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
 
 <?php
@@ -19,26 +17,18 @@
 	
 	if($logged==1){
 ?>
-	
-<?php
-	}
-?>
-</div>
 
-<?php
-	if($logged==1){
-?>
-<div class="createbutton">
-	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)">
-	<i class="glyphicon glyphicon-plus">E</i>
-	</button>
-</div>
+		<div class="createbutton">
+			<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)">
+			<i class="glyphicon glyphicon-plus">E</i>
+			</button>
+		</div>
 
-<!-- <div class="createbutton">
-	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateReview(<?php //echo $_SESSION['id']; ?>)">
-	<i class="glyphicon glyphicon-plus">R</i>
-	</button>
-</div> -->
+		<!-- <div class="createbutton">
+			<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateReview(<?php //echo $_SESSION['id']; ?>)">
+			<i class="glyphicon glyphicon-plus">R</i>
+			</button>
+		</div> -->
 <?php
 	}
 ?>

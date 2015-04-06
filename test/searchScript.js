@@ -6,8 +6,8 @@ function calendarSearch(){
     }
     var date_iso = document.getElementById("dateSearch").value;
     var date = date_iso.replace('T', ' ');
-    alert(date);
-    alert(typeof date);
+    // alert(date);
+    // alert(typeof date);
     // var start = date + " 00:00:00";
     // alert(start);
 

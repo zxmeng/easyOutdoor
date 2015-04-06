@@ -54,23 +54,8 @@ function loadCalendar()
 
 function loadMap()
 {
-	var xmlhttp;
-	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
-	xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= "";
-
-            document.getElementById("map").type="visible";
-            initialize();
-            //backFlag = 3;
-
-        }
-    }
-
-	xmlhttp.open("GET","goToMap.php", true);
-	//window.alert(data);
-	xmlhttp.send();
+    document.getElementById("change").innerHTML= "<div id=\"map\" style=\"width: 500px; height: 400px;\"></div>";
+    initialize();
 }
 
 function loadRecommendation()

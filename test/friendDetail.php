@@ -34,11 +34,11 @@
 		<!-- default "Created Events" -->
 		<div class="mode-button">
 			<input type="button" value="Created Events" 
-			onclick="showUserEvents(<?php echo $auid; ?>, 1)" /> | 
+			onclick="showUserEvents(<?php echo $auid; ?>, 1)" > | 
 			<input type="button" value="Joint Events" 
-			onclick="showUserEvents(<?php echo $auid; ?>, 2)" /> | 
+			onclick="showUserEvents(<?php echo $auid; ?>, 2)" > | 
 			<input type="button" value="Created Reviews" 
-			onclick="showUserEvents(<?php echo $auid; ?>, 3)" />
+			onclick="showUserEvents(<?php echo $auid; ?>, 3)" >
 		</div>
 
 	</div>
@@ -52,9 +52,9 @@
 		   		<div class="item-name"><?php echo $event['title']; ?></div>
 		   		<div class="item-picture"><img class="item-picture" src="images/cuhk-test.jpg"></div>
 		   		<div class="item-infomation">
-		   			<h2>Date:</h2><?php echo $event['eDate']; ?>br/>
-		   			<h2>Venue:</h2><?php echo $event['venue']; ?><br/>
-		   			<h2>Description:</h2><?php echo $event['eDescription']; ?><br/>
+		   			<h2>Date:</h2><?php echo $event['eDate']; ?><br>
+		   			<h2>Venue:</h2><?php echo $event['venue']; ?><br>
+		   			<h2>Description:</h2><?php echo $event['eDescription']; ?><br>
 		   		</div>
 		   		<div align="right">
 		   		<div class="button" onclick="loadEvent(<?php echo $event['eid'].','.$uid; ?>)">More Infomation</div></div>

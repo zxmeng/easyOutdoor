@@ -1,15 +1,22 @@
 <?php 
 require_once('EventClass.php');
+
+if (session_status() == PHP_SESSION_NONE) {
+   session_start();
+}
+   
+
 $event = new Event();
 $events = $event->getEventsByDate($data);
 // $event->db->close();
 echo "here";
 ?>
 
-<div>
+<div class="masonry">
    <?php
    	foreach($events as $event){
    ?>
+   
    <div class="item">
    		<div class="item-name">
    			<?php echo $event['title'] ?>

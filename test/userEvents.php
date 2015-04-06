@@ -24,9 +24,9 @@
 	   		<div class="item-name"><?php echo $event['title']; ?></div>
 	   		<div class="item-picture"><img class="item-picture" src="images/cuhk-test.jpg"></div>
 	   		<div class="item-infomation">
-	   			<h2>Date:</h2><?php echo $event['eDate']; ?>br/>
-	   			<h2>Venue:</h2><?php echo $event['venue']; ?><br/>
-	   			<h2>Description:</h2><?php echo $event['eDescription']; ?><br/>
+	   			<h2>Date:</h2><?php echo $event['eDate']; ?><br>
+	   			<h2>Venue:</h2><?php echo $event['venue']; ?><br>
+	   			<h2>Description:</h2><?php echo $event['eDescription']; ?><br>
 	   		</div>
 	   		<div align="right">
 	   		<div class="button" onclick="loadEvent(<?php echo $event['eid'].','.$uid; ?>)">More Infomation</div></div>
