@@ -12,12 +12,18 @@ if($flag == "calendar"){
 }
 else if($flag == 'map'){
    $events = $et->getEventsByDistrict($data);
-}
-$et->db->close();
-echo "here";
 ?>
 
-<div class="masonry">
+   <div class="button" type="button" onclick="loadDistrictEvents('<?php echo $data; ?>')">Events</div>
+   <div class="button" type="button" onclick="loadDistrictReviews('<?php echo $data; ?>')">Reviews</div>
+
+<?php
+}
+$et->db->close();
+// echo "here";
+?>
+
+<div class="masonry" id="searchResults">
    <?php
    	foreach($events as $event){
    ?>

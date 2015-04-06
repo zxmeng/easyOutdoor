@@ -15,7 +15,7 @@
     var contentString = [];
     contentString[0] = 
       '<div id="description">'+
-      '<h1 class="firstHeading" type="button" onclick="mapSearch(Central and Western)">Central and Western</h1>'+
+      '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Central and Western' +'\')">Central and Western</h1>'+
       '<div id="bodyContent">'+
       '<p><b>港島徑一</b>，難度係數一顆星</p>'+
       '<p><b>港島徑二</b>，難度係數三顆星</p>'+
@@ -23,7 +23,7 @@
       '</div>';
     contentString[1] = 
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Southern)">Southern</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Southern' +'\')">Southern</h1>'+
         '<div id="bodyContent">'+
         '<p><b>港島徑三</b>，難度係數一顆星</p>'+
         '<p><b>港島徑四</b>，難度係數三顆星</p>'+
@@ -33,14 +33,14 @@
         '</div>';
     contentString[2] = 
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Islands)">Islands</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Islands' +'\')">Islands</h1>'+
         '<div id="bodyContent">'+
         '<p><b>老虎頭郊遊區</b>，難度係數一顆星</p>'+
         '</div>'+
         '</div>';
     contentString[3] = 
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Sai Kung)">Sai Kung</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Sai Kung' +'\')">Sai Kung</h1>'+
         '<div id="bodyContent">'+
         '<p><b>北潭郊遊區</b>，難度係數一顆星</p>'+
         '</div>'+
@@ -54,28 +54,28 @@
         '</div>';
       contentString[5]=
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Tai Po)">Tai Po</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Tai Po' +'\')">Tai Po</h1>'+
         '<div id="bodyContent">'+
         '<p><b>大美督家樂徑</b>，難度係數一顆星</p>'
         '</div>'+
         '</div>';
       contentString[6]=
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Yuen Long)">Yuen Long</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Yuen Long' +'\')">Yuen Long</h1>'+
         '<div id="bodyContent">'+
         '<p><b>元荃古道</b>，難度係數一顆星</p>'+
         '</div>'+
         '</div>';
       contentString[7]=
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Tsuen Wan)">Tsuen Wan</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Tsuen Wan' +'\')">Tsuen Wan</h1>'+
         '<div id="bodyContent">'+
         '<p><b>荔枝窩</b>，難度係數一顆星</p>'+
         '</div>'+
         '</div>';
       contentString[8]=
         '<div id="description">'+
-        '<h1 class="firstHeading" type="button" onclick="mapSearch(Eastern)">Eastern</h1>'+
+        '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Eastern' +'\')">Eastern</h1>'+
         '<div id="bodyContent">'+
         '<p><b>港島徑五</b>，難度係數三顆星</p>'+
         '<p><b>港島徑六</b>，難度係數一顆星</p>'+

@@ -17,6 +17,25 @@ function loadEvent(eid, uid)
 	xmlhttp.send();
 }
 
+function loadReview(pid, uid)
+{
+	// window.alert("Here!");
+	var xmlhttp;
+	xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("change").innerHTML= xmlhttp.responseText;
+        }
+    }
+    
+    var data = "?pid=" + id + "&uid=" + uid;
+
+	xmlhttp.open("GET","goToReviewPage.php"+data, true);
+	// window.alert(data);
+	xmlhttp.send();
+}
+
 function loadAllEvent()
 {
 	// alert("Into load");

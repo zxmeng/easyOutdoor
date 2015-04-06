@@ -44,3 +44,36 @@ function mapSearch(district){
     xmlhttp.open("GET","goToSearchResult.php"+info, true);
     xmlhttp.send();
 }
+
+function loadDistrictEvents(district){
+
+    alert("eee");
+    info = "?district=" + district + "&flag=event";
+
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("searchResults").innerHTML= xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","goToDistrict.php"+info, true);
+    xmlhttp.send();
+
+}
+
+function loadDistrictReviews(district){
+    alert("HHHH");
+    info = "?district=" + district + "&flag=review";
+
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("searchResults").innerHTML= xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","goToDistrict.php"+info, true);
+    xmlhttp.send();
+
+}
