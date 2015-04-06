@@ -15,7 +15,7 @@
 		<!--each message-->
 		<div class="chatmessage">
 			<div class="chatheader">
-				<img src="images/cuhk.jpg"><br>
+				<img src="<?php echo $message['uPhoto']; ?>"><br>
 			</div>
 			<div class="chatcontent">
 				<p>

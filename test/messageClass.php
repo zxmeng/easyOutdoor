@@ -11,7 +11,7 @@
 
 		// Return all comments ordered by their sent time
 		public function getAllMessages($eid){
-			$sql = "SELECT user.nickname, message.time, message.content, message.mid, user.uid
+			$sql = "SELECT user.nickname, message.time, message.content, message.mid, user.uid, user.uPhoto
 					FROM message, user
 					WHERE user.uid = message.uid AND message.eid = '{$eid}' 
 					ORDER BY message.time";

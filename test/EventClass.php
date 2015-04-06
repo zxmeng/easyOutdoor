@@ -90,6 +90,16 @@ class Event{
         return $resultArray; 
     }
 
+    public function getOwner($eid){
+        $sql = "SELECT user.uPhoto, user.uid, user.nickname
+                FROM event, user
+                WHERE event.eid = $eid AND event.uid = user.uid";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_array(MYSQLI_ASSOC);
+        return $resultArray; 
+    }
+
+
     public function checkLike($eid, $uid){
         $sql = "SELECT COUNT(*) AS total
                 FROM likeEvent

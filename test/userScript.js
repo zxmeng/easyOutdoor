@@ -27,7 +27,7 @@ function showFriendDetail(uid, auid){
             document.getElementById("frienddetail").innerHTML= xmlhttp.responseText;
         }
     }
-    var data = "?uid=" + uid + "&auid=" + auid;
+    var data = "?uid=" + uid + "&auid=" + auid + "&flag=small";
     // alert(data);
 
 	xmlhttp.open("GET","goToFriendDetail.php"+data, true);
@@ -152,4 +152,20 @@ function updateProfile(uid,name){
 
     xmlhttp.open("GET","uploadUpdatedProfile.php"+data, true);
     xmlhttp.send();  
+}
+
+function loadPersonalHomepage(uid, auid){
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("change").innerHTML= xmlhttp.responseText;
+        }
+    }
+    var data = "?uid=" + uid + "&auid=" + auid + "&flag=full";
+    // alert(data);
+
+    xmlhttp.open("GET","goToFriendDetail.php"+data, true);
+    //window.alert(data);
+    xmlhttp.send();
 }

@@ -1,9 +1,11 @@
 <?php
 	if ($show == 0) {
 	require_once("DBClass.php");
+	require_once("UserClass.php");
 	// $uid = 3;
 
 	$db = new DataBase();
+	$ur = new User();
 
 	$sqlB = "SELECT uidB
 			 FROM Friend
@@ -26,12 +28,12 @@
 	<!-- list all the user's friends -->
 	<?php foreach($arrayA as $row){ ?>
 		<option value="<?php echo $row['uidA']; ?>">
-			<?php echo $db->getUserName($row['uidA']); ?>
+			<?php echo $ur->getUserName($row['uidA']); ?>
 		</option>
 	<?php } ?>
 	<?php foreach($arrayB as $row){ ?>
 		<option value="<?php echo $row['uidB']; ?>">
-			<?php echo $db->getUserName($row['uidB']); ?>
+			<?php echo $ur->getUserName($row['uidB']); ?>
 		</option>
 	<?php } ?>
 </select>

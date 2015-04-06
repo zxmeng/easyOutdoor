@@ -10,7 +10,7 @@
 
 		// Return all comments ordered by their created time
 		public function getComments($eid){
-			$sql = "SELECT comment.content, comment.time, user.nickname, comment.ruid
+			$sql = "SELECT comment.content, comment.time, user.nickname, comment.ruid, comment.suid, user.uPhoto
 					FROM comment, user
 					WHERE comment.eid = $eid AND user.uid = comment.suid
 					ORDER BY time";

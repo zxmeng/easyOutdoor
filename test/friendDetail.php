@@ -11,13 +11,13 @@
 
 ?>
 
-
 <div>
 	<div align="center">
 		<img class="icon" src="<?php echo $userDetail['uPhoto']; ?>">
 		<!-- <div class="name"><a href="profile.php?user=<?php //echo escape($user->data()->username);?>"><?php //echo escape($user->data()->username); ?>
 		</div> -->
 		<div class="name"><?php echo $userDetail['nickname']; ?></div>
+		<?php if ($auid != $uid) { ?>
 		<input id="follow" type="submit" name="submit" 
 		value="<?php 
 					if($followed > 0){
@@ -28,6 +28,7 @@
 					}
 				?>" 
 		onclick="clickFollow(<?php echo $uid.', '.$auid; ?>)">
+		<?php } ?>
 
 		<!-- There won't be follow button in the user's own homepage -->
 		<!-- The mode-button will be user to choose the events' show mode -->
@@ -43,8 +44,12 @@
 
 	</div>
 
-	<div id="userEvent">
+		<?php if($flag == "full"){ ?>
+		<div id="userEvent" class="masonry">
+		<?php }else{ ?>
+		<div id="userEvent">
 		<?php 
+			}
 			foreach ($events as $event) {
 		?>
 			 <!-- this is the tox for 1 event, write a while loop to show all the events with this item-->

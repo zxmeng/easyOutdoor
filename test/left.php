@@ -4,22 +4,30 @@
 	    session_start();
 	}
 
+	require_once('UserClass.php');
+	$ur = new User();
+	$nickname = $ur->getUserName($_SESSION['id']);
+
 	if($logged==1){
 		//logged in
 ?>
 		<div class="container center login">
 		    <h1>EasyOutdoor</h1>
-		    Logged in<br/>
-		    <a href="logout.php">Logout</a>
+		    <font color='#58ACFA'><?php echo $nickname; ?>:</font> Logged in
 		</div>
-
-		<div class="button" type="button" id="friend" onclick="clickFriend(<?php echo $_SESSION['id']; ?>)">Friend</div><br>
-
-		<div class="button" type="button" id="editFrofile" onclick="clickEditProfile(<?php echo $_SESSION['id']; ?>)">Edit</div><br>
-
-		<div class="button" type="button" id="back" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div><br>
-
+		<p>
+		<div class="button" type="button" id="friend" onclick="clickFriend(<?php echo $_SESSION['id']; ?>)">Friend List</div><br>
+		</p><p>
+		<div class="button" type="button" id="editFrofile" onclick="clickEditProfile(<?php echo $_SESSION['id']; ?>)">Edit Profile</div><br>
+		</p><p>
+		<div class="button" type="button" id="notification" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div><br>
+		</p><p>
 		<div id="notiBox"></div>
+		</p>
+
+		<div class="container center login">
+			<a href="logout.php">Logout</a>
+		</div>
 
 <?php 
 	}

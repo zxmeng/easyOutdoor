@@ -87,3 +87,4 @@ function refreshComment(eid){
         http_request.send();
     }
 }
+

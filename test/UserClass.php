@@ -22,10 +22,18 @@ class User{
 
 
     public function editProfile($uid, $nickname, $phone, $description, $image){
-    	$sql = "UPDATE user
-    			SET user.nickname = '$nickname', user.phone = $phone, 
-                    user.uProfile = '$description', user.uPhoto = '$image'
-    			WHERE user.uid = $uid";
+    	if($image!=""){
+	    	$sql = "UPDATE user
+	    			SET user.nickname = '$nickname', user.phone = $phone, 
+	                    user.uProfile = '$description', user.uPhoto = '$image'
+	    			WHERE user.uid = $uid";
+    	}
+    	else {
+    		$sql = "UPDATE user
+	    			SET user.nickname = '$nickname', user.phone = $phone, 
+	                    user.uProfile = '$description'
+	    			WHERE user.uid = $uid";
+    	}
     	$this->db->query($sql);
     	return;
     }

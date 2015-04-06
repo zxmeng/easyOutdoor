@@ -124,8 +124,8 @@ if (session_status() == PHP_SESSION_NONE) {
 			foreach($comments as $comment){ 
 		?>
 				<div class="commentcontainer">
-					<div class="commentheader">
-						<img src="images/cuhk.jpg"><br>
+					<div class="commentheader" type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$comment['suid']; ?>)">
+						<img src="<?php echo $comment['uPhoto']; ?>"><br>
 						<?php echo $comment['nickname'] ?>
 					</div>
 					<div class="commentcontent">
