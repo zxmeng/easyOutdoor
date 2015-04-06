@@ -5,6 +5,27 @@
 		<img class="header-picture"src="images/logo@20150303.png" >
 	</div>
 
+
+	<div align="center" style="margin:1em 0 1em 0;">
+		<div class="mode-button">
+			<div class="button" type="button" id="all" onclick="loadAllEvent()">
+			ALL
+			</div> 
+			| 
+			<div class="button" type="button" id="calendar" onclick="loadCalendar()">
+			CALENDER
+			</div>
+			| 
+			<div class="button" type="button" id="mapSearch" onclick="loadMap()">
+			MAP
+			</div>
+			| 	
+			<div class="button" type="button" id="recommendation" onclick="loadRecommendation()">
+			RECOMMENDATION
+			</div>
+		</div>
+	</div>
+
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>

@@ -4,18 +4,26 @@ require_once('EventClass.php');
 if (session_status() == PHP_SESSION_NONE) {
    session_start();
 }
-   
 
-$event = new Event();
-$events = $event->getEventsByDate($data);
-$event->db->close();
+$et = new Event();
 
-// $cNums = mysqli_num_rows($events);
+if($flag == "calendar"){
+   $events = $et->getEventsByDate($data);
+}
+else if($flag == 'map'){
+   $events = $et->getEventsByDistrict($data);
 ?>
 
-<div class="masonry">
-   <?php if(empty($events)){ ?>
-      <div><h2>No event in <?php echo $data; ?> now<br></h2></div>
+   <div class="button" type="button" onclick="loadDistrictEvents('<?php echo $data; ?>')">Events</div>
+   <div class="button" type="button" onclick="loadDistrictReviews('<?php echo $data; ?>')">Reviews</div>
+
+<?php
+}
+$et->db->close();
+// echo "here";
+?>
+
+<div class="masonry" id="searchResults">
 
    <?php
       } else {

@@ -7,26 +7,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 ?>
 
-<div align="center" style="margin:1em 0 1em 0;">
-	<div class="mode-button">
-		<div class="button" type="button" id="all" onclick="loadAllEvent()">
-		ALL
-		</div> 
-		| 
-		<div class="button" type="button" id="calendar" onclick="loadCalendar()">
-		CALENDER
-		</div>
-		| 
-		<div class="button" type="button" id="mapSearch" onclick="loadMap()">
-		MAP
-		</div>
-		| 	
-		<div class="button" type="button" id="recommendation" onclick="loadRecommendation()">
-		RECOMMENDATION
-		</div>
-	</div>
-</div>
-
 <div class="masonry">	
 	<div class="item">
 		<div class="item-name">

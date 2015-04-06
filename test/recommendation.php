@@ -1,25 +1,5 @@
 <?php require_once('EventClass.php'); ?>
 
-<div align="center" style="margin:1em 0 1em 0;">
-	<div class="mode-button">
-		<div class="button" type="button" id="all" onclick="loadAllEvent()">
-		ALL
-		</div> 
-		| 
-		<div class="button" type="button" id="calendar" onclick="loadCalendar()">
-		CALENDER
-		</div>
-		| 
-		<div class="button" type="button" id="map" onclick="loadMap()">
-		MAP
-		</div>
-		|
-		<div class="button" type="button" id="reference" onclick="loadRecommendation()">
-		RECOMMENDATION
-		</div>
-	</div>
-</div>
-
 <div class="masonry">				
 	<?php
 		$event = new Event();
