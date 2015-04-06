@@ -15,6 +15,7 @@ require_once('CommentClass.php');
 	$isPar = 0;
 	$isLike = 0;
 
+
 	if($uid == $eInfo['uid']){
 		$isOwner = 1;
 	}
@@ -26,6 +27,7 @@ require_once('CommentClass.php');
 			$isPar = 1;
 		}
 	}
+	
 ?>
 
 <div class="bannercontainer">
@@ -46,40 +48,42 @@ require_once('CommentClass.php');
 	<div class="eventbuttons" style="padding:right">
 
 	<?php 
-		if($isOwner) {?>
-			<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> 
-	<?php 
-		} else{
-	?>
-			<input id="like" type="submit" name="submit" 
-			value="<?php 
-						if($isLike == 0){
-							echo "Like";
-						}
-						else {
-							echo "Unlike";
-						}
-					?>" 
-			onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
+		if (isset($_SESSION["logged"])){
+			if($isOwner) {?>
+				<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> 
+		<?php 
+			} else{
+		?>
+				<input id="like" type="submit" name="submit" 
+				value="<?php 
+							if($isLike == 0){
+								echo "Like";
+							}
+							else {
+								echo "Unlike";
+							}
+						?>" 
+				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
 
-			<input id="join" type="submit" name="submit" 
-			value="<?php 
-						if($isPar == 0){
-							echo "Join";
-						}
-						else {
-							echo "Unjoin";
-						}
-					?>"  
-			onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
-	<?php 				
-		} 
-	?>
-	<?php
-		if($isOwner || $isPar){
-	?>
-		<input id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">
-	<?php
+				<input id="join" type="submit" name="submit" 
+				value="<?php 
+							if($isPar == 0){
+								echo "Join";
+							}
+							else {
+								echo "Unjoin";
+							}
+						?>"  
+				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
+		<?php 				
+			} 
+		?>
+		<?php
+			if($isOwner || $isPar){
+		?>
+			<input id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">
+		<?php
+			}
 		}
 	?>
 		</div>
@@ -136,6 +140,9 @@ require_once('CommentClass.php');
 	</div>
 	<input id="refreshComment" type="button" value="refresh" onclick="refreshComment(<?php echo $eid ?>)">
 	<hr>
+<?php
+	if (isset($_SESSION["logged"])){
+?>
 	<div class="writecomment">
 		<form method="" action=""> 
 		   <h3>I'd like to say...</h3>
@@ -148,4 +155,7 @@ require_once('CommentClass.php');
 		   <div id="friendList"><div>
 		</form>
 	<div>
+<?php 
+	} 
+?>
 </div>

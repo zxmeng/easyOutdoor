@@ -1,8 +1,6 @@
 <?php 
 
-// include_once("global.php");
-mysql_connect("localhost","root","") or die("Could not connect to server!");
-mysql_select_db("eo") or die("Could not select database!");
+include_once("connect.php");
 
 $message = "";
 
@@ -44,6 +42,7 @@ if(isset($_POST['Login'])){
 						session_start();
 
 						$_SESSION['logged']=1;
+						$_SESSION['id']=$query_row['uid'];
 						$_SESSION['email']=$email;
 						$_SESSION['nickname']=$nickname;
 						$_SESSION['password']=$password;

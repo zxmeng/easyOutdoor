@@ -6,6 +6,7 @@
 	}
 	else{  
 	    $logged = 0;
+	    $_SESSION['id'] = -1;
 	}
 
 	require_once('init.php');

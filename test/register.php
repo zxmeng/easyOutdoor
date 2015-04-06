@@ -1,7 +1,11 @@
 <?php
 // include_once("scripts/global.php");
 
+include_once("connect.php");
+$message="";
+
 if(isset($_POST['Register'])){
+
 	$nickname = $_POST['nickname'];
 	$phone = $_POST['phone'];
 	$profile = $_POST['profile'];
@@ -18,6 +22,7 @@ if(isset($_POST['Register'])){
 		}else{
 			//securing the data
 			//$password1=md5($password1);
+		
 			$email=mysql_real_escape_string($email);
 			
 			//check for dublicates of email
@@ -26,8 +31,9 @@ if(isset($_POST['Register'])){
 			
 
 			if($count_email>0){
-				echo 'Your email is already in use!';
+				$message= 'Your email is already in use!';
 			}else{
+			
 				//generate random code
 				$code=rand(11111111,99999999);
 				//sned activation email. Everything below is in the email! Lawrence
@@ -38,14 +44,16 @@ if(isset($_POST['Register'])){
 				Send_Mail($to,$subject,$body);
 				//end email (HAVE TO CHANGE THE LINK IN BODY SINCE THE SERVER SET UP IS DIFFERENT IN EVERY PC) lawrence!!!!!!!!!!!!!!
 
-				if(!mail($to,$subject,$body,$headers)){
-					echo "We couldn't sign you up at this time. Please try again later.";
+				if(!mail($to,$subject,$body)){
+					$message= "We couldn't sign you up at this time. Please try again later.";
 				}else{
+				
 					//insert to database
+					$now = date("Y-m-d H:i:s");
 					$register= mysql_query("INSERT INTO User(nickname,email,password,phone,uProfile,joinTime,status,code)
-						VALUES('$nickname','$email','$password1','$phone','$profile',now(),'0','$code')")
+						VALUES('$nickname','$email','$password1','$phone','$profile','$now','0','$code')")
 						or die("Could not insert your information");
-					echo 'You have now been registered!';
+					$message=  'You have now been registered!';
 					header("Location:index.php");
 				}	
 			}
@@ -77,7 +85,7 @@ if(isset($_POST['Register'])){
         <input type="text" name="profile" placeholder="Profile"/><br/>
         <input type="password" name="password1" placeholder="Password"/><br/>
         <input type="password" name="password2" placeholder="Validate Password"/><br/>
-        <input type="submit" value="Register"/>
+        <input type="submit" name="Register" value="Register"/>
     </form>
 </div>
 </body>

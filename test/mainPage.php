@@ -8,23 +8,32 @@
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
-
-	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo 2; ?>)">Notification</div>
-
+<?php
+	if($logged==1){
+?>
+	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div>
+<?php
+	}
+?>
 </div>
 
+<?php
+	if($logged==1){
+?>
 <div class="createbutton">
-	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php //echo 1; ?>)">
+	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php //echo $_SESSION['id']; ?>)">
 	<i class="glyphicon glyphicon-plus">E</i>
 	</button>
 </div>
 
 <!-- <div class="createbutton">
-	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateReview(<?php echo 1; ?>)">
+	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateReview(<?php //echo $_SESSION['id']; ?>)">
 	<i class="glyphicon glyphicon-plus">R</i>
 	</button>
 </div> -->
-
+<?php
+	}
+?>
 <div class="eventcomment">
 	<div id="notiBox"></div>
 </div>
