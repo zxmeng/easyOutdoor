@@ -40,7 +40,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<?php include_once('left.php');?>
+				<?php include_once('left.php'); ?>
 			</header>
 
 	<script src="userScript.js"></script>
