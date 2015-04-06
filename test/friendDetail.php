@@ -35,11 +35,11 @@
 		<!-- default "Created Events" -->
 		<div class="mode-button">
 			<input type="button" value="Created Events" 
-			onclick="showUserEvents(<?php echo $auid; ?>, 1)" > | 
+			onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 1)" > | 
 			<input type="button" value="Joint Events" 
-			onclick="showUserEvents(<?php echo $auid; ?>, 2)" > | 
+			onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 2)" > | 
 			<input type="button" value="Created Reviews" 
-			onclick="showUserEvents(<?php echo $auid; ?>, 3)" >
+			onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 3)" >
 		</div>
 
 	</div>

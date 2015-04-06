@@ -64,7 +64,7 @@ class Review{
     public function getReviewsByUser($uid){
         $sql = "SELECT review.*, user.*
                 FROM review, user
-                WHERE review.uid = user.uid
+                WHERE review.uid = user.uid AND user.uid = $uid
                 ORDER BY review.lastEditTime ASC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);

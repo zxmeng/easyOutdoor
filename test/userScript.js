@@ -63,7 +63,7 @@ function clickFollow(uid, auid){
 	xmlhttp.send();
 }
 
-function showUserEvents(uid, flag) {
+function showUserEvents(auid, uid, flag) {
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange=function() {
@@ -71,10 +71,10 @@ function showUserEvents(uid, flag) {
             document.getElementById("userEvent").innerHTML= xmlhttp.responseText;
         }
     }
-    var data = "?uid=" + uid + "&flag=" + flag;
+    var data = "?auid=" + auid +"&uid=" + uid + "&flag=" + flag;
 
 	xmlhttp.open("GET","goToUserEvents.php"+data, true);
-	//window.alert(data);
+	// window.alert(data);
 	xmlhttp.send();
 }
 

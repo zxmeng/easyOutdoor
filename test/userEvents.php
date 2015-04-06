@@ -6,11 +6,14 @@
 	$rw = new Review();
 
 	if ($flag == 1)
-		$events = $et->getEventsCreatedByUser($uid);
+		$events = $et->getEventsCreatedByUser($auid);
 	else if ($flag == 2)
-		$events = $et->getEventsJoinedByUser($uid);
+		$events = $et->getEventsJoinedByUser($auid);
 	else // if ($flag == 3)
-		$events = $rw->getReviewsByUser($uid);
+
+		$events = $rw->getReviewsByUser($auid);
+	// echo $auid;
+
 ?>
 
 
@@ -37,7 +40,18 @@
 	   			<h2>Description:</h2><?php echo $event['eDescription']; ?><br>
 	   		</div>
 	   		<div align="right">
-	   		<div class="button" onclick="loadEvent(<?php echo $event['eid'].','.$uid; ?>)">More Infomation</div></div>
+	   		<?php 
+	   			if($flag < 3){
+	   		?>
+	   				<div class="button" onclick="loadEvent(<?php echo $event['eid'].','.$uid; ?>)">More Infomation</div></div>
+	   		<?php
+	   			}
+	   			else{
+	   		?>
+	   				<div class="button" onclick="loadReview(<?php echo $event['pid'].','.$uid; ?>)">More Infomation</div></div>
+	   		<?php
+	   			}
+			?>
 	   </div>
 
 	<?php
