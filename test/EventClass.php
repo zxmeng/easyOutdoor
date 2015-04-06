@@ -123,7 +123,11 @@ class Event{
     public function like($eid, $uid){
         $sql = "INSERT INTO LikeEvent(uid,eid,time)
                 VALUES($uid, $eid, now())";
+        $like = "UPDATE `event`
+                 SET likeNo = likeNo + 1
+                 WHERE eid = $eid";
         $this->db->query($sql);
+        $this->db->query($like);
         return;
     }
 
@@ -131,6 +135,10 @@ class Event{
         $sql = "DELETE FROM LikeEvent 
                 WHERE uid = $uid AND eid = $eid";     
         $this->db->query($sql);
+        $unlike = "UPDATE `event`
+                 SET likeNo = likeNo - 1
+                 WHERE eid = $eid";
+        $this->db->query($unlike);
         return;
     }
 
@@ -138,6 +146,10 @@ class Event{
         $sql = "INSERT INTO Participation(uid,eid,time)
                 VALUES($uid, $eid, now())";
         $this->db->query($sql);
+        $join = "UPDATE `event`
+                 SET parNo = parNo + 1
+                 WHERE eid = $eid";
+        $this->db->query($join);
         return;
     }
 
@@ -145,6 +157,10 @@ class Event{
         $sql = "DELETE FROM Participation 
                 WHERE uid = $uid AND eid = $eid";     
         $this->db->query($sql);
+        $unjoin = "UPDATE `event`
+                   SET parNo = parNo - 1
+                   WHERE eid = $eid";
+        $this->db->query($unjoin);
         return;
     }
 
