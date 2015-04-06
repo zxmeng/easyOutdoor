@@ -7,7 +7,6 @@ function clickCreateReview(uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Cancel";
             //backFlag = 1;
         }
     }
@@ -27,7 +26,6 @@ function clickEdit_R(pid, uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Cancel";
             //backFlag = 0;
         }
     }
@@ -83,7 +81,6 @@ function updateReview(pid,uid,name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
         }
     }
     
@@ -150,7 +147,6 @@ function createReview(uid, name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
         }
     }
     var title = document.getElementById("r_title").value;
