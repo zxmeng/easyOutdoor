@@ -6,17 +6,6 @@
 
 	$db = new DataBase();
 
-	// $sqlB = "SELECT uidB
-	// 		 FROM Friend
-	// 		 WHERE uidA = $uid";
-	// $sqlA = "SELECT uidA
-	// 		 FROM Friend
-	// 		 WHERE uidB = $uid";
-	// $resA = $db->query($sqlA);
-	// $resB = $db->query($sqlB);
-
-	// $arrayA = $resA->fetch_all(MYSQLI_ASSOC);
-	// $arrayB = $resB->fetch_all(MYSQLI_ASSOC);
 	$et = new Event();
 	$events = $et->getEventsCreatedByUser($uid);
 ?>
