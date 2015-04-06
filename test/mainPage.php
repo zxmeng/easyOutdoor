@@ -1,4 +1,4 @@
-Main -->
+<!-- Main --> 
 
 <div id="main">
 	<div align="center">
@@ -10,10 +10,14 @@ Main -->
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
 
 <?php
-	session_start();
+
+	if (session_status() == PHP_SESSION_NONE) {
+    	session_start();
+	}
+	
 	if($logged==1){
 ?>
-	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div>
+	
 <?php
 	}
 ?>
@@ -36,9 +40,6 @@ Main -->
 <?php
 	}
 ?>
-<div class="eventcomment">
-	<div id="notiBox"></div>
-</div>
 
 <script src="mainScript.js"></script>
 <script src="eventScript.js"></script>

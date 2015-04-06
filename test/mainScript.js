@@ -1,6 +1,6 @@
 function loadEvent(eid, uid)
 {
-	window.alert("Here!");
+	// window.alert("Here!");
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 
@@ -19,7 +19,7 @@ function loadEvent(eid, uid)
 
 function loadAllEvent()
 {
-	alert("Into load");
+	// alert("Into load");
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 	//window.alert("Here!");
@@ -88,11 +88,11 @@ var notiFlag = 0;
 
 function loadNotification(uid)
 {
-	window.alert("HAHA");
+	// window.alert("HAHA");
 	if(notiFlag==0){
 		var xmlhttp;
 		xmlhttp = new XMLHttpRequest();
-		window.alert("Here!");
+		// window.alert("Here!");
 
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
@@ -102,7 +102,7 @@ function loadNotification(uid)
 	    }    
 	    var data = "?uid=" + uid;
 
-		window.alert(data);		
+		// window.alert(data);		
 		
 		xmlhttp.open("GET","goToNotification.php"+data, true);
 		xmlhttp.send();

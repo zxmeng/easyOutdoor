@@ -11,7 +11,6 @@ CREATE TABLE User (
 	uPhoto VARCHAR(100),
 	uProfile VARCHAR(100),
 	joinTime DATETIME,
-	lastLoginTime DATETIME,
 	status TINYINT NOT NULL,
 	code INT
 );
@@ -46,12 +45,6 @@ CREATE TABLE Review (
 	postTime DATETIME NOT NULL,
 	lastEditTime DATETIME NOT NULL
 );
-
--- CREATE TABLE Chatroom(
--- 	rid INT AUTO_INCREMENT PRIMARY KEY,
--- 	rname VARCHAR(30) NOT NULL,
--- 	eid INT NOT NULL REFERENCES Event
--- );
 
 CREATE TABLE Message(
 	mid INT AUTO_INCREMENT PRIMARY KEY,

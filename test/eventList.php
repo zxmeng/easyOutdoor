@@ -1,6 +1,10 @@
 <?php 
 require_once('EventClass.php'); 
-session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 ?>
 
 <div align="center" style="margin:1em 0 1em 0;">

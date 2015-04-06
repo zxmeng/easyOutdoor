@@ -1,6 +1,6 @@
 <?php 	
 
-	include_once("scripts/global.php");
+	include_once("connect.php");
 
 	$code = $_GET['code'];
 
