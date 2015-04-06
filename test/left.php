@@ -12,7 +12,7 @@
 		//logged in
 ?>
 		<div class="container center login">
-		    <h1>EasyOutdoor</h1>
+		    <div "commentheader"><img class="icon" src="images/logo-sq.png"><br></div>
 		    <font color='#58ACFA'><?php echo $nickname; ?>:</font> Logged in
 		</div>
 
