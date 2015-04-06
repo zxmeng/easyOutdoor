@@ -7,6 +7,8 @@
 
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
+	<div id="map" style="width: 500px; height: 400px;" type="hidden"></div>
+
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
 
 <?php

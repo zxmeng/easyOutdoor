@@ -59,7 +59,12 @@ function loadMap()
 	//window.alert("Here!");
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("change").innerHTML= xmlhttp.responseText;
+            document.getElementById("change").innerHTML= "";
+
+            document.getElementById("map").type="visible";
+            initialize();
+            //backFlag = 3;
+
         }
     }
 
