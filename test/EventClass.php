@@ -4,22 +4,8 @@ require_once('DBClass.php');
 class Event{
 
     public $db;
-    // public $title;
-    // public $id;
-    // public $ownerID;
-    // public $eventDate;
-    // public $limitation;
-    // public $profilePhoto;
-    // Init DB Variable
-    // public function __construct($var1,$var2,$var3,$var4,$var5, $var6){
-     public function __construct(){
-        // $this->title = $var1;
-        // $this->id = $var2;
-        // $this->ownerID = $var3;
-        // $this->eventDate = $var4;
-        // $this->limitation = $var5;
-        // $this->profilePhoto = $var6;
 
+    public function __construct(){
         // Create connection
         $this->db = new Database();
     }
@@ -72,9 +58,10 @@ class Event{
     // // Return all ongoing events ordered by their event dates
     public function getAllEvents(){
        // echo "GET ALL EVENTS";
+        $now = date("Y-m-d H:i:s");
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
-                WHERE event.uid = user.uid
+                WHERE event.uid = user.uid AND event.eDate > '$now'
                 ORDER BY event.eDate ASC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
@@ -83,9 +70,10 @@ class Event{
 
     public function getRecommendation(){
        // echo "GET ALL EVENTS";
+        $now = date("Y-m-d H:i:s");
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
-                WHERE event.uid = user.uid AND event.likeNo > 10
+                WHERE event.uid = user.uid AND event.likeNo > 10 AND event.eDate > '$now'
                 ORDER BY event.likeNo DESC";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
@@ -100,18 +88,6 @@ class Event{
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
         return $resultArray; 
-    }
-
-    // // Return the ongoing events in which a user creates or currently participates
-    public function getEventsByUser($uid){
-        $sql = "SELECT event.*, user.nickname, user.uPhoto
-                FROM event, user, participation 
-                WHERE event.uid = user.uid
-                OR ( event.eid = participation.eid AND participation.uid = $uid ) 
-                ORDER BY event.eDate ASC";
-        $result = $this->db->query($sql);
-        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
-        return $resultArray;
     }
 
     public function checkLike($eid, $uid){
@@ -162,6 +138,38 @@ class Event{
         return;
     }
 
+    // // Return the ongoing events in which a user creates or currently participates
+    public function getEventsCreatedByUser($uid){
+        $sql = "SELECT event.*
+                FROM event
+                WHERE event.uid = $uid
+                ORDER BY event.postTime DESC";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
+
+    public function getEventsJoinedByUser($uid){
+        $sql = "SELECT event.*
+                FROM event, participation
+                WHERE event.eid = participation.eid AND participation.uid = $uid
+                ORDER BY participation.time DESC";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
+
+    //     public function getEventsByUser($uid){
+    //     $sql = "SELECT event.*, user.nickname, user.uPhoto
+    //             FROM event, user, participation 
+    //             WHERE event.uid = user.uid
+    //             OR ( event.eid = participation.eid AND participation.uid = $uid ) 
+    //             ORDER BY event.eDate ASC";
+    //     $result = $this->db->query($sql);
+    //     $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+    //     return $resultArray;
+    // }
+
     // // Return the events history of a user
     // public function getUserHistory($userID){
     //     $sql = "SELECT event.*, user.username, user.profilePhoto
@@ -175,15 +183,16 @@ class Event{
     // }
 
     // // Return the ongoing events related to a district
-    // public function getByDistrict($district){
-    //     $sql = "SELECT event.*, user.username, user.profilePhoto
-    //             FROM event, user 
-    //             WHERE event.ownerID = user.ID AND event.distrcit = '$district' AND event.status = true
-    //             ORDER BY eventDate";
-    //     $result = $this->db->query($sql);
-    //     $resultArray = $result->fetch_all(MYSQLI_ASSOC);
-    //     return $resultArray;
-    // }
+    public function getEventsByDistrict($district){
+        $now = date("Y-m-d H:i:s");
+        $sql = "SELECT event.*, user.*
+                FROM event, user 
+                WHERE event.uid = user.uid AND event.distrcit = '$district' AND event.eDate > '$now'
+                ORDER BY evenevent.eDate ASC";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
 
     //  // Return the events historty related to a district
     // public function getDistrictHistory($district){
@@ -197,15 +206,15 @@ class Event{
     // }
 
     // // Return the events on that day
-    // public function getByDate($date){
-    //     $sql = "SELECT event.*, user.username, user.profilePhoto
-    //             FROM event, user 
-    //             WHERE event.ownerID = user.ID AND event.date = '$date'
-    //             ORDER BY event.lastEditTime DESC";
-    //     $result = $this->db->query($sql);
-    //     $resultArray = $result->fetch_all(MYSQLI_ASSOC);
-    //     return $resultArray;
-    // }
+    public function getEventsByDate($date){
+        $sql = "SELECT event.*, user.*
+                FROM event, user 
+                WHERE event.uid = user.uid AND event.eDate = '$date'
+                ORDER BY event.lastEditTime DESC";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
 
 }
 

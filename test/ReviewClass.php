@@ -62,7 +62,7 @@ class Review{
 
     // // Return the ongoing events in which a user creates or currently participates
     public function getReviewsByUser($uid){
-        $sql = "SELECT review.*, user.nickname, user.profilePhoto
+        $sql = "SELECT review.*, user.*
                 FROM review, user
                 WHERE review.uid = user.uid
                 ORDER BY review.lastEditTime ASC";
@@ -95,4 +95,17 @@ class Review{
         return;
     }
 
+
+    public function getReviewsByDistrict($district){
+        $now = date("Y-m-d H:i:s");
+        $sql = "SELECT review.*, user.*
+                FROM review, user 
+                WHERE review.uid = user.uid AND review.distrcit = '$district'
+                ORDER BY review.postTime";
+        $result = $this->db->query($sql);
+        $resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        return $resultArray;
+    }
+
 }
+
