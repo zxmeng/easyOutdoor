@@ -1,6 +1,8 @@
 <?php 
 require_once('EventClass.php'); 
 require_once('CommentClass.php');
+session_start();
+
 ?>
 
 

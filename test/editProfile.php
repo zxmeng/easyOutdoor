@@ -47,7 +47,7 @@
 
                     <div class="field">
                         <label for='password'>Description</label>
-                        <textarea class="form-control" rows="3" name="description" id="e_description"><?php echo $review['eDescription'];?></textarea>
+                        <textarea class="form-control" rows="3" name="description" id="e_description"><?php echo $review['eDescription']; ?></textarea>
                     </div>
 
                     <form enctype="multipart/form-data" method="post" name="imageFile">

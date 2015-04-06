@@ -8,7 +8,9 @@ Main -->
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
 	<div class="button" type="button" id="back" onclick="loadAllEvent()">Home</div>
+
 <?php
+	session_start();
 	if($logged==1){
 ?>
 	<div class="button" type="button" id="back" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)">Notification</div>
@@ -21,7 +23,7 @@ Main -->
 	if($logged==1){
 ?>
 <div class="createbutton">
-	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php //echo $_SESSION['id']; ?>)">
+	<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)">
 	<i class="glyphicon glyphicon-plus">E</i>
 	</button>
 </div>

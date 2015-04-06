@@ -1,4 +1,7 @@
-<?php require_once('EventClass.php'); ?>
+<?php 
+require_once('EventClass.php'); 
+session_start();
+?>
 
 <div align="center" style="margin:1em 0 1em 0;">
 	<div class="mode-button">

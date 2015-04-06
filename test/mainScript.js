@@ -1,8 +1,9 @@
 function loadEvent(eid, uid)
 {
+	window.alert("Here!");
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
+
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
@@ -18,7 +19,7 @@ function loadEvent(eid, uid)
 
 function loadAllEvent()
 {
-	// alert("Into load");
+	alert("Into load");
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 	//window.alert("Here!");
@@ -27,7 +28,6 @@ function loadAllEvent()
             document.getElementById("change").innerHTML= xmlhttp.responseText;
             guid = 0;
 			geid = 0;
-            //backFlag = 1;
         }
     }
 
@@ -44,7 +44,6 @@ function loadCalendar()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 2;
         }
     }
 
@@ -61,7 +60,6 @@ function loadMap()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 3;
         }
     }
 
@@ -78,7 +76,6 @@ function loadRecommendation()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 4;
         }
     }
 
