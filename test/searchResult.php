@@ -23,8 +23,10 @@ $et->db->close();
 // echo "here";
 ?>
 
-<div class="masonry" id="searchResults">
 
+<div class="masonry">
+   <?php if(empty($events)){ ?>
+      <div align="center"><h2>No event in <?php echo $data; ?> now<br></h2></div>
    <?php
       } else {
    	foreach($events as $event){

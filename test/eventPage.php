@@ -105,7 +105,7 @@ if (session_status() == PHP_SESSION_NONE) {
 			//echo "<p> user is: ".$user['uid']."</p>";
 	?>
 <!--while loop to list every participant (limit to 9) -->
-	<div class="participantcontainer">
+	<div class="participantcontainer"  type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$user['uid']; ?>)">
 		<img src="<?php echo $user['uPhoto']; ?>" alt="file not found">
 	</div>
 	 <?php } ?>
