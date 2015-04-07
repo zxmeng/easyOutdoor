@@ -163,20 +163,18 @@ if (session_status() == PHP_SESSION_NONE) {
 		.tg td{overflow:hidden;vertical-align: middle;}
 		.tg th{vertical-align: middle;}
 		</style>
-	<table class="tg" style="width:98%;margin:10px auto 10px auto;">
-	<tr>
+	<table class="tg" style="width:98%;margin:10px auto 10px auto;"><tr>
 		<th class="tg-031e" style="width:100%;">
-			<h3>I'd like to say...</h3>
-			<textarea id="commentBox" name="comment" rows="5" cols="50"></textarea>
-			</br>
+			<br>
+			<textarea id="commentBox" name="comment" rows="5" cols="50" placeholder="I'd like to say..."></textarea>
+			<br>
 			<input type="button" value="submit"
 			 onclick="sendComment(<?php echo $eid.', '.$uid; ?>)"> 
 			<input type="button" value="@"
 			 onclick="showFriendList(<?php echo $uid; ?>)"> 
 			<div id="friendList" type="button"></div>
 		</th>
-	</tr>
-	</table>		
+	</tr></table>		
 <?php 
 	} 
 ?>
