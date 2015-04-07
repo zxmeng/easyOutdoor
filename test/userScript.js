@@ -138,7 +138,6 @@ function updateProfile(uid,name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            document.getElementById("back").innerHTML = "Home";
         }
     }
     

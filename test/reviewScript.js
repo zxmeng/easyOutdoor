@@ -7,7 +7,6 @@ function clickCreateReview(uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 1;
         }
     }
     
@@ -26,7 +25,6 @@ function clickEdit_R(pid, uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            //backFlag = 0;
         }
     }
     
