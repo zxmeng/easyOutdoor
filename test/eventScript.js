@@ -237,7 +237,7 @@ function clickChatroom(eid, uid)
 
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById("top").onload = viewMessage(uid, eid);
+            addLoadEvent(viewMessage(uid, eid));
             document.getElementById("change").innerHTML= xmlhttp.responseText;
         }
     }

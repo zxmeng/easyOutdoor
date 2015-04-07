@@ -1,8 +1,7 @@
 <?php
-	// require_once 'core/init.php';
-	// if (Session::exists('home')) {
-	// 	echo Session::flash('home');
-	// }
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
 ?>
 
 <!DOCTYPE HTML>
@@ -38,7 +37,13 @@
 
 	</head>
 
-	<body id="top" onload="">
+<?php 
+	if($logged==1){
+?>
+		<body id="top" onload="loadNotification(<?php echo $_SESSION['id']; ?>)">
+<?php
+	}
+?>
 
 		<!-- Header -->
 			<header id="header">

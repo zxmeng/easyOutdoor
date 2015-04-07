@@ -21,15 +21,15 @@
 		   <h2> <font color='#58ACFA'><?php echo $nickname; ?></font></h2>
 		</div><br>
 
-
 		<button type="button" class="btn btn-default btn-circle btn-lg" id="friend" onclick="clickFriend(<?php echo $_SESSION['id']; ?>)" style="margin:0 3px 5px 3px;"><i class="glyphicon glyphicon-user"></i></button>
 		<button type="button" class="btn btn-default btn-circle btn-lg" id="editFrofile" onclick="clickEditProfile(<?php echo $_SESSION['id']; ?>)"style="margin:0 3px 5px 3px;"><i class="glyphicon glyphicon-pencil"></i></button>
-		<button type="button" class="btn btn-default btn-circle btn-lg" id="notification" onclick="loadNotification(<?php echo $_SESSION['id']; ?>)"style="margin:0 3px 5px 3px;"><i class="glyphicon glyphicon-list-alt"></i></button>
+		
+		<!-- <button type="button" class="btn btn-default btn-circle btn-lg" id="notification" onclick="loadNotification(<?php //echo $_SESSION['id']; ?>)"style="margin:0 3px 5px 3px;"><i class="glyphicon glyphicon-list-alt"></i></button> -->
+
 		<br>
-		<div id="notiBox"></div>
+		<div id="notiBox"><?php include_once('notification.php'); ?></div>
 		<br>
 		<button type="button" class="btn btn-default btn-circle btn"><a href="logout.php"><i class="glyphicon glyphicon-plus"></i></a></button>
-
 
 <?php 
 	}
@@ -40,9 +40,6 @@
 		    <h1>EasyOutdoor</h1>
 		    <a href="login.php">Login</a> | <a href="register.php">Register</a>
 		</div>
-		
-
-
 <?php
 	}
 ?>

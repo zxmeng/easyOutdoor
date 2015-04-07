@@ -88,29 +88,35 @@ function loadRecommendation()
 	xmlhttp.send();
 }
 
-var notiFlag = 0;
-
+setInterval(loadNotification, 500); 
 function loadNotification(uid)
 {
 
-	if(notiFlag==0){
-		var xmlhttp;
-		xmlhttp = new XMLHttpRequest();
+	var xmlhttp;
+	xmlhttp = new XMLHttpRequest();
 
-		xmlhttp.onreadystatechange=function() {
-	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-	            document.getElementById("notiBox").innerHTML= xmlhttp.responseText;
-				notiFlag = 1;
-	        }
-	    }    
-	    var data = "?uid=" + uid;		
-		
-		xmlhttp.open("GET","goToNotification.php"+data, true);
-		xmlhttp.send();
-	}
+	xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById("notiBox").innerHTML= xmlhttp.responseText;
+        }
+    }    
+    var data = "?uid=" + uid;		
+	
+	xmlhttp.open("GET","goToNotification.php"+data, true);
+	xmlhttp.send();
 
-	else{
-		document.getElementById("notiBox").innerHTML = "";
-		notiFlag = 0;
-	}
+}
+
+function addLoadEvent(func) {
+  var oldonload = document.getElementById("top").onload;
+  if (typeof document.getElementById("top").onload != 'function') {
+    document.getElementById("top").onload = func;
+  } else {
+    document.getElementById("top").onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
 }
