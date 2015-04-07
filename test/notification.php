@@ -37,7 +37,7 @@
 	else{
 
 ?>
-	<div class="notification-header">Notification</div>
+	<div class="notification-header">Notification
 <?php
 		if($cno != 0) {
 	?>
@@ -45,7 +45,7 @@
 	<?php
 			foreach($commentNoti as $noti){ 
 	?>
-				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
+				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid'].', '.$uid; ?>)">
 					<div class="commentcontent">
 						<?php echo $noti['nickname']." commented on your event ".$noti['title']; ?>
 					</div>
@@ -56,7 +56,7 @@
 	<?php 
 			}
 	?>
-			</div>
+			<!-- </div> -->
 	<?php
 		} 
 	?>
@@ -69,7 +69,7 @@
 	<?php
 			foreach($mentionNoti as $noti){ 
 	?>
-				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
+				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid'].', '.$uid; ?>)">
 					<div class="commentcontent">
 						<?php echo $noti['nickname']." mentioned you on event ".$noti['title']; ?>
 					</div>
@@ -80,7 +80,7 @@
 	<?php 
 			}
 	?>
-			</div>
+			<!-- </div> -->
 	<?php
 		} 
 	?>
@@ -94,7 +94,7 @@
 			foreach($followNoti as $noti){ 
 	?>
 				<div class="notification">
-					<div class="commentcontent">
+					<div class="commentcontent" type="button" onclick="loadPersonalHomepage(<?php echo $uid.', '.$noti['uid']; ?>)">
 						<?php echo $noti['nickname']." followed you"; ?>
 					</div>
 					<div class="commentinfo">
@@ -104,7 +104,7 @@
 	<?php 
 			}
 	?>
-			</div>
+			<!-- </div> -->
 	<?php
 		} 
 	?>
@@ -117,7 +117,7 @@
 	<?php
 			foreach($joinNoti as $noti){ 
 	?>
-			<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
+			<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid'].', '.$uid; ?>)">
 				<div class="commentcontent">
 					<?php echo $noti['nickname']." participated in your event ".$noti['title']; ?>
 				</div>
@@ -128,7 +128,7 @@
 	<?php 
 			}
 	?>
-			</div>
+			<!-- </div> -->
 	<?php
 		} 
 	}
