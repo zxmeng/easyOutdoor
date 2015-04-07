@@ -178,13 +178,10 @@ if (session_status() == PHP_SESSION_NONE) {
 						<h3 style="line-height: 40px;"><?php echo $comment['content']; ?></H3>
 					</div>
 					<div class="commentinfo" style="margin-left:70px;">
-						<h6><?php echo $comment['time'] ?></h6>
-					</div>
-					<?php if($comment['ruid'] != 0) { ?>
-			   			<div class="commentinfo">
-			   				mentioned: <?php echo $commentList->getUserName($comment['ruid']); ?><br/>
-			   			</div>
-			   		<?php } ?>
+						<h6>
+						<?php echo $comment['time'] ?>   <?php if($comment['ruid'] != 0) { ?>mentioned: <?php echo $commentList->getUserName($comment['ruid']); } ?>
+			   			<br></h6>
+			   		</div>
 				</div>
 			<?php }} ?>
 		<!--endwhile-->
@@ -202,32 +199,19 @@ if (session_status() == PHP_SESSION_NONE) {
 		</style>
 	<table class="tg" style="width:98%;margin:10px auto 10px auto;">
 	<tr>
-		<th class="tg-031e" style="width:90%;">
-			   <h3>I'd like to say...</h3>
-			   <textarea id="commentBox" name="comment" rows="5" cols="50"></textarea>
-			   </br>
-			   <!--
-			   <input id="atButton" type="button" style="padding:right" name="submit" 
-			   value="@" onclick="showFriendList(<?php echo $uid ?>)">
-			   <input id="subbutton" type="button" style="padding:right" name="submit" 
-			   value="Submit" onclick="sendComment(<?php echo $eid.', '.$uid; ?>)"> 
-			   <div id="friendList"><div>-->
-		</th>
-		<th class="tg-031e"><div class="btn-group-vertical btn-group.btn-group-justified" role="group" aria-label="..." style="display: table-cell">
-					  <button class="btn btn-default" type="button"data-toggle="dropdown" onclick="showFriendList(<?php echo $uid ?>)">@<span class="caret"></span></button>
-						  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-						  	<!--while loop to echo friend--> 
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-						    <!--end while loop to echo friend-->
-						  </ul>
-			  <button type="button" class="btn btn-default" onclick="sendComment(<?php echo $eid.', '.$uid; ?>)">Submut</button>
-			</div>
+		<th class="tg-031e" style="width:100%;">
+			<h3>I'd like to say...</h3>
+			<textarea id="commentBox" name="comment" rows="5" cols="50"></textarea>
+			</br>
+			<input type="button" value="submit"
+			 onclick="sendComment(<?php echo $eid.', '.$uid; ?>)"> 
+			<input type="button" value="@"
+			 onclick="showFriendList(<?php echo $uid; ?>)"> 
+			<div id="friendList" type="button"></div>
 		</th>
 	</tr>
+	
 	</table>		
-		
-	<div>
 <?php 
 	} 
 ?>
-</div>

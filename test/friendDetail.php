@@ -13,9 +13,7 @@
 
 <div>
 	<div align="center">
-		<img class="icon" src="<?php echo $userDetail['uPhoto']; ?>">
-		<!-- <div class="name"><a href="profile.php?user=<?php //echo escape($user->data()->username);?>"><?php //echo escape($user->data()->username); ?>
-		</div> -->
+		<p><div class="loginicon"><img src="<?php echo $userDetail['uPhoto']; ?>"></div></p>
 		<div class="name"><?php echo $userDetail['nickname']; ?></div>
 		<?php if ($auid != $uid) { ?>
 		<input id="follow" type="submit" name="submit" 

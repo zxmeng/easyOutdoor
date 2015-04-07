@@ -35,7 +35,7 @@
 
 	<div id="frienddetail" class="frienddetail" >
 		<div align="center">
-			<img class="icon" src="<?php echo $userDetail['uPhoto']; ?>">
+			<p><div class="loginicon"><img src="<?php echo $userDetail['uPhoto']; ?>"></div></p>
 			<div class="name"><?php echo $userDetail['nickname']; ?></div>
 			<!-- There won't be follow button in the user's own homepage -->
 			<!-- The mode-button will be user to choose the events' show mode -->
