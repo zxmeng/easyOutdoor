@@ -49,11 +49,15 @@ if (session_status() == PHP_SESSION_NONE) {
 			</div>
 
 	</div>
-	<div class="eventmap" style="display:inline">
-		map api;;;
+
+	<?php
+		$map_url = $eInfo['venue'];
+		$map_url = str_replace(" ", "+", $map_url);
+	?>
+	<div class="eventmap">
+	<iframe width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  src="http://maps.google.nl/maps?q=<?=$map_url?>&hl=nl&ie=UTF8&t=v&hnear=<?=$map_url?>&z=13&amp;output=embed"></iframe>
 	</div>
-	
-	
+
 </div>
 				<!--button-->
 	<div style="margin:1em 0 1em 0;bottom:0px;">
@@ -63,7 +67,6 @@ if (session_status() == PHP_SESSION_NONE) {
 		if (isset($_SESSION["logged"])){
 			if($isOwner) {?>
 				<button class="btn btn-default" id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)">Edit</button>
-				<!--<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> -->
 		<?php 
 			} else{
 		?>
@@ -76,25 +79,8 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unlike";
 							}
 						?>" 
-				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)"><?php 
-							if($isLike == 0){
-								echo "Like";
-							}
-							else {
-								echo "Unlike";
-							}
-						?></button>
+				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)"></button>
 
-				<!--<input id="like" type="submit" name="submit" 
-				value="<?php 
-							if($isLike == 0){
-								echo "Like";
-							}
-							else {
-								echo "Unlike";
-							}
-						?>" 
-				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">-->
 				<button class="btn btn-default" id="join" type="submit" name="submit" 
 				value="<?php 
 							if($isPar == 0){
@@ -104,25 +90,7 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unjoin";
 							}
 						?>"  
-				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)"><?php 
-							if($isPar == 0){
-								echo "Join";
-							}
-							else {
-								echo "Unjoin";
-							}
-						?></button>
-				<!--
-				<input id="join" type="submit" name="submit" 
-				value="<?php 
-							if($isPar == 0){
-								echo "Join";
-							}
-							else {
-								echo "Unjoin";
-							}
-						?>"  
-				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">-->
+				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)"></button>
 		<?php 				
 			} 
 		?>
@@ -130,7 +98,6 @@ if (session_status() == PHP_SESSION_NONE) {
 			if($isOwner || $isPar){
 		?>	
 			<button class="btn btn-default" id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">Chatroom</button>
-			<!--<input id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">-->
 		<?php
 			}
 		}
@@ -148,7 +115,6 @@ if (session_status() == PHP_SESSION_NONE) {
 		$users = $event->getParticipants($eid);
 		$event->db->close();
 		foreach($users as $user){ 
-			//echo "<p> user is: ".$user['uid']."</p>";
 	?>
 <!--while loop to list every participant (limit to 9) -->
 	<div class="participantcontainer"  type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$user['uid']; ?>)">
@@ -210,7 +176,6 @@ if (session_status() == PHP_SESSION_NONE) {
 			<div id="friendList" type="button"></div>
 		</th>
 	</tr>
-	
 	</table>		
 <?php 
 	} 

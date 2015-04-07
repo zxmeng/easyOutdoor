@@ -2,8 +2,13 @@
 <?php
 	require_once('NotiClass.php');
 
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
+
    	$notification = new Notification();
- 
+ 	$uid = $_SESSION['id'];
+
 	$commentNoti = $notification->getCommentNoti($uid);
 	$cno = mysqli_num_rows($commentNoti);
 
@@ -16,14 +21,9 @@
 	$joinNoti = $notification->getJoinNoti($uid);
 	$jno = mysqli_num_rows($joinNoti);
 
-	// $chatNoti = $notification->getChatNoti($uid);
-	// $rno = mysqli_num_rows($chatNoti);
 ?>
-<!-- 
 
-<div class="eventcomment">
-	<div id="commentList"> -->
-		<!--while loop to list all comment-->
+<!--while loop to list all comment-->
 <div class="notification-container">
 
 
@@ -47,7 +47,6 @@
 	?>
 				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
 					<div class="commentcontent">
-					<!-- 	<img src="images/cuhk.jpg"><br> -->
 						<?php echo $noti['nickname']." commented on your event ".$noti['title']; ?>
 					</div>
 					<div class="commentinfo">
@@ -72,7 +71,6 @@
 	?>
 				<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
 					<div class="commentcontent">
-					<!-- 	<img src="images/cuhk.jpg"><br> -->
 						<?php echo $noti['nickname']." mentioned you on event ".$noti['title']; ?>
 					</div>
 					<div class="commentinfo">
@@ -97,7 +95,6 @@
 	?>
 				<div class="notification">
 					<div class="commentcontent">
-					<!-- 	<img src="images/cuhk.jpg"><br> -->
 						<?php echo $noti['nickname']." followed you"; ?>
 					</div>
 					<div class="commentinfo">
@@ -122,7 +119,6 @@
 	?>
 			<div class="notification" type="button" onclick="loadEvent(<?php echo $noti['eid']; ?>)">
 				<div class="commentcontent">
-				<!-- 	<img src="images/cuhk.jpg"><br> -->
 					<?php echo $noti['nickname']." participated in your event ".$noti['title']; ?>
 				</div>
 				<div class="commentinfo">
@@ -139,5 +135,4 @@
 ?>
 	</div>
 </div>
-<!-- </div>
-</div> -->
+

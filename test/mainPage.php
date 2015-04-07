@@ -20,7 +20,7 @@
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
 	<div class="homebutton">
-		<button type="button" class="btn btn-default btn-circle"  id="back" onclick="loadAllEvent()"><i class="glyphicon glyphicon-home"></i></button>
+		<button type="button" class="btn btn-default btn-circle btn-lg"  id="back" onclick="loadAllEvent()"><i class="glyphicon glyphicon-home"></i></button>
 	</div>
 <?php
 
@@ -31,18 +31,13 @@
 	if($logged==1){
 ?>
 
-<!-- 		<div class="createbutton">
-			<button type="button" class="btn btn-default btn-circle btn-lg" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)">
-			<i class="glyphicon glyphicon-plus">E</i>
-			</button>
-		</div> -->
 		<div class="createbutton">
 			<div class="dropdown">
 				<button type="button" class="btn btn-default btn-circle btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-plus"></i></a></button>
 			  	<ul class="dropdown-menu dropdown-menu-right"aria-labelledby="dLabel1" >
 				   	<div align="right">
-				   	Create Event  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateReview(<?php //echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button><br>
-				    Create Review  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateReview(<?php //echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button>
+				   	Create Event  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button><br>
+				    Create Review  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateReview(<?php echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button>
 			  		</div>
 			  	</ul>
 			</div>

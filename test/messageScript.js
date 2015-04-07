@@ -21,12 +21,12 @@ function sendMessage(uid, eid){
         	alert ("Please enter the message content");
         	return;
         }
-        // alert(content);
+
         var data = "uid=" + uid + "&eid=" + eid + "&content=" + content;
-        // alert(data);
 
         http_request.open("POST", "sendMessage.php", true);
         http_request.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
         http_request.onreadystatechange = function(){
 			if(http_request.readyState == 4 && http_request.status == 200){
 				var res = http_request.responseText;
@@ -51,11 +51,10 @@ function buttonOnClick() {
 var guid = 0;
 var geid = 0;
 
-setInterval(viewMessage, 500); //send the request twice a second
+setInterval(viewMessage, 2000); //send the request twice a second
 function viewMessage(uid, eid){
 	var http_request = createAjaxObject();
 	if (http_request){
-		// var data = "eid=" + <?php echo $eid ?> + "&uid=" + <?php echo $uid ?>;
 		if (guid != 0){
 			var data = "eid=" + geid + "&uid=" + guid;
 		}
@@ -66,7 +65,6 @@ function viewMessage(uid, eid){
 		}
 		else return;
 
-		// alert(data);
 		http_request.open("GET", "goToMessageViewer.php?"+data, true);
 		http_request.onreadystatechange = function(){
 			if(http_request.readyState == 4 && http_request.status == 200){

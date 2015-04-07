@@ -20,8 +20,13 @@ require_once('ReviewClass.php');
 		<h4>Venue: <?php echo $rInfo['venue']; ?></h4>
 		<h4>Description: <?php echo $rInfo['eDescription']; ?></h4>
 	</div>
-	<div class="eventmap" style="display:inline">
-		map api;;;
+	
+	<?php
+		$map_url = $rInfo['venue'];
+		$map_url = str_replace(" ", "+", $map_url);
+	?>
+	<div class="eventmap">
+	<iframe width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  src="http://maps.google.nl/maps?q=<?=$map_url?>&hl=nl&ie=UTF8&t=v&hnear=<?=$map_url?>&z=13&amp;output=embed"></iframe>
 	</div>
 	<!--button-->
 	<div class="eventbuttons" style="padding:right">

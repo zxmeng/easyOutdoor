@@ -44,7 +44,6 @@ $et->db->close();
 
    		<div class="item-infomation">
    			<h2>Date:</h2> <?php echo $event['eDate']; ?><br>
-   			<!-- <h2>Time:</h2><?php echo $event['lastEditTime']; ?><br> -->
    			<h2>Venue:</h2><?php echo $event['venue']; ?><br/>
    			<h2>Description:</h2><?php echo $event['eDescription']; ?><br>
    		</div>
