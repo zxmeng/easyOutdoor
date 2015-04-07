@@ -66,11 +66,11 @@ if (session_status() == PHP_SESSION_NONE) {
 	<?php 
 		if (isset($_SESSION["logged"])){
 			if($isOwner) {?>
-				<button class="btn btn-default" id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)">Edit</button>
+				<button class="btn btn-default" id="edit" type="button" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)">Edit</button>
 		<?php 
 			} else{
 		?>
-				<button class="btn btn-default" id="like" type="buttom" name="submit" 
+				<button class="btn btn-default" id="like" type="button" name="submit" 
 				value="<?php 
 							if($isLike == 0){
 								echo "Like";
@@ -79,9 +79,18 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unlike";
 							}
 						?>" 
-				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)"></button>
+				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
+				<?php 
+					if($isLike == 0){
+						echo "Like";
+					}
+					else {
+						echo "Unlike";
+					}
+				?>
+				</button>
 
-				<button class="btn btn-default" id="join" type="submit" name="submit" 
+				<button class="btn btn-default" id="join" type="button" name="submit" 
 				value="<?php 
 							if($isPar == 0){
 								echo "Join";
@@ -90,14 +99,23 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unjoin";
 							}
 						?>"  
-				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)"></button>
+				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
+				<?php 
+					if($isPar == 0){
+						echo "Join";
+					}
+					else {
+						echo "Unjoin";
+					}
+				?>
+				</button>
 		<?php 				
 			} 
 		?>
 		<?php
 			if($isOwner || $isPar){
 		?>	
-			<button class="btn btn-default" id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">Chatroom</button>
+			<button class="btn btn-default" id="chatroom" type="button" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">Chatroom</button>
 		<?php
 			}
 		}
@@ -144,10 +162,13 @@ if (session_status() == PHP_SESSION_NONE) {
 						<h3 style="line-height: 40px;"><?php echo $comment['content']; ?></H3>
 					</div>
 					<div class="commentinfo" style="margin-left:70px;">
-						<h6>
-						<?php echo $comment['time'] ?>   <?php if($comment['ruid'] != 0) { ?>mentioned: <?php echo $commentList->getUserName($comment['ruid']); } ?>
-			   			<br></h6>
-			   		</div>
+						<h6><?php echo $comment['time'] ?></h6>
+					</div>
+					<?php if($comment['ruid'] != 0) { ?>
+			   			<div class="commentinfo">
+			   				mentioned: <?php echo $commentList->getUserName($comment['ruid']); ?><br/>
+			   			</div>
+			   		<?php } ?>
 				</div>
 			<?php }} ?>
 		<!--endwhile-->
@@ -165,18 +186,26 @@ if (session_status() == PHP_SESSION_NONE) {
 		</style>
 	<table class="tg" style="width:98%;margin:10px auto 10px auto;">
 	<tr>
-		<th class="tg-031e" style="width:100%;">
-			<h3>I'd like to say...</h3>
-			<textarea id="commentBox" name="comment" rows="5" cols="50"></textarea>
-			</br>
-			<input type="button" value="submit"
-			 onclick="sendComment(<?php echo $eid.', '.$uid; ?>)"> 
-			<input type="button" value="@"
-			 onclick="showFriendList(<?php echo $uid; ?>)"> 
-			<div id="friendList" type="button"></div>
+		<th class="tg-031e" style="width:90%;">
+			   <h3>I'd like to say...</h3>
+			   <textarea id="commentBox" name="comment" rows="5" cols="50"></textarea>
+			   </br>
+		</th>
+		<th class="tg-031e"><div class="btn-group-vertical btn-group.btn-group-justified" role="group" aria-label="..." style="display: table-cell">
+					  <button class="btn btn-default" type="button"data-toggle="dropdown" onclick="showFriendList(<?php echo $uid ?>)">@<span class="caret"></span></button>
+						  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+						  	<!--while loop to echo friend--> 
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+						    <!--end while loop to echo friend-->
+						  </ul>
+			  <button type="button" class="btn btn-default" onclick="sendComment(<?php echo $eid.', '.$uid; ?>)">Submut</button>
+			</div>
 		</th>
 	</tr>
 	</table>		
+		
+	<div>
 <?php 
 	} 
 ?>
+</div>
