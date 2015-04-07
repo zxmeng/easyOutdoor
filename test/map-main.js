@@ -17,17 +17,17 @@
       '<div id="description">'+
       '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Central and Western' +'\')">Central and Western</h1>'+
       '<div id="bodyContent">'+
-      '<p><b>Hong Kong Train I/b>, Hardness: ★★★</p>'+
-      '<p><b>Hong Kong Train II</b>, Hardness: ★</p>'+
+      '<p><b>Hong Kong Trail I</b>, Hardness: ★★★</p>'+
+      '<p><b>Hong Kong Trail II</b>, Hardness: ★</p>'+
       '</div>'+
       '</div>';
     contentString[1] = 
         '<div id="description">'+
         '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Southern' +'\')">Southern</h1>'+
         '<div id="bodyContent">'+
-        '<p type="button" onclick="smallMap(\'' + 'hktrain3' + '\')"><b>Hong Kong Train III</b>, Hardness: ★★★★</p>'+
-        '<p type="button" onclick="smallMap(\'' + 'hktrain4' + '\')"><b>Hong Kong Train IV</b>, Hardness: ★★</p>'+
-        '<p type="button" onclick="smallMap(\'' + 'hktrain7' + '\')"><b>Hong Kong Train VII</b>, Hardness: ★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'hktrain3' + '\')"><b>Hong Kong Trail III</b>, Hardness: ★★★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'hktrain4' + '\')"><b>Hong Kong Trail IV</b>, Hardness: ★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'hktrain7' + '\')"><b>Hong Kong Trail VII</b>, Hardness: ★</p>'+
         '<p type="button" onclick="smallMap(\'' + 'lamma' + '\')"><b>Lamma Island</b>, Hardness: ★★★</p>'+
         '</div>'+
         '</div>';
@@ -77,8 +77,8 @@
         '<div id="description">'+
         '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Eastern' +'\')">Eastern</h1>'+
         '<div id="bodyContent">'+
-        '<p><b>Hong Kong Train V</b>, Hardness: ★</p>'+
-        '<p><b>Hong Kong Train VI</b>, Hardness: ★★★</p>'+
+        '<p><b>Hong Kong Trail V</b>, Hardness: ★</p>'+
+        '<p><b>Hong Kong Trail VI</b>, Hardness: ★★★</p>'+
         '</div>'+
         '</div>';
 
