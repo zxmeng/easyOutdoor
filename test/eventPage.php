@@ -142,7 +142,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <hr>
 <div class="eventcomment">
-	<h2>Comments   <button class="btn btn-default btn-circle btn"id="refreshComment" type="button" value="refresh" onclick="refreshComment(<?php echo $eid ?>)"><i class="glyphicon glyphicon-refresh"></i></button></h2>
+	<h2>Comments   <button class="btn btn-default btn-circle btn"id="refreshComment" type="button" value="refresh" onclick="refreshComment(<?php echo $uid.','.$eid; ?>)"><i class="glyphicon glyphicon-refresh"></i></button></h2>
 	<div id="commentList">
 		<!--while loop to list all comment-->
 		<?php

@@ -58,6 +58,7 @@ if (session_status() == PHP_SESSION_NONE) {
    		</div>
 
    		<div align="center">
+         <br>
    			<div class="button" type="button" onclick="loadEvent( <?php echo $event['eid'].', '.$_SESSION['id']; ?> )">
    				More Infomation
    			</div>

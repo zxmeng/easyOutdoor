@@ -68,10 +68,10 @@ function atUser(uid){
     ruid = uid;
 }
 
-function refreshComment(eid){
+function refreshComment(uid, eid){
     var http_request = createAjaxObject();
     if(http_request){
-        var data = "eid=" + eid;
+        var data = "uid=" + uid + "&eid=" + eid;
         http_request.onreadystatechange = function() {
             if (http_request.readyState == 4 && http_request.status == 200) {
                 document.getElementById("commentList").innerHTML = http_request.responseText;
