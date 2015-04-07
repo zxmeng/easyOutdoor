@@ -162,13 +162,10 @@ if (session_status() == PHP_SESSION_NONE) {
 						<h3 style="line-height: 40px;"><?php echo $comment['content']; ?></H3>
 					</div>
 					<div class="commentinfo" style="margin-left:70px;">
-						<h6><?php echo $comment['time'] ?></h6>
-					</div>
-					<?php if($comment['ruid'] != 0) { ?>
-			   			<div class="commentinfo">
-			   				mentioned: <?php echo $commentList->getUserName($comment['ruid']); ?><br/>
-			   			</div>
-			   		<?php } ?>
+						<h6>
+						<?php echo $comment['time'] ?>   <?php if($comment['ruid'] != 0) { ?>mentioned: <?php echo $commentList->getUserName($comment['ruid']); } ?>
+			   			<br></h6>
+			   		</div>
 				</div>
 			<?php }} ?>
 		<!--endwhile-->
