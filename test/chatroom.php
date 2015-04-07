@@ -76,3 +76,4 @@
 	<div class="chatmain">Error: you have not join this event.</div>
 </div>
 <?php } ?>
+

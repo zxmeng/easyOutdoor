@@ -45,7 +45,7 @@ if(isset($_POST['Register'])){
 				//end email (HAVE TO CHANGE THE LINK IN BODY SINCE THE SERVER SET UP IS DIFFERENT IN EVERY PC) lawrence!!!!!!!!!!!!!!
 
 				if(!mail($to,$subject,$body)){
-					$message= "We couldn't sign you up at this time. Please try again later.";
+					$message = "We couldn't sign you up at this time. Please try again later.";
 				}else{
 				
 					//insert to database

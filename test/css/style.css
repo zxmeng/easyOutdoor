@@ -1349,27 +1349,39 @@
 }
 
 /*single event*/
+
 .bannercontainer{
   	z-index: 0;
 	max-height:250px;
 	overflow:hidden;
-  	width:100%
+  	width:100%;
+  	border:1px solid #c0c0c0; 
 }
 
 .bannercontainer img{
   	width:100%;
-  	height:auto; 
+  	height:auto;
+  	background:url(URL-of-image) no-repeat;
+	background-size:720px 480px;
+	background-position:1000px 0px;
+	overflow:hidden;
 }
 
 .eventinfo{
 	height:350px;
+	overflow:hidden;
 }
 
 .eventdetail{
 	width: 45%; 
-	height: 70%;
 	float: left;  
-	margin: 20px;
+}
+
+.eventmap{
+	width: 45%; 
+	height: 100%;
+	border:1px solid #c0c0c0; 
+	float: right;  
 }
 
 .eventbuttons{
@@ -1380,13 +1392,6 @@
 	padding:right;
 }
 
-.eventmap{
-	width: 45%; 
-	height: 100%;
-	border:2px solid black; 
-	float: right;  
-	margin: 20px 20px 0 0;
-}
 
 .eventparticipant{
 	margin:20px 20px 20px 20px;
@@ -1426,14 +1431,15 @@
 	border-radius: 10px;
 	margin:10px auto;
 	width:90%;
-	min-height: 90px;
+	min-height: 70px;
 	padding: 3px;
+	overflow: hidden;
 }
 
 .commentheader{
   	float:left;
 	overflow:hidden;
-  	width:100px;
+  	width:70px;
   	text-align: center;
 }
 
@@ -1441,19 +1447,27 @@
 	background:url(URL-of-image) no-repeat;
 	background-size:720px 480px;
 	background-position:-160px 0px;
-	height:70px;
-	width:70px;
+	height:50px;
+	width:50px;
 	border-radius:50%;
 	overflow:hidden;
 
 }
 
 .commentcontent{
-	min-height: 80%;
+	
+}
+.commentcontent h3{
+	word-wrap: break-word;
+	overflow: hidden;
+	line-height: 40px;
 }
 
 .commentinfo{
 	max-height: 20%;
+}
+.writecomment{
+	width:100%;
 }
 
 /*chatroom*/
@@ -1506,10 +1520,8 @@
 	border-radius: 10px;
 	margin:0 auto 0 auto;
 	width:98%;
-	height: 70%;
 	padding: 3px;
-	overflow: hidden;
-	position: relative;
+	overflow-y: scroll;
 }
 
 .message{
@@ -1517,13 +1529,12 @@
 	border-radius: 10px;
 	margin-bottom: 10px;
 	width:80%;
-	height: 100%;
+	height: 500px;
+	max-width: 500px;
 	padding: 3px;
-	min-height: 80px;
 	overflow-y:scroll;
 	overflow-x: hidden;
 	display: inline-block;
-	position: relative;
 	float: left;
 }
 .parti{
@@ -1629,6 +1640,30 @@
 .createbutton{
 	position: fixed;
 	top:0px;
-	right:0px;
+	right:3px;
 	margin: 10px 10px 0 0;
+}
+
+.homebutton{
+	position: fixed;
+	bottom:10px;
+	right:3px;
+	margin: 10px 10px 0 0;
+}
+
+.loginicon{
+	margin: 0 auto 10px auto;
+	overflow:hidden;
+  	width:200px;
+  	text-align: center;
+}
+
+.loginicon img{
+	background:url(URL-of-image) no-repeat;
+	background-size:720px 480px;
+	background-position:-160px 0px;
+	height:200px;
+	width:200px;
+	border-radius:50%;
+	overflow:hidden;
 }

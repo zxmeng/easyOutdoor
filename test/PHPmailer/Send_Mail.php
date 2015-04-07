@@ -11,7 +11,7 @@ $mail->Host       = "ssl://smtp.gmail.com"; // Amazon SES server, note "tls://" 
 $mail->Port       = 465;                    // set the SMTP port
 $mail->Username   = "easyoutdoor.310@gmail.com";  // SES SMTP  username
 $mail->Password   = "lawrenceho";  // SES SMTP password
-$mail->SetFrom($from, 'From Name');
+$mail->SetFrom($from, 'EasyOutdoor');
 
 $mail->Subject = $subject;
 $mail->MsgHTML($body);

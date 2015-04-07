@@ -34,32 +34,40 @@ if (session_status() == PHP_SESSION_NONE) {
 	}
 	
 ?>
-
 <div class="bannercontainer">
 	<img src="images/background.png">
 </div>
 
-<div class="eventinfo">
+<div class="eventinfo" style="margin:10px 0 0 0;">
 	<div class="eventdetail" style="display:inline">
 		<h2>Title: <?php echo $eInfo['title']; ?></h2>
 		<h4>Date: <?php echo $eInfo['eDate']; ?></h4>
 		<h4>Venue: <?php echo $eInfo['venue']; ?></h4>
-		<h4>Description: <?php echo $eInfo['eDescription']; ?></h4>
+		<h4>Description: </h4>
+			<div style="margin-left:10%;overflow:hidden;">
+ 				<h4><?php echo $eInfo['eDescription']; ?></h4>
+			</div>
+
 	</div>
 	<div class="eventmap" style="display:inline">
 		map api;;;
 	</div>
-	<!--button-->
-	<div class="eventbuttons" style="padding:right">
-
+	
+	
+</div>
+				<!--button-->
+	<div style="margin:1em 0 1em 0;bottom:0px;">
+		<div class="mode-button">
+			<div class="btn-group" role="group" aria-label="...">
 	<?php 
 		if (isset($_SESSION["logged"])){
 			if($isOwner) {?>
-				<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> 
+				<button class="btn btn-default" id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)">Edit</button>
+				<!--<input id="edit" type="submit" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)"> -->
 		<?php 
 			} else{
 		?>
-				<input id="like" type="submit" name="submit" 
+				<button class="btn btn-default" id="like" type="buttom" name="submit" 
 				value="<?php 
 							if($isLike == 0){
 								echo "Like";
@@ -68,8 +76,43 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unlike";
 							}
 						?>" 
-				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
+				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)"><?php 
+							if($isLike == 0){
+								echo "Like";
+							}
+							else {
+								echo "Unlike";
+							}
+						?></button>
 
+				<!--<input id="like" type="submit" name="submit" 
+				value="<?php 
+							if($isLike == 0){
+								echo "Like";
+							}
+							else {
+								echo "Unlike";
+							}
+						?>" 
+				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">-->
+				<button class="btn btn-default" id="join" type="submit" name="submit" 
+				value="<?php 
+							if($isPar == 0){
+								echo "Join";
+							}
+							else {
+								echo "Unjoin";
+							}
+						?>"  
+				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)"><?php 
+							if($isPar == 0){
+								echo "Join";
+							}
+							else {
+								echo "Unjoin";
+							}
+						?></button>
+				<!--
 				<input id="join" type="submit" name="submit" 
 				value="<?php 
 							if($isPar == 0){
@@ -79,20 +122,23 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unjoin";
 							}
 						?>"  
-				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
+				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">-->
 		<?php 				
 			} 
 		?>
 		<?php
 			if($isOwner || $isPar){
-		?>
-			<input id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">
+		?>	
+			<button class="btn btn-default" id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">Chatroom</button>
+			<!--<input id="chatroom" type="submit" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">-->
 		<?php
 			}
 		}
 	?>
+			</div>
 		</div>
-</div><br>
+	</div>
+	<!--end buttom-->
 
 <hr>
 <div class="eventparticipant">
@@ -113,7 +159,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <hr>
 <div class="eventcomment">
-	<h2>Comments</h2>
+	<h2>Comments   <button class="btn btn-default btn-circle btn"id="refreshComment" type="button" value="refresh" onclick="refreshComment(<?php echo $eid ?>)"><i class="glyphicon glyphicon-refresh"></i></button></h2>
 	<div id="commentList">
 		<!--while loop to list all comment-->
 		<?php
@@ -126,13 +172,13 @@ if (session_status() == PHP_SESSION_NONE) {
 				<div class="commentcontainer">
 					<div class="commentheader" type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$comment['suid']; ?>)">
 						<img src="<?php echo $comment['uPhoto']; ?>"><br>
-						<?php echo $comment['nickname'] ?>
+						<h5><?php echo $comment['nickname'] ?><h5>
 					</div>
 					<div class="commentcontent">
-						<?php echo $comment['content']; ?>
+						<h3 style="line-height: 40px;"><?php echo $comment['content']; ?></H3>
 					</div>
-					<div class="commentinfo">
-						<?php echo $comment['time'] ?>
+					<div class="commentinfo" style="margin-left:70px;">
+						<h6><?php echo $comment['time'] ?></h6>
 					</div>
 					<?php if($comment['ruid'] != 0) { ?>
 			   			<div class="commentinfo">
@@ -143,22 +189,43 @@ if (session_status() == PHP_SESSION_NONE) {
 			<?php }} ?>
 		<!--endwhile-->
 	</div>
-	<input id="refreshComment" type="button" value="refresh" onclick="refreshComment(<?php echo $eid ?>)">
+	
 	<hr>
 <?php
 	if (isset($_SESSION["logged"])){
 ?>
 	<div class="writecomment">
-		<form method="" action=""> 
-		   <h3>I'd like to say...</h3>
-		   <textarea id="commentBox" name="comment" rows="5" cols="40"></textarea>
-		   </br>
-		   <input id="atButton" type="button" style="padding:right" name="submit" 
-		   value="@" onclick="showFriendList(<?php echo $uid ?>)">
-		   <input id="subbutton" type="button" style="padding:right" name="submit" 
-		   value="Submit" onclick="sendComment(<?php echo $eid.', '.$uid; ?>)"> 
-		   <div id="friendList"><div>
-		</form>
+		<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;border-radius: 10px;vertical-align: middle;}
+		.tg td{overflow:hidden;vertical-align: middle;}
+		.tg th{vertical-align: middle;}
+		</style>
+	<table class="tg" style="width:98%;margin:10px auto 10px auto;">
+	<tr>
+		<th class="tg-031e" style="width:90%;">
+			   <h3>I'd like to say...</h3>
+			   <textarea id="commentBox" name="comment" rows="5" cols="50"></textarea>
+			   </br>
+			   <!--
+			   <input id="atButton" type="button" style="padding:right" name="submit" 
+			   value="@" onclick="showFriendList(<?php echo $uid ?>)">
+			   <input id="subbutton" type="button" style="padding:right" name="submit" 
+			   value="Submit" onclick="sendComment(<?php echo $eid.', '.$uid; ?>)"> 
+			   <div id="friendList"><div>-->
+		</th>
+		<th class="tg-031e"><div class="btn-group-vertical btn-group.btn-group-justified" role="group" aria-label="..." style="display: table-cell">
+					  <button class="btn btn-default" type="button"data-toggle="dropdown" onclick="showFriendList(<?php echo $uid ?>)">@<span class="caret"></span></button>
+						  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+						  	<!--while loop to echo friend--> 
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+						    <!--end while loop to echo friend-->
+						  </ul>
+			  <button type="button" class="btn btn-default" onclick="sendComment(<?php echo $eid.', '.$uid; ?>)">Submut</button>
+			</div>
+		</th>
+	</tr>
+	</table>		
+		
 	<div>
 <?php 
 	} 
