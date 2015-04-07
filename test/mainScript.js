@@ -1,26 +1,24 @@
 function loadEvent(eid, uid)
 {
-	// window.alert("Here!");
+
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-    		// initializeAPI();
         }
     }
     
     var data = "?eid=" + eid + "&uid=" + uid;
 
 	xmlhttp.open("GET","goToEventPage.php"+data, true);
-	// window.alert(data);
 	xmlhttp.send();
 }
 
 function loadReview(pid, uid)
 {
-	// window.alert("Here!");
+
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
 
@@ -33,16 +31,15 @@ function loadReview(pid, uid)
     var data = "?pid=" + pid + "&uid=" + uid;
 
 	xmlhttp.open("GET","goToReviewPage.php"+data, true);
-	// window.alert(data);
 	xmlhttp.send();
 }
 
 function loadAllEvent()
 {
-	// alert("Into load");
+
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
+
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
@@ -52,7 +49,6 @@ function loadAllEvent()
     }
 
 	xmlhttp.open("GET","goToEventList.php", true);
-	//window.alert(data);
 	xmlhttp.send();
 }
 
@@ -60,7 +56,7 @@ function loadCalendar()
 {
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
+
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
@@ -68,7 +64,6 @@ function loadCalendar()
     }
 
 	xmlhttp.open("GET","goToCalendar.php", true);
-	//window.alert(data);
 	xmlhttp.send();
 }
 
@@ -82,7 +77,7 @@ function loadRecommendation()
 {
 	var xmlhttp;
 	xmlhttp = new XMLHttpRequest();
-	//window.alert("Here!");
+
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
@@ -90,7 +85,6 @@ function loadRecommendation()
     }
 
 	xmlhttp.open("GET","goToRecommendation.php", true);
-	//window.alert(data);
 	xmlhttp.send();
 }
 
@@ -98,11 +92,10 @@ var notiFlag = 0;
 
 function loadNotification(uid)
 {
-	// window.alert("HAHA");
+
 	if(notiFlag==0){
 		var xmlhttp;
 		xmlhttp = new XMLHttpRequest();
-		// window.alert("Here!");
 
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
@@ -110,9 +103,7 @@ function loadNotification(uid)
 				notiFlag = 1;
 	        }
 	    }    
-	    var data = "?uid=" + uid;
-
-		// window.alert(data);		
+	    var data = "?uid=" + uid;		
 		
 		xmlhttp.open("GET","goToNotification.php"+data, true);
 		xmlhttp.send();

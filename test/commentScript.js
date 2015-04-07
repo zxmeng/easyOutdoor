@@ -12,7 +12,7 @@ function createAjaxObject(){
 }
 
 function sendComment(eid, suid){
-    // alert("function");
+
     var http_request = createAjaxObject();
     if(http_request){
         var content = document.getElementById("commentBox").value;
@@ -22,7 +22,6 @@ function sendComment(eid, suid){
         }
 
         var data = "suid=" + suid+ "&eid=" + eid + "&content=" + content + "&ruid=" + ruid;
-        // alert("data = " + data);
 
         http_request.open("GET", "sendComment.php?"+data, true);
         http_request.onreadystatechange = function(){
@@ -43,13 +42,12 @@ function sendComment(eid, suid){
 var show = 0;
 
 function showFriendList(uid){
-    // alert(show);
+
     var http_request = createAjaxObject();
     if(http_request){
         var data = "uid=" + uid + "&show=" + show;
         http_request.onreadystatechange = function() {
             if (http_request.readyState == 4 && http_request.status == 200) {
-                // alert(http_request.responseText);
                 document.getElementById("friendList").innerHTML = http_request.responseText;
             }
         }
@@ -68,18 +66,14 @@ function showFriendList(uid){
 
 function atUser(uid){
     ruid = uid;
-    // alert("ruid = "+ruid);
 }
 
 function refreshComment(eid){
-    // alert("function");
     var http_request = createAjaxObject();
     if(http_request){
         var data = "eid=" + eid;
-        // alert(data);
         http_request.onreadystatechange = function() {
             if (http_request.readyState == 4 && http_request.status == 200) {
-                // alert(http_request.responseText);
                 document.getElementById("commentList").innerHTML = http_request.responseText;
             }
         }

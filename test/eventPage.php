@@ -79,7 +79,7 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unlike";
 							}
 						?>" 
-				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
+				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)"></button>
 
 				<button class="btn btn-default" id="join" type="submit" name="submit" 
 				value="<?php 
@@ -90,7 +90,7 @@ if (session_status() == PHP_SESSION_NONE) {
 								echo "Unjoin";
 							}
 						?>"  
-				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
+				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)"></button>
 		<?php 				
 			} 
 		?>
