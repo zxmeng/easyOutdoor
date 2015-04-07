@@ -1,6 +1,16 @@
 <?php require_once('EventClass.php'); ?>
 
-<div class="masonry">				
+<div class="masonry">
+   <div class="item">
+      <div class="item-name">Hong Kong Sai Kung Hebe Haven</div>
+      <video width="320" height="240" controls> <source src="video/SaiKungHebeHaven.mp4" type="video/mp4"></video>
+   </div>
+
+   <div class="item">
+      <div class="item-name">Tai Po Swimming Surfing</div>
+      <video width="320" height="240" controls> <source src="video/TaiPoSwimmingSurfing.mp4" type="video/mp4"></video>
+   </div>
+
 	<?php
 		$event = new Event();
 		$events = $event->getRecommendation();
