@@ -2,7 +2,13 @@
 	session_start();
 
 	if (isset($_SESSION["logged"])) {
-	    $logged = $_SESSION['logged'];    
+	    $logged = $_SESSION['logged'];  
+
+
+	    ?>
+	    <script type="text/javascript">setInterval(loadNotification, 2000)</script>
+
+	    <?php  
 	}
 	else{  
 	    $logged = 0;

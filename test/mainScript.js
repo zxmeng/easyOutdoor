@@ -88,7 +88,6 @@ function loadRecommendation()
 	xmlhttp.send();
 }
 
-setInterval(loadNotification, 2000); 
 function loadNotification(uid)
 {
 
