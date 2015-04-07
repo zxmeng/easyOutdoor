@@ -43,8 +43,12 @@
 		<body id="top" onload="loadNotification(<?php echo $_SESSION['id']; ?>)">
 <?php
 	}
+	else{
 ?>
-
+		<body id="top" onload="">
+<?php
+	}
+?>
 		<!-- Header -->
 			<header id="header">
 				<?php include_once('left.php'); ?>
