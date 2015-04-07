@@ -67,7 +67,7 @@
 
                 <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
                  <div class = "modal-footer">
-                    <input type="button" value="Post" onclick="clickPost(<?php echo 2; ?>)">
+                    <input type="button" value="Post" onclick="clickPost(<?php echo $uid; ?>)">
                     <!-- <input type="button" value="Reset" onclick="resetEmpty()"> -->
                 </div>
                 
