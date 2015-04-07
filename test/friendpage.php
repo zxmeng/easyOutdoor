@@ -42,7 +42,7 @@
 	        <div class="mode-button">
 				<input type="button" value="Created Events" 
 				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>,  1)" > | 
-				<input type="button" value="Joint Events" 
+				<input type="button" value="Joined Events" 
 				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 2)" > | 
 				<input type="button" value="Created Reviews" 
 				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 3)" >

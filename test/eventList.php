@@ -52,8 +52,8 @@ if (session_status() == PHP_SESSION_NONE) {
    			<h2>Description:</h2><?php echo $event['eDescription']; ?><br/>
             <div align="right">
             <br>
-            <?php echo $event['likeNo']; ?> Like<br>
-            <?php echo $event['parNo'];if($event['parNo'] < 2) { ?>  Participant<?php }else{ ?>  Participants<?php } ?>
+            <?php echo $event['likeNo']; if($event['likeNo'] < 2) { ?>  Like<?php }else{ ?>  Likes<?php } ?><br>
+            <?php echo $event['parNo']; if($event['parNo'] < 2) { ?>  Participant<?php }else{ ?>  Participants<?php } ?>
             </div>
    		</div>
 

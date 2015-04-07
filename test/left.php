@@ -16,8 +16,8 @@
 		<div class="container center login">
 
 		    <div class="loginicon">
-						<img src="<?php echo $icon; ?>"><br>
-					</div>
+				<img src="<?php echo $icon; ?>"><br>
+			</div>
 		   <h2> <font color='#58ACFA'><?php echo $nickname; ?></font></h2>
 		</div><br>
 
@@ -29,7 +29,7 @@
 		<br>
 		<div id="notiBox"><?php include_once('notification.php'); ?></div>
 		<br>
-		<button type="button" class="btn btn-default btn-circle btn"><a href="logout.php"><i class="glyphicon glyphicon-plus"></i></a></button>
+		<a href="logout.php"><span class="glyphicon glyphicon-remove-circle" style="font-size: 30px"></span></a>
 
 <?php 
 	}
@@ -37,7 +37,11 @@
 		// not log in
 ?>
 		<div class="container center login">
-		    <h1>EasyOutdoor</h1>
+		    <h1>Welcome toEasyOutdoor</h1><br>
+		    <div class="loginicon">
+				<img src="images/logo-sq.png"><br>
+			</div>
+			
 		    <a href="login.php">Login</a> | <a href="register.php">Register</a>
 		</div>
 <?php
