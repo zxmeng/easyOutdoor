@@ -53,7 +53,7 @@
 			 <!-- this is the tox for 1 event, write a while loop to show all the events with this item-->
 		   <div class="item">
 		   		<div class="item-name"><?php echo $event['title']; ?></div>
-		   		<div class="item-picture"><img class="item-picture" src="images/cuhk-test.jpg"></div>
+		   		<div class="item-picture"><img class="item-picture" src="<?php echo $event['ePhoto']; ?>"></div>
 		   		<div class="item-infomation">
 		   			<h2>Date:</h2><?php echo $event['eDate']; ?><br>
 		   			<h2>Venue:</h2><?php echo $event['venue']; ?><br>

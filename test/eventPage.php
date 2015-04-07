@@ -40,13 +40,12 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <div class="eventinfo" style="margin:10px 0 0 0;">
 	<div class="eventdetail" style="display:inline">
-		<h2>Title: <?php echo $eInfo['title']; ?></h2>
-		<h4>Date: <?php echo $eInfo['eDate']; ?></h4>
-		<h4>Venue: <?php echo $eInfo['venue']; ?></h4>
-		<h4>Description: </h4>
-			<div style="margin-left:10%;overflow:hidden;">
- 				<h4><?php echo $eInfo['eDescription']; ?></h4>
-			</div>
+		<h2><?php echo $eInfo['title']; ?></h2>
+		<h4><?php echo $eInfo['eDate']; ?> <?php echo $eInfo['venue']; ?></h4>
+		<br><br>
+		<div style="overflow:hidden;">
+		<h4><?php echo $eInfo['eDescription']; ?></h4>
+		</div>
 
 	</div>
 

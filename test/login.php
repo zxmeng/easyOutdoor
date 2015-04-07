@@ -22,7 +22,7 @@ if(isset($_POST['Login'])){
 
 			if($remember =="yes"){
 				//create the cookies
-				setcookie("id_cookie",$id, time()+60*60*24*100,"/");
+				setcookie("id_cookie",$email, time()+60*60*24*100,"/");
 				setcookie("password_cookie",$password, time()+60*60*24*100,"/");
 			}
 			

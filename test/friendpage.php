@@ -13,19 +13,18 @@
 
 <div class="friendmain">
 	<div class="friendlist">
-		<h2 style="padding:5px;">Friends</h2>
+		<h2 align="center" style="padding:5px;">Friends</h2>
 		<hr style="margin:3px 0 3px 0;">
 	<!--each participant-->
 	<?php
 		foreach($friends as $friend){
 	?>
-		<div class="chatmessage">
-			<div class="chatheader">
-				<img src="<?php echo $friend['uPhoto']; ?>"><br>
-			</div>
-			<div class="button" type="button" 
+		<div>
+			<div class="button" type="button" align="left"
 			onclick="showFriendDetail(<?php echo $uid.", ".$friend['uid']; ?>)">
-			<?php echo $friend['nickname']; ?></div>
+				<div class="chatheader"><img src="<?php echo $friend['uPhoto']; ?>"></div>
+				<?php echo $friend['nickname']; ?>
+			</div>
 		</div>
 	<!--end message-->
 	<?php
@@ -57,7 +56,7 @@
 				 <!-- this is the tox for 1 event, write a while loop to show all the events with this item-->
 			   <div class="item">
 			   		<div class="item-name"><?php echo $event['title']; ?></div>
-			   		<div class="item-picture"><img class="item-picture" src="images/cuhk-test.jpg"></div>
+			   		<div class="item-picture"><img class="item-picture" src="<?php echo $event['ePhoto']; ?>"></div>
 			   		<div class="item-infomation">
 			   			<h2>Date:</h2><?php echo $event['eDate']; ?><br>
 			   			<h2>Venue:</h2><?php echo $event['venue']; ?><br>

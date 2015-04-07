@@ -25,17 +25,17 @@
         '<div id="description">'+
         '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Southern' +'\')">Southern</h1>'+
         '<div id="bodyContent">'+
-        '<p><b>Hong Kong Train III</b>, Hardness: ★★★★</p>'+
-        '<p><b>Hong Kong Train IV</b>, Hardness: ★★</p>'+
-        '<p><b>Hong Kong Train VII</b>, Hardness: ★</p>'+
-        '<p><b>Lamma Island</b>, Hardness: ★★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'hktrain3' + '\')"><b>Hong Kong Train III</b>, Hardness: ★★★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'hktrain4' + '\')"><b>Hong Kong Train IV</b>, Hardness: ★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'hktrain7' + '\')"><b>Hong Kong Train VII</b>, Hardness: ★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'lamma' + '\')"><b>Lamma Island</b>, Hardness: ★★★</p>'+
         '</div>'+
         '</div>';
     contentString[2] = 
         '<div id="description">'+
         '<h1 class="firstHeading" type="button" onclick="mapSearch(\'' + 'Islands' +'\')">Islands</h1>'+
         '<div id="bodyContent">'+
-        '<p><b>Lo Fu Tau Country Trail</b>, Hardness: ★★</p>'+
+        '<p type="button" onclick="smallMap(\'' + 'islands' + '\')"><b>Lo Fu Tau Country Trail</b>, Hardness: ★★</p>'+
         '</div>'+
         '</div>';
     contentString[3] = 

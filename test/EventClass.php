@@ -146,6 +146,10 @@ class Event{
         $sql = "INSERT INTO Participation(uid,eid,time)
                 VALUES($uid, $eid, now())";
         $this->db->query($sql);
+        $jid = $this->db->getInsertedID();
+        $joinNoti = "INSERT INTO notification(type, fid)
+                     VALUES ('join', $jid)";
+        $this->db->query($joinNoti);
         $join = "UPDATE `event`
                  SET parNo = parNo + 1
                  WHERE eid = $eid";

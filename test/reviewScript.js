@@ -165,6 +165,7 @@ function clickLike_R(rid, uid)
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState==4 && xmlhttp.status==200) {
                 document.getElementById("like_r").value = "Unlike";
+                document.getElementById("like_r").innerHTML = "Unlike";
             }
         }
         flag = 3; 
@@ -173,6 +174,7 @@ function clickLike_R(rid, uid)
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState==4 && xmlhttp.status==200) {
                 document.getElementById("like_r").value = "Like";
+                document.getElementById("like_r").innerHTML = "Like";
             }
         }
         flag = 2; 

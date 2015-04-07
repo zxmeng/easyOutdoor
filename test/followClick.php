@@ -19,8 +19,8 @@
 		if ($dump_num > 0) die ('Dumplicate follow');
 
 		// In the database, userA follows userB
-		$sql = "INSERT INTO follow (uidA, uidB)
-				VALUES ('{$uid}', '{$auid}')";
+		$sql = "INSERT INTO follow (uidA, uidB, time)
+				VALUES ('{$uid}', '{$auid}', now())";
 		$res = $db->query($sql);
 		if(!$res) die; // following failed
 
