@@ -45,9 +45,3 @@
 <?php
 	}
 ?>
-
-<script src="mainScript.js"></script>
-<script src="eventScript.js"></script>
-<script src="reviewScript.js"></script>
-<script src="commentScript.js"></script>
-<script src="messageScript.js"></script>

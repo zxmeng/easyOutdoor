@@ -25,8 +25,15 @@
 
     	<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
   		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-  		<script src="map-main.js" type="text/javascript"></script>
-  		
+  		<script src="map-main.js" type="text/javascript"></script>	
+		<script src="userScript.js"></script>
+		<script src="searchScript.js"></script>
+		<script src="mainScript.js"></script>
+		<script src="eventScript.js"></script>
+		<script src="reviewScript.js"></script>
+		<script src="commentScript.js"></script>
+		<script src="messageScript.js"></script>
+
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -40,6 +47,7 @@
 <?php 
 	if($logged==1){
 ?>
+	    <script type="text/javascript">setInterval(loadNotification, 2000)</script>
 		<body id="top" onload="loadNotification(<?php echo $_SESSION['id']; ?>)">
 <?php
 	}
@@ -54,5 +62,3 @@
 				<?php include_once('left.php'); ?>
 			</header>
 
-	<script src="userScript.js"></script>
-	<script src="searchScript.js"></script>
