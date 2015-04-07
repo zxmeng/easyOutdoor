@@ -163,6 +163,7 @@ function clickLike(eid, uid)
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("like").value = "Unlike";
+                document.getElementById("like").innerHTML = "Unlike";
 	        }
 	    }
 	    flag = 1; 
@@ -171,6 +172,7 @@ function clickLike(eid, uid)
     	xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("like").value = "Like";
+                document.getElementById("like").innerHTML = "Like";
 	        }
 	    }
 	    flag = 0; 
@@ -191,6 +193,7 @@ function clickJoin(eid, uid)
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("join").value = "Unjoin";
+                document.getElementById("join").innerHTML = "Unjoin";
                 clickChatroom(eid, uid);
 	        }
 	    }
@@ -200,7 +203,8 @@ function clickJoin(eid, uid)
     	xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("join").value = "Join";
-                document.getElementById("chatroom").type = "hidden";
+                document.getElementById("join").innerHTML = "Join";
+                document.getElementById("chatroom").style.visibility = "hidden";
 	        }
 	    }
 	    flag = 0;
