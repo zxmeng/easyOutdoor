@@ -14,7 +14,7 @@ class DataBase{
 	}
 
 	public function query($sql){
-		$result = $this->db->query($sql) or trigger_error($this->db->error."[$sql]");
+		$result = $this->db->query($sql) or die("Unable to update your information");
 		//$resultArray = $result->fetch_all(MYSQLI_ASSOC);
 		return $result;
 	}

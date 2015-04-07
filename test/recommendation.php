@@ -1,14 +1,18 @@
 <?php require_once('EventClass.php'); ?>
 
-<div class="masonry">
+<div>
    <div class="item">
-      <div class="item-name">Hong Kong Sai Kung Hebe Haven</div>
-      <video width="320" height="240" controls> <source src="video/SaiKungHebeHaven.mp4" type="video/mp4"></video>
+      <div align="center" class="item-name">Hong Kong Sai Kung Hebe Haven</div>
+      <div align="center" >
+      <video width="480" height="320" controls> <source src="video/SaiKungHebeHaven.mp4" type="video/mp4"></video>
+      </div>
    </div>
 
    <div class="item">
-      <div class="item-name">Tai Po Swimming Surfing</div>
-      <video width="320" height="240" controls> <source src="video/TaiPoSwimmingSurfing.mp4" type="video/mp4"></video>
+      <div align="center" class="item-name">Tai Po Swimming Surfing</div>
+      <div align="center" >
+      <video width="480" height="320" controls> <source src="video/TaiPoSwimmingSurfing.mp4" type="video/mp4"></video>
+      </div>
    </div>
 
 	<?php
