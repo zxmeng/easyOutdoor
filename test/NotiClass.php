@@ -79,11 +79,11 @@
 			return $result;
 		}
 
-		public function updateNoti($fid){
+		public function updateNoti($nid){
 
 			$update = "UPDATE notification
 					   SET notification.status = 1
-					   WHERE notification.fid = $fid";
+					   WHERE notification.nid = $nid";
 			$this->db->query($update);
 		}
 

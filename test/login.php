@@ -16,7 +16,7 @@ if(isset($_POST['Login'])){
 		//secure the data
 		$query = mysql_query("SELECT * FROM User WHERE email='$email'") or die("Could not check member");
 		$count_query = mysql_num_rows($query);
-		if($count_query = 0){
+		if($count_query == 0){
 			$message ='The information you entered was incorrect!';
 		}else{
 

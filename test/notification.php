@@ -47,7 +47,7 @@
 			foreach($commentNoti as $noti){ 
 	?>
 
-				<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['fid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
+				<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
 					<div class="commentcontent">
 						<?php echo $noti['nickname']." commented on your event ".$noti['title']; ?>
 					</div>
@@ -70,7 +70,7 @@
 			foreach($mentionNoti as $noti){ 
 	?>
 
-				<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['fid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
+				<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
 					<div class="commentcontent">
 						<?php echo $noti['nickname']." mentioned you on event ".$noti['title']; ?>
 					</div>
@@ -95,7 +95,7 @@
 			foreach($followNoti as $noti){ 
 	?>
 				<div class="notification">
-					<div class="commentcontent" type="button" onclick="clickNotification(<?php echo $noti['fid'].','.$uid.', '.$noti['uid'].', 1'; ?>)">
+					<div class="commentcontent" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$uid.', '.$noti['uid'].', 1'; ?>)">
 						<?php echo $noti['nickname']." followed you"; ?>
 					</div>
 					<div class="commentinfo">
@@ -119,7 +119,7 @@
 			foreach($joinNoti as $noti){ 
 	?>
 
-			<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['fid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
+			<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
 				<div class="commentcontent">
 					<?php echo $noti['nickname']." participated in your event ".$noti['title']; ?>
 				</div>
