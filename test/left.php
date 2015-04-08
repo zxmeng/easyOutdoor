@@ -30,7 +30,7 @@
 		<br><br>
 <!-- 		<button type="button" class="btn btn-default btn-circle btn-lg" style="margin:0 3px 5px 3px;"><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i></a></button></span>
 		<br><br> -->
-		<a href="logout.php"><span class="glyphicon glyphicon-remove-circle" style="font-size: 30px"></span></a>
+		<a href="logout.php"><span class="glyphicon glyphicon-remove-circle" style="font-size: 40px"></span></a>
 		<br><br>
 <?php 
 	}
