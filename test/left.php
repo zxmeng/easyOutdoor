@@ -25,9 +25,9 @@
 		
 		<!-- <button type="button" class="btn btn-default btn-circle btn-lg" id="notification" onclick="loadNotification(<?php //echo $_SESSION['id']; ?>)"style="margin:0 3px 5px 3px;"><i class="glyphicon glyphicon-list-alt"></i></button> -->
 
-		<br>
+		<br><br><br>
 		<div id="notiBox"><?php include_once('notification.php'); ?></div>
-		<br>
+		<br><br>
 		<button type="button" class="btn btn-default btn-circle btn-lg" style="margin:0 3px 5px 3px;"><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i></a></button></span>
 
 <?php 

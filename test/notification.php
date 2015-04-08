@@ -24,7 +24,7 @@
 ?>
 
 <!--while loop to list all comment-->
-<div class="notification-container">
+<div>
 
 
 <?php 
@@ -38,10 +38,11 @@
 
 ?>
 	<div class="notification-header">Notification
+	<div class="notification-header"></div>
 <?php
 		if($cno != 0) {
 	?>
-			<div class="notification-header">Comment</div>
+			<!-- <div class="notification-header">Comment</div> -->
 	<?php
 			foreach($commentNoti as $noti){ 
 	?>
@@ -61,12 +62,10 @@
 	<?php
 		} 
 	?>
-
 	<?php 
-
 		if($mno != 0) {
 	?>
-			<div class="notification-header">Mention</div>
+			<!-- <div class="notification-header">Mention</div> -->
 	<?php
 			foreach($mentionNoti as $noti){ 
 	?>
@@ -91,7 +90,7 @@
 
 		if($fno != 0) {
 	?>
-			<div class="notification-header">Follow</div>
+			<!-- <div class="notification-header">Follow</div> -->
 	<?php
 			foreach($followNoti as $noti){ 
 	?>
@@ -115,7 +114,7 @@
 
 		if($jno != 0) {
 	?>
-			<div class="notification-header">Participate</div>
+			<!-- <div class="notification-header">Participate</div> -->
 	<?php
 			foreach($joinNoti as $noti){ 
 	?>

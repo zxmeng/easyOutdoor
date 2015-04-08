@@ -7,7 +7,7 @@ $message = "Welcome Back to EasyOutdoor";
 if(isset($_POST['Login'])){
 	$email=$_POST['email'];
 	$password=$_POST['password'];
-	$remember=$_POST['remember'];
+	// $remember=$_POST['remember'];
 	
 	//error handeling
 	if((!$email)||(!$password)){
@@ -20,11 +20,11 @@ if(isset($_POST['Login'])){
 			$message ='The information you entered was incorrect!';
 		}else{
 
-			if($remember =="yes"){
-				//create the cookies
-				setcookie("id_cookie",$email, time()+60*60*24*100,"/");
-				setcookie("password_cookie",$password, time()+60*60*24*100,"/");
-			}
+			// if($remember =="yes"){
+			// 	//create the cookies
+			// 	setcookie("id_cookie",$email, time()+60*60*24*100,"/");
+			// 	setcookie("password_cookie",$password, time()+60*60*24*100,"/");
+			// }
 			
 			while($query_row=mysql_fetch_assoc($query)){
 				$password_db=$query_row['password'];
