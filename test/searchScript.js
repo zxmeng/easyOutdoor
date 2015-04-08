@@ -40,25 +40,25 @@ function mapSearch(district){
 
 function smallMap(venue){
     if(venue=='hktrain3'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=3\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=3\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
     else if(venue=='hktrain4'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=4\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=4\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
     else if(venue=='hktrain7'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=7\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=7\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
     else if(venue=='lamma'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=50\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=50\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
     else if(venue=='beitan'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=9\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=9\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
     else if(venue=='Ma On Shan'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=6\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=6\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
     else if(venue=='islands'){
-        document.getElementById("change").innerHTML= "<iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=18\" height = \"800\" width = \"600\" frameborder = \"0\"></iframe>";
+        document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=18\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
 }
 

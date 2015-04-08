@@ -1731,3 +1731,8 @@
 	height:30%;
 	margin:0 0 0 0;
 }
+.mapRoute{
+	border: solid 4px #efefef;
+	height:808px;
+	width:808px;
+}
