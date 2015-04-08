@@ -13,8 +13,10 @@
 
 <div>
 	<div align="center">
-		<p><div class="loginicon"><img src="<?php echo $userDetail['uPhoto']; ?>"></div></p>
-		<div class="name"><?php echo $userDetail['nickname']; ?></div>
+		<p><div class="loginicon" onclick="loadPersonalHomepage(<?php echo $uid.','.$auid; ?>)">
+		<img src="<?php echo $userDetail['uPhoto']; ?>">
+		</div></p>
+		<div class="name" onclick="loadPersonalHomepage(<?php echo $uid.','.$auid; ?>)"><?php echo $userDetail['nickname']; ?></div>
 		<div><?php echo $userDetail['uProfile']; ?></div>
 		<?php if ($auid != $uid) { ?>
 			<br><button class="btn btn-default" id="follow" type="button" name="submit" 

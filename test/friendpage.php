@@ -36,8 +36,10 @@
 
 	<div id="frienddetail" class="frienddetail" >
 		<div align="center">
-			<p><div class="loginicon"><img src="<?php echo $userDetail['uPhoto']; ?>"></div></p>
-			<div class="name"><?php echo $userDetail['nickname']; ?></div>
+			<p><div class="loginicon" onclick="loadPersonalHomepage(<?php echo $uid.','.$uid; ?>)">
+			<img src="<?php echo $userDetail['uPhoto']; ?>">
+			</div></p>
+			<div class="name" onclick="loadPersonalHomepage(<?php echo $uid.','.$uid; ?>)"><?php echo $userDetail['nickname']; ?></div>
 			<div><?php echo $userDetail['uProfile']; ?></div>
 
 			<div class="notification-header"></div><br>
