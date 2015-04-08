@@ -1,5 +1,5 @@
 <!-- Footer -->
-			<footer id="footer">
-			</footer>
+			<!-- <footer id="footer">
+			</footer> -->
 	</body>
 </html>

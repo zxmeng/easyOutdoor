@@ -32,13 +32,15 @@
 		<!-- The mode-button will be user to choose the events' show mode -->
 		<!-- default "Created Events" -->
 		<div class="mode-button">
-			<input type="button" value="Created Events" 
-			onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 1)" > | 
-			<input type="button" value="Joined Events" 
-			onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 2)" > | 
-			<input type="button" value="Created Reviews" 
-			onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 3)" >
-		</div>
+	        	<div class="btn-group" role="group" aria-label="...">
+				<button type="button" class="btn btn-default"
+				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 1)">Created Events</button>
+				<button type="button" class="btn btn-default"
+				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 2)">Joined Events</button>
+				<button type="button" class="btn btn-default"
+				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 3)">Reviews</button>
+				</div>
+		</div><br>
 
 	</div>
 
@@ -48,6 +50,11 @@
 		<div id="userEvent">
 		<?php 
 			}
+			if(empty($events)) {
+		?>
+			<div align="center"><p><h2>No event now</h2></p></div>
+		<?php 
+			}else{
 			foreach ($events as $event) {
 		?>
 			 <!-- this is the tox for 1 event, write a while loop to show all the events with this item-->
@@ -64,7 +71,7 @@
 		   </div>
 
 		<?php
-			}
+			}}
 		?>
    <!--end 1 event-->
    </div>
