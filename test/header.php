@@ -20,7 +20,7 @@
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.poptrox.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<!-- // <script src="js/bootstrap.min.js"></script> -->
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
 
@@ -41,6 +41,7 @@
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 			<link rel="stylesheet" href="css/masonry-lawrence.css" />
 		</noscript>
+		<link rel="stylesheet" href="css/chatroom.css" />
 
 	</head>
 

@@ -15,9 +15,9 @@
 ?>
 
 		    <div class="loginicon">
-				<img src="<?php echo $icon; ?>" onclick="clickFriend(<?php echo $_SESSION['id']; ?>)"><br>
+				<img src="<?php echo $icon; ?>" onclick="loadPersonalHomepage(<?php echo $_SESSION['id'].','.$_SESSION['id']; ?>)"><br>
 			</div>
-		   <h2 onclick="clickFriend(<?php echo $_SESSION['id']; ?>)"> <font color='#58ACFA'><?php echo $nickname; ?></font></h2>
+		   <h2 onclick="loadPersonalHomepage(<?php echo $_SESSION['id'].','.$_SESSION['id']; ?>)"> <font color='#58ACFA'><?php echo $nickname; ?></font></h2>
 		</div><br>
 
 		<button type="button" class="btn btn-default btn-circle btn-lg" id="friend" onclick="clickFriend(<?php echo $_SESSION['id']; ?>)" style="margin:0 3px 5px 3px;"><i class="glyphicon glyphicon-user"></i></button>
