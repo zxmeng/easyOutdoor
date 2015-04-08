@@ -1,10 +1,10 @@
 <?php
 
 	require_once('NotiClass.php');
-	$fid = $_GET['fid'];
+	$nid = $_GET['nid'];
 
 	$noti = new Notification();
 
-	$noti->updateNoti($fid);
+	$noti->updateNoti($nid);
 
 ?>

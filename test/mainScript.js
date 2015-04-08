@@ -106,25 +106,25 @@ function loadNotification(uid)
 
 }
 
-function clickNotification(fid, aid, bid, flag){
+function clickNotification(nid, aid, bid, flag){
     switch(flag){
         case 0:
             loadEvent(aid, bid);
-            disbaleNoti(fid);
+            disbaleNoti(nid);
             break;
 
         case 1:
             loadPersonalHomepage(aid, bid);
-            disbaleNoti(fid);
+            disbaleNoti(nid);
             break;
     }
 
 }
 
-function disbaleNoti(fid){
+function disbaleNoti(nid){
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();
-    var data = "?fid=" + fid;       
+    var data = "?nid=" + nid;       
     
     xmlhttp.open("GET","disbaleNotification.php"+data, true);
     xmlhttp.send();

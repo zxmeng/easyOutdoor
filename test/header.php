@@ -48,7 +48,7 @@
 <?php 
 	if($logged==1){
 ?>
-	    <script type="text/javascript">setInterval(loadNotification, 2000)</script>
+	    <script type="text/javascript">setInterval(loadNotification, 500)</script>
 		<body id="top" onload="loadNotification(<?php echo $_SESSION['id']; ?>)">
 <?php
 	}
