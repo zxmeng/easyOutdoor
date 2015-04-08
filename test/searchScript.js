@@ -34,7 +34,7 @@ function mapSearch(district){
             // scroll to search results
             var mapResult = document.getElementById("mapResult")
             var rect = mapResult.getBoundingClientRect();
-            window.scrollTo(rect.left, rect.top);
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 
