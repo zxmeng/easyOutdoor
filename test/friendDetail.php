@@ -3,6 +3,10 @@
 	require_once("UserClass.php");
 	require_once("EventClass.php");
 
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
+
 	$ur = new User();
 	$et = new Event();
 	$events = $et->getEventsCreatedByUser($auid);
@@ -18,27 +22,35 @@
 		</div></p>
 		<div class="name" onclick="loadPersonalHomepage(<?php echo $uid.','.$auid; ?>)"><?php echo $userDetail['nickname']; ?></div>
 		<div><?php echo $userDetail['uProfile']; ?></div>
-		<?php if ($auid != $uid) { ?>
-			<br><button class="btn btn-default" id="follow" type="button" name="submit" 
-					value="<?php 
+
+		<?php 
+			if (isset($_SESSION["logged"])){
+				if ($auid != $uid) { 
+		?>
+					<br><button class="btn btn-default" id="follow" type="button" name="submit" 
+							value="<?php 
+										if($followed > 0){
+											echo "Unfollow";
+										}
+										else {
+											echo "Follow";
+										}
+									?>" 
+							onclick="clickFollow(<?php echo $uid.', '.$auid; ?>)">
+							<?php 
 								if($followed > 0){
 									echo "Unfollow";
 								}
 								else {
 									echo "Follow";
 								}
-							?>" 
-					onclick="clickFollow(<?php echo $uid.', '.$auid; ?>)">
-					<?php 
-						if($followed > 0){
-							echo "Unfollow";
-						}
-						else {
-							echo "Follow";
-						}
-					?>
-			</button>
-		<?php } ?>
+							?>
+					</button>
+		<?php 	
+				}				
+			} 
+		?>
+
 		<div class="notification-header"></div><br>
 		<!-- There won't be follow button in the user's own homepage -->
 		<!-- The mode-button will be user to choose the events' show mode -->

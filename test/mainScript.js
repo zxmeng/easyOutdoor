@@ -1,5 +1,6 @@
 function goToTop(){
-
+    
+    loadAllEvent();
     var main = document.getElementById("main")
     var rect = main.getBoundingClientRect();
     window.scrollTo(rect.left, rect.top + window.scrollY);
