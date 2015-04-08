@@ -41,6 +41,7 @@ function clickFollow(uid, auid){
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("follow").value = "Unfollow";
+                document.getElementById("follow").innerHTML = "Unfollow";
 	        }
 	    }
 	    flag = 1; 
@@ -49,6 +50,7 @@ function clickFollow(uid, auid){
     	xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 	            document.getElementById("follow").value = "Follow";
+                document.getElementById("follow").innerHTML = "Follow";
 	        }
 	    }
 	    flag = 0; 

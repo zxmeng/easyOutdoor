@@ -15,30 +15,40 @@
 	<div align="center">
 		<p><div class="loginicon"><img src="<?php echo $userDetail['uPhoto']; ?>"></div></p>
 		<div class="name"><?php echo $userDetail['nickname']; ?></div>
+		<div><?php echo $userDetail['uProfile']; ?></div>
 		<?php if ($auid != $uid) { ?>
-		<input id="follow" type="submit" name="submit" 
-		value="<?php 
-					if($followed > 0){
-						echo "Unfollow";
-					}
-					else {
-						echo "Follow";
-					}
-				?>" 
-		onclick="clickFollow(<?php echo $uid.', '.$auid; ?>)">
+			<br><button class="btn btn-default" id="follow" type="button" name="submit" 
+					value="<?php 
+								if($followed > 0){
+									echo "Unfollow";
+								}
+								else {
+									echo "Follow";
+								}
+							?>" 
+					onclick="clickFollow(<?php echo $uid.', '.$auid; ?>)">
+					<?php 
+						if($followed > 0){
+							echo "Unfollow";
+						}
+						else {
+							echo "Follow";
+						}
+					?>
+			</button>
 		<?php } ?>
-
+		<div class="notification-header"></div><br>
 		<!-- There won't be follow button in the user's own homepage -->
 		<!-- The mode-button will be user to choose the events' show mode -->
 		<!-- default "Created Events" -->
 		<div class="mode-button">
 	        	<div class="btn-group" role="group" aria-label="...">
 				<button type="button" class="btn btn-default"
-				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 1)">Created Events</button>
+				onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 1)">Created Events</button>
 				<button type="button" class="btn btn-default"
-				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 2)">Joined Events</button>
+				onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 2)">Joined Events</button>
 				<button type="button" class="btn btn-default"
-				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 3)">Reviews</button>
+				onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 3)">Reviews</button>
 				</div>
 		</div><br>
 

@@ -38,6 +38,9 @@
 		<div align="center">
 			<p><div class="loginicon"><img src="<?php echo $userDetail['uPhoto']; ?>"></div></p>
 			<div class="name"><?php echo $userDetail['nickname']; ?></div>
+			<div><?php echo $userDetail['uProfile']; ?></div>
+
+			<div class="notification-header"></div><br>
 			<!-- There won't be follow button in the user's own homepage -->
 			<!-- The mode-button will be user to choose the events' show mode -->
 			<!-- default "Created Events" -->
