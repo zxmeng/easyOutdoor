@@ -31,6 +31,10 @@ function mapSearch(district){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("mapResult").innerHTML= xmlhttp.responseText;
+            // scroll to search results
+            var mapResult = document.getElementById("mapResult")
+            var rect = mapResult.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top);
         }
     }
 

@@ -7,11 +7,19 @@
 
 	<div align="center" style="margin:1em 0 1em 0;">
 		<div class="mode-button">
-			<div class="btn-group" role="group" aria-label="...">
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+				<div class="btn-group" role="group">
 				<button type="button" class="btn btn-default" id="all" onclick="loadAllEvent()">ALL</button>
+				</div>
+				<div class="btn-group" role="group">
 				<button type="button" class="btn btn-default" id="calendar" onclick="loadCalendar()">CALENDER</button>
+				</div>
+				<div class="btn-group" role="group">
 				<button type="button" class="btn btn-default"  id="mapSearch" onclick="loadMap()">MAP</button>
-				<button type="button" class="btn btn-default" id="recommendation" onclick="loadRecommendation()">RECOMMENDATION</button>
+				</div>
+				<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default" id="recommendation" onclick="loadRecommendation()">RECOMM</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -19,7 +27,7 @@
 	<div id="change"><?php include_once('eventList.php'); ?></div>
 
 	<div class="homebutton">
-		<button type="button" class="btn btn-default btn-circle btn-lg"  id="back" onclick="loadAllEvent()"><i class="glyphicon glyphicon-home"></i></button>
+		<button type="button" class="btn btn-default btn-circle btn-lg"  id="back" onclick="goToTop()"><i class="glyphicon glyphicon-home"></i></button>
 	</div>
 <?php
 

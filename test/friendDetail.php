@@ -44,13 +44,19 @@
 		<!-- The mode-button will be user to choose the events' show mode -->
 		<!-- default "Created Events" -->
 		<div class="mode-button">
-	        	<div class="btn-group" role="group" aria-label="...">
-				<button type="button" class="btn btn-default"
-				onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 1)">Created Events</button>
-				<button type="button" class="btn btn-default"
-				onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 2)">Joined Events</button>
-				<button type="button" class="btn btn-default"
-				onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 3)">Reviews</button>
+	        	<div class="btn-group btn-group-justified" role="group" aria-label="...">
+		        	<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default"
+						onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 1)">Created Events</button>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default"
+						onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 2)">Joined Events</button>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default"
+						onclick="showUserEvents(<?php echo $auid.','.$uid; ?>, 3)">Reviews</button>
+					</div>
 				</div>
 		</div><br>
 
