@@ -14,16 +14,18 @@
 <div class="friendmain">
 	<div class="friendlist">
 		<h2 align="center" style="padding:5px;">Friends</h2>
-		<hr style="margin:3px 0 3px 0;">
+		<hr style="margin:2% 0 2% 0;">
 	<!--each participant-->
 	<?php
 		foreach($friends as $friend){
 	?>
-		<div>
-			<div class="button" type="button" align="left"
+		<div style="margin:2px 0 5px 0;">
+			<div class="chatmessage" style="margin:5px 10px 5px 10px" type="button" align="left"
 			onclick="showFriendDetail(<?php echo $uid.", ".$friend['uid']; ?>)">
-				<div class="chatheader"><img src="<?php echo $friend['uPhoto']; ?>"></div>
-				<?php echo $friend['nickname']; ?>
+				<div style="">
+					<div class="friendheader"><img src="<?php echo $friend['uPhoto']; ?>"></div>
+					<div style="line-height:50px;"><?php echo $friend['nickname']; ?></div>
+				</div>
 			</div>
 		</div>
 	<!--end message-->
@@ -42,11 +44,11 @@
 	        <div class="mode-button">
 				<input type="button" value="Created Events" 
 				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>,  1)" > | 
-				<input type="button" value="Joined Events" 
+				<input type="button" value="Joint Events" 
 				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 2)" > | 
 				<input type="button" value="Created Reviews" 
 				onclick="showUserEvents(<?php echo $uid.','.$uid; ?>, 3)" >
-			</div>
+			</div><br>
 		</div>
 
 		<div id="userEvent">

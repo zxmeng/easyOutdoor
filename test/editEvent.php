@@ -19,11 +19,11 @@
         ?>
 
 
-            <div class = "modal-header">
+            <div class = "modal-header" style="margin-left:10%;">
                 <h2>Edit An Event</h2>
             </div>
 
-            <div class = "modal-body">
+            <div class = "modal-body edit">
 
                     <div class="field">
                         <label for='username'>Title</label>

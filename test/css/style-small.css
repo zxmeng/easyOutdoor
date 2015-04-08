@@ -83,4 +83,43 @@
 	.frienddetail{
 	float: left;
 	}
+	.eventdetail{
+		width:100%;
+		min-width: 350px;
+		float: left;  
+		min-height: 250px;
+		border:2px;
+	}
+	.eventmap{
+		width:100%;
+		min-width:350px;
+	}
+	.notification-container{
+		height: 200px;
+	}
+	.friendlist{
+		height:200px;
+		width: 100%;
+	}
+	.frienddetail{
+		width:100%;
+	}
+	.message{
+		width:100%;
+	}
+	.parti{
+		width:0%;
+	}
+	.eb{
+		display: inline-block;
+		width:100%;
+	}
+	.rv{
+	width:100%; height:auto;
+	}
+	.welcome{
+	width:50%;
+	height:50%;
+	margin:0 0 0 0;
+	}
 }

@@ -4,14 +4,14 @@
    <div class="item">
       <div align="center" class="item-name">Hong Kong Sai Kung Hebe Haven</div>
       <div align="center" >
-      <video width="480" height="320" controls> <source src="video/SaiKungHebeHaven.mp4" type="video/mp4"></video>
+      <video class="rv" controls> <source src="video/SaiKungHebeHaven.mp4" type="video/mp4"></video>
       </div>
    </div>
 
    <div class="item">
       <div align="center" class="item-name">Tai Po Swimming Surfing</div>
       <div align="center" >
-      <video width="480" height="320" controls> <source src="video/TaiPoSwimmingSurfing.mp4" type="video/mp4"></video>
+      <video class="rv" controls> <source src="video/TaiPoSwimmingSurfing.mp4" type="video/mp4"></video>
       </div>
    </div>
 

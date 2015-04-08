@@ -1,10 +1,9 @@
 <!-- Main --> 
 
 <div id="main">
-	<div align="center">
-		<img class="header-picture"src="images/logo@20150303.png" >
+	<div align="center"><img class="header-picture welcome"src="images/welcome.png" ><br>
+		<img style="margin:-6px 0 0 0;"class="header-picture"src="images/logo@20150303.png" >
 	</div>
-
 
 	<div align="center" style="margin:1em 0 1em 0;">
 		<div class="mode-button">
@@ -34,12 +33,12 @@
 		<div class="createbutton">
 			<div class="dropdown">
 				<button type="button" class="btn btn-default btn-circle btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-plus"></i></a></button>
-			  	<ul class="dropdown-menu dropdown-menu-right"aria-labelledby="dLabel1" >
-				   	<div align="right">
-				   	Create Event  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button><br>
-				    Create Review  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateReview(<?php echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button>
-			  		</div>
-			  	</ul>
+				  	<ul class="dropdown-menu dropdown-menu-right"aria-labelledby="dLabel1" >
+					   	<div align="right">
+					   	Create Event  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateEvent(<?php echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button><br>
+					    Create Review  <button type="button" class="btn btn-default btn-circle"  style="margin:2px 5px 3px 0;" onclick="clickCreateReview(<?php echo $_SESSION['id']; ?>)"><i class="glyphicon glyphicon-plus"></i></button>
+				  		</div>
+				  	</ul>
 			</div>
 		</div>	
 <?php

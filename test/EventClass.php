@@ -62,7 +62,7 @@ class Event{
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
                 WHERE event.uid = user.uid AND event.eDate > '$now'
-                ORDER BY event.eDate ASC";
+                ORDER BY event.eDate ASC LIMIT 8";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
         return $resultArray;
@@ -84,7 +84,7 @@ class Event{
         $sql = "SELECT user.uPhoto, user.uid, user.nickname
                 FROM participation, user
                 WHERE participation.eid = $eid AND participation.uid = user.uid
-                ORDER BY participation.time DESC LIMIT 9";
+                ORDER BY participation.time DESC LIMIT 8";
         $result = $this->db->query($sql);
         $resultArray = $result->fetch_all(MYSQLI_ASSOC);
         return $resultArray; 

@@ -16,24 +16,26 @@
 	</div>
 	<div class="chatmain">
 			<!-- ##### need to limit the heigh of this div!!!!! -->
+			
 			<div id="messageViewer" class="message"></div>
-			<div>
-			<h2 align="center">Owner</h2>
-				<?php
-					$owner = $event->getOwner($eid);
-				?>
-				<!-- owner -->
-				<div class="chatmessage"  type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$owner['uid']; ?>)">
-					<div class="chatheader">
-						<img src="<?php echo $owner['uPhoto']; ?>" alt="file not found"><br>
-					</div>
-					<div class="chatname">
-						<p><?php echo $owner['nickname']; ?></p>
-					</div>
-				</div>
-				<!-- owner -->
-			</div>
+			
 			<div class="parti">
+				<div>
+				<h2 align="center">Owner</h2>
+					<?php
+						$owner = $event->getOwner($eid);
+					?>
+					<!-- owner -->
+					<div class="chatmessage"  type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$owner['uid']; ?>)">
+						<div class="chatheader">
+							<img src="<?php echo $owner['uPhoto']; ?>" alt="file not found"><br>
+						</div>
+						<div class="chatname">
+							<?php echo $owner['nickname']; ?>
+						</div>
+					</div>
+					<!-- owner -->
+				</div>
 			<h2 align="center">Participants</h2>
 				<?php 
 					$users = $event->getParticipants($eid);
@@ -46,7 +48,7 @@
 							<img src="<?php echo $user['uPhoto']; ?>" alt="file not found"><br>
 						</div>
 						<div class="chatname">
-							<p><?php echo $user['nickname']; ?></p>
+							<?php echo $user['nickname']; ?>
 						</div>
 					</div>
 					<!--end participant-->

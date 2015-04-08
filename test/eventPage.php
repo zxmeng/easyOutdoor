@@ -35,15 +35,16 @@ if (session_status() == PHP_SESSION_NONE) {
 	
 ?>
 <div class="bannercontainer">
-	<img src="images/background.png">
+	<img src="images/cuhk.jpg">
 </div>
 
 <div class="eventinfo" style="margin:10px 0 0 0;">
 	<div class="eventdetail" style="display:inline">
 		<h2><?php echo $eInfo['title']; ?></h2>
 		<h4><?php echo $eInfo['eDate']; ?> <?php echo $eInfo['venue']; ?></h4>
-		<br><br>
-		<div style="overflow:hidden;">
+		<br>
+		<div style="overflow:hidden;margin-left:10%;">
+			<h3>Description:</h3>
 		<h4><?php echo $eInfo['eDescription']; ?></h4>
 		</div>
 
@@ -54,13 +55,14 @@ if (session_status() == PHP_SESSION_NONE) {
 		$map_url = str_replace(" ", "+", $map_url);
 	?>
 	<div class="eventmap">
-	<iframe width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  src="http://maps.google.nl/maps?q=<?=$map_url?>&hl=nl&ie=UTF8&t=v&hnear=<?=$map_url?>&z=13&amp;output=embed"></iframe>
+	<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  src="http://maps.google.nl/maps?q=<?=$map_url?>&hl=nl&ie=UTF8&t=v&hnear=<?=$map_url?>&z=13&amp;output=embed"></iframe>
 	</div>
 
-</div>
+</div><div class="eb">
+	<div>
 				<!--button-->
-	<div style="margin:1em 0 1em 0;bottom:0px;">
-		<div class="mode-button">
+	<div style="margin:1em 0 0 0;bottom:0px;">
+		<div class="mode-button" >
 			<div class="btn-group" role="group" aria-label="...">
 	<?php 
 		if (isset($_SESSION["logged"])){
@@ -123,7 +125,7 @@ if (session_status() == PHP_SESSION_NONE) {
 		</div>
 	</div>
 	<!--end buttom-->
-
+</div></div>
 <hr>
 <div class="eventparticipant">
 	<h4>Who Joint This Event?</br></h4>

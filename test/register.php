@@ -69,15 +69,51 @@ if(isset($_POST['Register'])){
 <!doctype html>
 <html>
 <head>
-<link href="css/login-law.css" rel="stylesheet" type="text/css"/>
-<meta charset="UTF-8">
-<title>Register</title>
-</head>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>EasyOutdoor</title>
+
+		<!-- Bootstrap -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+
+    	<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  		<script src="map-main.js" type="text/javascript"></script>	
+		<script src="userScript.js"></script>
+		<script src="searchScript.js"></script>
+		<script src="mainScript.js"></script>
+		<script src="eventScript.js"></script>
+		<script src="reviewScript.js"></script>
+		<script src="commentScript.js"></script>
+		<script src="messageScript.js"></script>
+
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+			<link rel="stylesheet" href="css/masonry-lawrence.css" />
+		</noscript>
+		<link rel="stylesheet" href="css/chatroom.css" />
+
+	</head>
 
 <body>
-<div class="container center login">
+<div class="login" align="center">
+   <div>
+				<img style="height:250px;width:250px;"src="images/logo-sqw.png"><br>
+				
+			</div>
     <h1>Register</h1>
-    <p><?php print("$message");?></p>
+    <p><?php echo $message; ?><div class="logintype">
     <form action="register.php" method="post">
     	<input type="text" name="nickname" placeholder="Nickname"/><br/>
         <input type="text" name="email" placeholder="Email"/><br/>
@@ -86,7 +122,7 @@ if(isset($_POST['Register'])){
         <input type="password" name="password1" placeholder="Password"/><br/>
         <input type="password" name="password2" placeholder="Validate Password"/><br/>
         <input type="submit" name="Register" value="Register"/>
-    </form>
+    </form></div>
 </div>
 </body>
 </html>
