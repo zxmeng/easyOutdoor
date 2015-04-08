@@ -58,77 +58,80 @@ if (session_status() == PHP_SESSION_NONE) {
 	<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  src="http://maps.google.nl/maps?q=<?=$map_url?>&hl=nl&ie=UTF8&t=v&hnear=<?=$map_url?>&z=13&amp;output=embed"></iframe>
 	</div>
 
-</div><div class="eb">
+</div>
+
+<div class="eb">
 	<div>
 				<!--button-->
-	<div style="margin:1em 0 0 0;bottom:0px;">
-		<div class="mode-button" >
-			<div class="btn-group" role="group" aria-label="...">
-	<?php 
-		if (isset($_SESSION["logged"])){
-			if($isOwner) {?>
-				<button class="btn btn-default" id="edit" type="button" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)">Edit</button>
+		<div style="margin:1em 0 0 0;bottom:0px;">
+			<div class="mode-button" >
+				<div class="btn-group" role="group" aria-label="...">
 		<?php 
-			} else{
-		?>
-				<button class="btn btn-default" id="like" type="button" name="submit" 
-				value="<?php 
-							if($isLike == 0){
-								echo "Like";
-							}
-							else {
-								echo "Unlike";
-							}
-						?>" 
-				onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
-				<?php 
-					if($isLike == 0){
-						echo "Like";
-					}
-					else {
-						echo "Unlike";
-					}
-				?>
-				</button>
+			if (isset($_SESSION["logged"])){
+				if($isOwner) {?>
+					<button class="btn btn-default" id="edit" type="button" name="submit" value="Edit" onclick="clickEdit(<?php echo $eid.','.$uid; ?>)">Edit</button>
+			<?php 
+				} else{
+			?>
+					<button class="btn btn-default" id="like" type="button" name="submit" 
+					value="<?php 
+								if($isLike == 0){
+									echo "Like";
+								}
+								else {
+									echo "Unlike";
+								}
+							?>" 
+					onclick="clickLike(<?php echo $eid.', '.$uid; ?>)">
+					<?php 
+						if($isLike == 0){
+							echo "Like";
+						}
+						else {
+							echo "Unlike";
+						}
+					?>
+					</button>
 
-				<button class="btn btn-default" id="join" type="button" name="submit" 
-				value="<?php 
-							if($isPar == 0){
-								echo "Join";
-							}
-							else {
-								echo "Unjoin";
-							}
-						?>"  
-				onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
-				<?php 
-					if($isPar == 0){
-						echo "Join";
-					}
-					else {
-						echo "Unjoin";
-					}
-				?>
-				</button>
-		<?php 				
-			} 
-		?>
-		<?php
-			if($isOwner || $isPar){
-		?>	
-			<button class="btn btn-default" id="chatroom" type="button" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">Chatroom</button>
-		<?php
+					<button class="btn btn-default" id="join" type="button" name="submit" 
+					value="<?php 
+								if($isPar == 0){
+									echo "Join";
+								}
+								else {
+									echo "Unjoin";
+								}
+							?>"  
+					onclick="clickJoin(<?php echo $eid.', '.$uid; ?>)">
+					<?php 
+						if($isPar == 0){
+							echo "Join";
+						}
+						else {
+							echo "Unjoin";
+						}
+					?>
+					</button>
+			<?php 				
+				} 
+			?>
+			<?php
+				if($isOwner || $isPar){
+			?>	
+				<button class="btn btn-default" id="chatroom" type="button" name="submit" value="Chatroom" onclick="clickChatroom(<?php echo $eid.','.$uid; ?>)">Chatroom</button>
+			<?php
+				}
 			}
-		}
-	?>
+		?>
+				</div>
 			</div>
 		</div>
-	</div>
 	<!--end buttom-->
-</div></div>
+	</div>
+</div>
 <hr>
 <div class="eventparticipant">
-	<h4>Who Joint This Event?</br></h4>
+	<h4>Who Joined in This Event?</br></h4>
 
 	<?php 
 		$users = $event->getParticipants($eid);
@@ -198,3 +201,4 @@ if (session_status() == PHP_SESSION_NONE) {
 <?php 
 	} 
 ?>
+</div>
