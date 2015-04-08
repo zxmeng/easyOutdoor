@@ -31,6 +31,7 @@ function sendComment(eid, suid){
                     document.getElementById("commentBox").value = "";  //Clear the commentBox
                     document.getElementById("friendList").innerHTML = ""; //Close the friendList
                     ruid = 0; // reset the global variable
+                    refreshComment(suid, eid)
                 }
             }
         }
