@@ -51,7 +51,7 @@ function buttonOnClick() {
 var guid = 0;
 var geid = 0;
 
-// setInterval(viewMessage, 500); //send the request twice a second
+setInterval(viewMessage, 500); //send the request twice a second
 function viewMessage(uid, eid){
 	var http_request = createAjaxObject();
 	if (http_request){
