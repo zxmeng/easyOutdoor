@@ -50,11 +50,13 @@ if(isset($_POST['Register'])){
 				
 					//insert to database
 					$now = date("Y-m-d H:i:s");
-					$register= mysql_query("INSERT INTO User(nickname,email,password,phone,uProfile,joinTime,status,code)
+					$register = mysql_query("INSERT INTO User(nickname,email,password,phone,uProfile,joinTime,status,code)
 						VALUES('$nickname','$email','$password1','$phone','$profile','$now','0','$code')")
 						or die("Could not insert your information");
-					$message=  'You have now been registered!';
-					header("Location:index.php");
+					$message = 'You have now been registered.\nPlease check your email to activate your account!';
+					
+					echo '<script language="JavaScript">; alert("'.$message.'"); location.href="index.php"; </script>;';
+
 				}	
 			}
 		}
