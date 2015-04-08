@@ -106,6 +106,30 @@ function loadNotification(uid)
 
 }
 
+function clickNotification(fid, aid, bid, flag){
+    switch(flag){
+        case 0:
+            loadEvent(aid, bid);
+            disbaleNoti(fid);
+            break;
+
+        case 1:
+            loadPersonalHomepage(aid, bid);
+            disbaleNoti(fid);
+            break;
+    }
+
+}
+
+function disbaleNoti(fid){
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    var data = "?fid=" + fid;       
+    
+    xmlhttp.open("GET","disbaleNotification.php"+data, true);
+    xmlhttp.send();
+}
+
 function addLoadEvent(func) {
   var oldonload = document.getElementById("top").onload;
   if (typeof document.getElementById("top").onload != 'function') {
