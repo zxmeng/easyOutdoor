@@ -12,7 +12,7 @@
 				<button type="button" class="btn btn-default" id="all" onclick="loadAllEvent()">ALL</button>
 				</div>
 				<div class="btn-group" role="group">
-				<button type="button" class="btn btn-default" id="calendar" onclick="loadCalendar()">CALENDER</button>
+				<button type="button" class="btn btn-default" id="calendar" onclick="loadCalendar()">CALENDAR</button>
 				</div>
 				<div class="btn-group" role="group">
 				<button type="button" class="btn btn-default"  id="mapSearch" onclick="loadMap()">MAP</button>

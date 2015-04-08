@@ -84,7 +84,7 @@ INSERT INTO `event` (`eid`, `uid`, `title`, `venue`, `district`, `eDate`, `eDesc
 (5, 2, 'Cliff Jumping', 'Sai Kung Sai Wan ', 'Sai Kung', '2015-04-15 15:00:00', 'Extremely exciting sport for outdoor lover! Previous Experience NEEDED.', 'uploads/2014-01-25 15.43.31.jpg', 1, 1, 7, '2015-04-07 14:50:12', '2015-04-07 15:01:15'),
 (6, 5, 'Go out together', 'Pok Fu lam', 'Southern', '2015-04-15 03:00:00', 'Let us go out', 'uploads/2287afc9ce53007a5499151f6e77b23b(2).jpg', 1, 3, 10, '2015-04-07 14:52:33', '2015-04-07 15:03:06'),
 (7, 5, 'Go out once again', 'Pok Fu lam', 'Islands', '2015-05-04 12:05:00', 'The Pok Fu lam is so beautiful, anyone wants to go there again?', 'uploads/23139819bdc222c723660c38c9b19e00.jpg', 0, 1, 10, '2015-04-07 15:11:47', '2015-04-07 15:50:00'),
-(8, 2, 'Lemma Island Visit', 'Lemma Island', 'Southern', '2015-04-15 10:04:00', 'Lemma Island is one of the most notable spots for beaches and sea food. Let us go there together to enjoy a perfect day.Transportation: Take the Ferry at Central. ', 'uploads/pic.jpg', 2, 4, 9, '2015-04-07 15:18:34', '2015-04-07 16:07:29');
+(8, 2, 'Lemma Island Visit', 'Lemma Island', 'Southern', '2015-04-09 10:04:00', 'Lemma Island is one of the most notable spots for beaches and sea food. Let us go there together to enjoy a perfect day.Transportation: Take the Ferry at Central. ', 'uploads/pic.jpg', 2, 4, 9, '2015-04-07 15:18:34', '2015-04-07 16:07:29');
 
 -- --------------------------------------------------------
 
