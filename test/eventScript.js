@@ -6,6 +6,9 @@ function clickCreateEvent(uid)
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -23,6 +26,10 @@ function clickEdit(eid, uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
+
         }
     }
     
@@ -71,6 +78,9 @@ function updateEvent(eid,uid,name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -131,6 +141,9 @@ function createEvent(uid, name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     var title = document.getElementById("c_title").value;
@@ -243,6 +256,9 @@ function clickChatroom(eid, uid)
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             addLoadEvent(viewMessage(uid, eid));
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.bottom + window.scrollY);
         }
     }
     

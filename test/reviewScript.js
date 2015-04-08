@@ -7,6 +7,9 @@ function clickCreateReview(uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -24,6 +27,9 @@ function clickEdit_R(pid, uid)
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -72,6 +78,9 @@ function updateReview(pid,uid,name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -133,6 +142,9 @@ function createReview(uid, name){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     var title = document.getElementById("r_title").value;

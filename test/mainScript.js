@@ -1,5 +1,5 @@
 function goToTop(){
-    
+
     var main = document.getElementById("main")
     var rect = main.getBoundingClientRect();
     window.scrollTo(rect.left, rect.top + window.scrollY);
@@ -17,6 +17,9 @@ function loadEvent(eid, uid)
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -35,6 +38,9 @@ function loadReview(pid, uid)
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
     
@@ -55,6 +61,9 @@ function loadAllEvent()
             document.getElementById("change").innerHTML= xmlhttp.responseText;
             guid = 0;
 			geid = 0;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 
@@ -70,6 +79,9 @@ function loadCalendar()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 
@@ -81,6 +93,9 @@ function loadMap()
 {
     document.getElementById("change").innerHTML= "<div id=\"map\" style=\"width: 100%; height: 500px;border: solid 4px #efefef;\"></div><div id=\"mapResult\"></div>";
     initialize();
+    var main = document.getElementById("change")
+    var rect = main.getBoundingClientRect();
+    window.scrollTo(rect.left, rect.top + window.scrollY);
 }
 
 function loadRecommendation()
@@ -91,6 +106,9 @@ function loadRecommendation()
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("change")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 

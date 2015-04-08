@@ -50,6 +50,9 @@ function showFriendList(uid){
         http_request.onreadystatechange = function() {
             if (http_request.readyState == 4 && http_request.status == 200) {
                 document.getElementById("friendList").innerHTML = http_request.responseText;
+                var main = document.getElementById("friendList")
+                var rect = main.getBoundingClientRect();
+                window.scrollTo(rect.left, rect.top + window.scrollY);
             }
         }
         http_request.open("GET", "goToFriendList.php?"+data, true);
@@ -76,6 +79,9 @@ function refreshComment(uid, eid){
         http_request.onreadystatechange = function() {
             if (http_request.readyState == 4 && http_request.status == 200) {
                 document.getElementById("commentList").innerHTML = http_request.responseText;
+                var main = document.getElementById("commentList")
+                var rect = main.getBoundingClientRect();
+                window.scrollTo(rect.left, rect.top + window.scrollY);
             }
         }
         http_request.open("GET", "goToCommentList.php?"+data, true);

@@ -15,6 +15,9 @@ function calendarSearch(){
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("searchResult").innerHTML= xmlhttp.responseText;
+            var mapResult = document.getElementById("mapResult")
+            var rect = mapResult.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 
@@ -64,6 +67,9 @@ function smallMap(venue){
     else if(venue=='islands'){
         document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=18\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
+    var main = document.getElementById("change")
+    var rect = main.getBoundingClientRect();
+    window.scrollTo(rect.left, rect.top + window.scrollY);
 }
 
 function loadDistrictEvents(district){
@@ -75,6 +81,9 @@ function loadDistrictEvents(district){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("searchResults").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("searchResults")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 
@@ -92,6 +101,9 @@ function loadDistrictReviews(district){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("searchResults").innerHTML= xmlhttp.responseText;
+            var main = document.getElementById("searchResults")
+            var rect = main.getBoundingClientRect();
+            window.scrollTo(rect.left, rect.top + window.scrollY);
         }
     }
 
