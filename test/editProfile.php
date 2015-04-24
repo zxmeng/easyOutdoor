@@ -1,6 +1,4 @@
-<!-- <div class ="modal fade" id = "create" role = "dialog">
-    <div class = "modal-dialog">
-        <div class = "modal-content"> -->
+
         <?php
             require_once('UserClass.php');
 
@@ -9,6 +7,7 @@
 
         ?>
 
+            <!-- the page to edit personal profile -->
             <div class = "modal-header" style="margin-left:10%;">
                 <h2>Edit Your Profile</h2>
             </div>
@@ -36,16 +35,13 @@
                             <img id="e_img" src="<?php echo $user['uPhoto']; ?>" alt="file not found" style="width: 100px; height: 100px;">
                             <input type="file" name="image" id="e_image" accept="image/*" onchange="previewImage(1)" required />
                         </div>
+                        <!-- user choose an image to be previewed and then uploaded to server -->
                     </form>
 
-                    <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
-                     <div class = "modal-footer">
+                    <div class = "modal-footer">
                         <div id="output"></div>
-                        <!-- <a href="javascript:sendForm()">Stash the file!</a> -->
                         <input type="button" value="Update" onclick="clickUpdateProfile(<?php echo $uid; ?>)">
+                        <!-- trigger the js function to update database and change the page content-->
                     </div>
                 
-            </div>       
-       <!--  </div>
-    </div>
-</div> -->
+            </div>      

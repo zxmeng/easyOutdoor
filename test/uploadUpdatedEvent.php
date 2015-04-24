@@ -3,6 +3,7 @@
     require_once('Page.php');
     require_once('EventClass.php');
 
+    // update database and return the page to display the updated event
     $event = new Event();
     $uid = $_GET['uid'];
 

@@ -1,20 +1,21 @@
-<!-- <div class ="modal fade" id = "create" role = "dialog">
-    <div class = "modal-dialog">
-        <div class = "modal-content"> -->
+
         <?php
             require_once('ReviewClass.php');
 
             $re = new Review();
             $review = $re->getReview($pid);
+
+            // format the date
             $origin = strtotime($review['eDate']);
             $date = date("Y-m-d", $origin);
             $time = date("h:m:s", $origin);
             $datetime = $date.'T'.$time;
+
             $re->db->close();
 
         ?>
 
-
+            <!-- the page to edit a review -->
             <div class = "modal-header" style="margin-left:10%;">
                 <h2>Edit A Review</h2>
             </div>
@@ -76,16 +77,13 @@
                             <img id="e_img" src="<?php echo $review['ePhoto']; ?>" alt="file not found" style="width: 100px; height: 100px;">
                             <input type="file" name="image" id="e_image" accept="image/*" onchange="previewImage(1)" required />
                         </div>
+                        <!-- user choose an image to be previewed and then uploaded to server -->
                     </form>
 
-                    <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
                      <div class = "modal-footer">
                         <div id="output"></div>
-                        <!-- <a href="javascript:sendForm()">Stash the file!</a> -->
                         <input type="button" value="Update" onclick="clickUpdate_R(<?php echo $pid.','.$uid; ?>)">
+                        <!-- trigger the js function to update database and change the page content-->
                     </div>
                 
             </div>       
-       <!--  </div>
-    </div>
-</div> -->

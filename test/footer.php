@@ -1,5 +1,3 @@
-<!-- Footer -->
-			<!-- <footer id="footer">
-			</footer> -->
+<!-- Footer, close the tags -->
 	</body>
 </html>

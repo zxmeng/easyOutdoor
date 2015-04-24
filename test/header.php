@@ -47,6 +47,7 @@
 
 <?php 
 	if($logged==1){
+		// if it's logged in, load the notification
 ?>
 	    <script type="text/javascript">setInterval(loadNotification, 500)</script>
 		<body id="top" onload="loadNotification(<?php echo $_SESSION['id']; ?>)">

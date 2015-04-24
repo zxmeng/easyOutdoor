@@ -1,7 +1,5 @@
-<!-- <div class ="modal fade" id = "create" role = "dialog">
-    <div class = "modal-dialog">
-        <div class = "modal-content"> -->
-        
+
+            <!-- the page to create a review -->
             <div class = "modal-header">
                 <h2>Post A Review</h2>
             </div>
@@ -63,15 +61,12 @@
                          <img id="c_img" src="images/cuhk.jpg" style="width: 100px; height: 100px;">
                         <input type="file" name="image" id="c_image" accept="image/*"  onchange="previewImage(0)" required />
                     </div>
+                    <!-- user choose an image to be previewed and then uploaded to server -->
                 </form>
 
-                <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
                  <div class = "modal-footer">
                     <input type="button" value="Post" onclick="clickPost(<?php echo $uid; ?>)">
-                    <!-- <input type="button" value="Reset" onclick="resetEmpty()"> -->
+                    <!-- trigger the js function to update database and change the page content-->
                 </div>
                 
             </div>       
-       <!--  </div>
-    </div>
-</div> -->

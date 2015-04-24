@@ -7,8 +7,7 @@ $message = "Welcome Back to EasyOutdoor";
 if(isset($_POST['Login'])){
 	$email=$_POST['email'];
 	$password=$_POST['password'];
-	// $remember=$_POST['remember'];
-	
+
 	//error handeling
 	if((!$email)||(!$password)){
 		$message='please insert both fields';
@@ -19,16 +18,8 @@ if(isset($_POST['Login'])){
 		if($count_query == 0){
 			$message ='The information you entered was incorrect!';
 		}else{
-
-			// if($remember =="yes"){
-			// 	//create the cookies
-			// 	setcookie("id_cookie",$email, time()+60*60*24*100,"/");
-			// 	setcookie("password_cookie",$password, time()+60*60*24*100,"/");
-			// }
-			
 			while($query_row=mysql_fetch_assoc($query)){
 				$password_db=$query_row['password'];
-				//$password=$password;
 				if($password!=$password_db){
 					$message = "Incorrect password";
 
@@ -47,7 +38,7 @@ if(isset($_POST['Login'])){
 						$_SESSION['nickname']=$nickname;
 						$_SESSION['password']=$password;
 						$abc=$_SESSION['email'];
-						header("Location:index.php");//refresh
+						header("Location:index.php"); // refresh
 					}
 				}
 			}
@@ -109,7 +100,6 @@ if(isset($_POST['Login'])){
     <form action="login.php" method="post">
     	<input type="text" name="email" placeholder="Email Address"/><br/>
         <input type="password" name="password" placeholder="Password"/><br/>
-       <!-- <input type="checkbox" name="remember" value="yes" checked="checked"/>Remember Me?<br/>-->
         <input type="submit" name="Login"/>
     </form></div>
 </div>

@@ -3,6 +3,7 @@
     require_once('Page.php');
     require_once('UserClass.php');
 
+    // update database and return the page to display the updated profile
     $user = new User();
     $uid = $_GET['uid'];
 

@@ -1,3 +1,4 @@
+// the map API
   function initialize(){
     var locations = [
       ['中西區', 22.277024, 114.147949],
@@ -109,5 +110,3 @@
     }
 
   }
-
-// google.maps.event.addDomListener(window, 'load', initialize);

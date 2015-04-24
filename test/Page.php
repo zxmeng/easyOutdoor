@@ -1,4 +1,8 @@
 <?php
+// we use this class as an interface to transform a template into object
+// and assign values to variables in the template
+// then return it as string to client
+
 class Page{
     protected $page;
 

@@ -1,24 +1,21 @@
-<!-- <div class ="modal fade" id = "create" role = "dialog">
-    <div class = "modal-dialog">
-        <div class = "modal-content"> -->
+
         <?php
             require_once('EventClass.php');
 
             $et = new Event();
             $event = $et->getEvent($eid);
+
+            // format the date
             $origin = strtotime($event['eDate']);
             $date = date("Y-m-d", $origin);
             $time = date("h:m:s", $origin);
             $datetime = $date.'T'.$time;
-            // $dt = new DateTime($origin);
-            // $datetime = $dt->format(DateTime::ISO8601);
 
-            //$time = $origin->format('YYYY-MM-DDThh:mm:ss.ms');
             $et->db->close();
             
         ?>
 
-
+            <!-- the page to edit an event -->
             <div class = "modal-header" style="margin-left:10%;">
                 <h2>Edit An Event</h2>
             </div>
@@ -80,67 +77,13 @@
                             <img id="e_img" src="<?php echo $event['ePhoto']; ?>" alt="file not found" style="width: 100px; height: 100px;">
                             <input type="file" name="image" id="e_image" accept="image/*" onchange="previewImage(1)" required />
                         </div>
+                        <!-- user choose an image to be previewed and then uploaded to server -->
                     </form>
 
-
-
-
-                    <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
-                     <div class = "modal-footer">
+                    <div class = "modal-footer">
                         <div id="output"></div>
-                        <!-- <a href="javascript:sendForm()">Stash the file!</a> -->
                         <input type="button" value="Update" onclick="clickUpdate(<?php echo $eid.','.$uid; ?>)">
-                        <!-- </div>  -->
-                        <!-- <input type="button" value="Reset" 
-                        onclick="resetDefault(<?php //echo '$event[\'title\']'.','.$datetime.','.$event['district'].','.$event['venue'].','.$event['limitation'].','.$event['eDescription']; ?>)"
-                        > -->
-                       <!--  </div> --> 
+                        <!-- trigger the js function to update database and change the page content-->
                     </div>
                 
             </div>       
-       <!--  </div>
-    </div>
-</div> -->
-
-
-<script>
-
-   // function PreviewImage() {
-   //      var oFReader = new FileReader();
-   //      oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
-
-   //      oFReader.onload = function (oFREvent) {
-   //          document.getElementById("uploadPreview").src = oFREvent.target.result;
-   //      };
-   //  };
-
-
-// function readURL(input) {
-
-//     if (input.files && input.files[0]) {
-//         var reader = new FileReader();
-
-//         reader.onload = function (e) {
-//             $('#e_img').attr('src', e.target.result);
-//         }
-
-//         reader.readAsDataURL(input.files[0]);
-//     }
-// }
-
-// $("#e_image").change(function(){
-//     readURL(this);
-// });
-// function resetDefault(title, dt, district, venue, limit, description){
-
-//   document.getElementById("e_title").value = title;
-//   document.getElementById("e_time").value = dt;
-//   document.getElementById("e_district").value = district;
-//   document.getElementById("e_venue").value = venue;
-//   document.getElementById("e_limitation").value = limit;
-//   document.getElementById("e_description").value = description;
-//   document.getElementById("e_image").value = "";
-  
-// }
-
-</script>

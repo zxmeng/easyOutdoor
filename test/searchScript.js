@@ -1,4 +1,6 @@
 function calendarSearch(){
+    // user searches by calendar
+    // display the related events
     // if the date has not been chosen, show error message
     if(document.getElementById("dateSearch").value == ""){
         alert("Please choose one day to search");
@@ -26,7 +28,8 @@ function calendarSearch(){
 }
 
 function mapSearch(district){
-
+    // user searches by district
+    // display the related events
     var info = "?data=" + district + "&flag=map";
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();
@@ -46,6 +49,7 @@ function mapSearch(district){
 }
 
 function smallMap(venue){
+    // display the routes
     if(venue=='hktrain3'){
         document.getElementById("change").innerHTML= "<div class = mapRoute><iframe src=\"http://hkhikingmap.misterngan.com/iframemap.php?routeid=3&subid=3\" height = \"800\" width = \"800\" frameborder = \"0\"></iframe></div>";
     }
@@ -73,7 +77,7 @@ function smallMap(venue){
 }
 
 function loadDistrictEvents(district){
-
+    // update the page content to display the events related to this district
     var info = "?district=" + district + "&flag=event";
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();
@@ -93,7 +97,7 @@ function loadDistrictEvents(district){
 }
 
 function loadDistrictReviews(district){
-
+    // update the page content to display the reviews related to this district
     var info = "?district=" + district + "&flag=review";
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();

@@ -2,6 +2,7 @@
 <?php
  	require_once('Page.php');
 
+	// the interface to change the page content to eventPage
 	$eid = $_GET['eid'];
 	$uid = $_GET['uid'];
 

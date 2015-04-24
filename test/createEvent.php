@@ -1,7 +1,6 @@
-<!-- <div class ="modal fade" id = "create" role = "dialog">
-    <div class = "modal-dialog">
-        <div class = "modal-content"> -->
-        
+
+            <!-- the page to create an event -->
+
             <div class = "modal-header">
                 <h2>Create An Event</h2>
             </div>
@@ -60,34 +59,15 @@
                 <form enctype="multipart/form-data" method="post" name="imageFile">
                     <div class="field">
                         <label>Upload Image File</label>
-                         <img id="c_img" src="images/cuhk.jpg" style="width: 100px; height: 100px;">
+                        <img id="c_img" src="images/cuhk.jpg" style="width: 100px; height: 100px;">
                         <input type="file" name="image" id="c_image" accept="image/*"  onchange="previewImage(0)" required />
                     </div>
+                    <!-- user choose an image to be previewed and then uploaded to server -->
                 </form>
 
-                <!-- <input type="hidden" name="token" value="<?php //echo Token::generate(); ?>"> -->
                  <div class = "modal-footer">
                     <input type="button" value="Create" onclick="clickSubmit(<?php echo $uid; ?>)">
-                    <!-- <input type="button" value="Reset" onclick="resetEmpty()"> -->
+                    <!-- trigger the js function to update database and change the page content-->
                 </div>
                 
-            </div>       
-       <!--  </div>
-    </div>
-</div> -->
-
-<script>
-
-// function resetEmpty(){
-
-//   document.getElementById("c_title").value = "";
-//   document.getElementById("c_time").value = "";
-//   document.getElementById("c_district").value = "";
-//   document.getElementById("c_venue").value = "";
-//   document.getElementById("c_limitation").value = "";
-//   document.getElementById("c_description").value = "";
-//   document.getElementById("c_image").value = "";
-
-// }
-
-</script>
+            </div>  

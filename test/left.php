@@ -5,13 +5,15 @@
 	}
 
 	require_once('UserClass.php');
-	$ur = new User();
-	$info = $ur->getInfo($_SESSION['id']);
-	$nickname = $info['nickname'];
-	$icon = $info['uPhoto'];
 
 	if($logged==1){
 		//logged in
+		
+		$ur = new User();
+		$info = $ur->getInfo($_SESSION['id']);
+		$nickname = $info['nickname'];
+		$icon = $info['uPhoto'];
+
 ?>
 		<div class="loginicon">
 			<img src="<?php echo $icon; ?>" onclick="loadPersonalHomepage(<?php echo $_SESSION['id'].','.$_SESSION['id']; ?>)"><br>

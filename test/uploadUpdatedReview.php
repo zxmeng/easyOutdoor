@@ -3,6 +3,7 @@
     require_once('Page.php');
     require_once('ReviewClass.php');
 
+    // update database and return the page to display the updated review
     $review = new Review();
     $uid = $_GET['uid'];
 

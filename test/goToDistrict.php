@@ -1,6 +1,7 @@
 <?php
  	require_once('Page.php');
 
+	// the interface to change the page content to district
 	$district = $_GET['district'];
 	$flag = $_GET['flag'];
 

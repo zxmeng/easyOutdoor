@@ -1,5 +1,6 @@
 
 <?php
+	// the interface to change the page content to chatroom
  	require_once('Page.php');
 
 	$eid = $_GET['eid'];
@@ -11,5 +12,5 @@
 	$page->eid = $eid;
 	$page->uid = $uid;
 
-	echo $page;
+	echo $page; // return to client
 ?>

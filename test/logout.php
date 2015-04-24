@@ -1,4 +1,6 @@
 <?php
+// logout from the website
+
 session_start();
 
 session_destroy();

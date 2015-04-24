@@ -1,6 +1,6 @@
 <?php
 require_once('DBClass.php');
-// DB interface for event
+
 class Event{
 
     public $db;
@@ -10,17 +10,16 @@ class Event{
         $this->db = new Database();
     }
 
-    // // Create an event, return BOOL
+    // Create an event, return the eid
     public function createEvent($uid, $title, $venue, $district, $time, $description, $image, $limit){
         $now = date("Y-m-d H:i:s");
         $sql = "INSERT INTO event(uid, title, venue, district, eDate, eDescription, ePhoto, likeNo, parNo, limitation, postTime, lastEditTime) 
                 VALUES ($uid, '$title', '$venue', '$district', '$time', '$description', '$image', 0, 1, $limit, '$now', '$now')";
         $this->db->query($sql);
-        //echo $sql;
         return $this->db->getInsertedID();
     }
 
-    // Edit an event, return BOOL
+    // Edit an event
     public function editEvent($eid, $title, $venue, $district, $time, $description, $image, $limit) {
         $now = date("Y-m-d H:i:s");
         if($image!=""){
@@ -39,25 +38,17 @@ class Event{
         return;
     }
 
-    // public function getTotalEvents(){
-    //     $sql = "SELECT COUNT(*)
-    //             FROM event";
-    //     $result =  $this->db->query($sql);
-    //     return $result;
-    // }
-
+    // get the detail information of en event by the eid
     public function getEvent($id){
        $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user 
                 WHERE event.uid = user.uid AND event.eid = $id";
-                //echo "eid is: ".$id;
         $result = $this->db->query($sql);
         return $result->fetch_array(MYSQLI_ASSOC);
     }
 
-    // // Return all ongoing events ordered by their event dates
+    // // Return first 8 ongoing events ordered by their event dates
     public function getAllEvents(){
-       // echo "GET ALL EVENTS";
         $now = date("Y-m-d H:i:s");
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
@@ -68,8 +59,8 @@ class Event{
         return $resultArray;
     }
 
+    // get the events with no. of likes > 10 as recommendation
     public function getRecommendation(){
-       // echo "GET ALL EVENTS";
         $now = date("Y-m-d H:i:s");
         $sql = "SELECT event.*, user.nickname, user.uPhoto
                 FROM event, user
@@ -80,6 +71,7 @@ class Event{
         return $resultArray;
     }
 
+    // get the first 8 participants of an event
     public function getParticipants($eid){
         $sql = "SELECT user.uPhoto, user.uid, user.nickname
                 FROM participation, user
@@ -90,6 +82,7 @@ class Event{
         return $resultArray; 
     }
 
+    // get the owner of an event
     public function getOwner($eid){
         $sql = "SELECT user.uPhoto, user.uid, user.nickname
                 FROM event, user
@@ -99,7 +92,7 @@ class Event{
         return $resultArray; 
     }
 
-
+    // check whether a user has liked an event
     public function checkLike($eid, $uid){
         $sql = "SELECT COUNT(*) AS total
                 FROM likeEvent
@@ -110,6 +103,7 @@ class Event{
         return $count;
     }
 
+    // check whether a user has joined an event
     public function checkJoin($eid, $uid){
         $sql = "SELECT COUNT(*) AS total
                 FROM participation
@@ -120,6 +114,7 @@ class Event{
         return $count;
     }
 
+    // a user likes an event
     public function like($eid, $uid){
         $sql = "INSERT INTO LikeEvent(uid,eid,time)
                 VALUES($uid, $eid, now())";
@@ -131,6 +126,7 @@ class Event{
         return;
     }
 
+    // a user unlikes an event
      public function unlike($eid, $uid){
         $sql = "DELETE FROM LikeEvent 
                 WHERE uid = $uid AND eid = $eid";     
@@ -142,6 +138,7 @@ class Event{
         return;
     }
 
+    // a user joins an event
     public function join($eid, $uid){
         $sql = "INSERT INTO Participation(uid,eid,time)
                 VALUES($uid, $eid, now())";
@@ -157,6 +154,7 @@ class Event{
         return;
     }
 
+    // a user unjoins an event
      public function unjoin($eid, $uid){
         $sql = "DELETE FROM Participation 
                 WHERE uid = $uid AND eid = $eid";     
@@ -168,7 +166,7 @@ class Event{
         return;
     }
 
-    // // Return the ongoing events in which a user creates or currently participates
+    // get the events created by this user
     public function getEventsCreatedByUser($uid){
         $sql = "SELECT event.*
                 FROM event
@@ -179,6 +177,7 @@ class Event{
         return $resultArray;
     }
 
+    // get the events joined by this user
     public function getEventsJoinedByUser($uid){
         $sql = "SELECT event.*
                 FROM event, participation
@@ -189,30 +188,7 @@ class Event{
         return $resultArray;
     }
 
-    //     public function getEventsByUser($uid){
-    //     $sql = "SELECT event.*, user.nickname, user.uPhoto
-    //             FROM event, user, participation 
-    //             WHERE event.uid = user.uid
-    //             OR ( event.eid = participation.eid AND participation.uid = $uid ) 
-    //             ORDER BY event.eDate ASC";
-    //     $result = $this->db->query($sql);
-    //     $resultArray = $result->fetch_all(MYSQLI_ASSOC);
-    //     return $resultArray;
-    // }
-
-    // // Return the events history of a user
-    // public function getUserHistory($userID){
-    //     $sql = "SELECT event.*, user.username, user.profilePhoto
-    //             FROM event, user, participation  
-    //             WHERE event.ownerID = user.ID AND event.status = false
-    //             AND ( event.ID = participation.eventID AND participation.userID =$userID ) 
-    //             ORDER BY eventDate DESC";
-    //     $result = $this->db->query($sql);
-    //     $resultArray = $result->fetch_all(MYSQLI_ASSOC);
-    //     return $resultArray;
-    // }
-
-    // // Return the ongoing events related to a district
+    // get the events related to this district
     public function getEventsByDistrict($district){
         $now = date("Y-m-d H:i:s");
         $sql = "SELECT event.*, user.*
@@ -224,18 +200,7 @@ class Event{
         return $resultArray;
     }
 
-    //  // Return the events historty related to a district
-    // public function getDistrictHistory($district){
-    //     $sql = "SELECT event.*, user.username, user.profilePhoto
-    //             FROM event, user 
-    //             WHERE event.ownerID = user.ID AND event.distrcit = '$district' AND event.status = false
-    //             ORDER BY event.eventDate DESC";
-    //     $result = $this->db->query($sql);
-    //     $resultArray = $result->fetch_all(MYSQLI_ASSOC);
-    //     return $resultArray;
-    // }
-
-    // Return the events on that day
+    // get the events on that day
     public function getEventsByDate($date){
         $start = $date . " 00:00:00";
         $end = $date . " 23:59:59";

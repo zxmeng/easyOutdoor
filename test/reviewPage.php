@@ -9,6 +9,7 @@ require_once('ReviewClass.php');
 
 ?>
 
+<!-- show the details of a review -->
 <div class="bannercontainer">
 	<img src="images/background.png">
 </div>

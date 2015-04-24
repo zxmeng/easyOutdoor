@@ -2,6 +2,7 @@
 <?php
  	require_once('Page.php');
 
+	// the interface to change the page content to reviewPage
 	$pid = $_GET['pid'];
 	$uid = $_GET['uid'];
 

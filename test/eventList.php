@@ -7,8 +7,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
 ?>
 
+<!-- this is the event list page, i.e. the home page -->
 <div class="masonry">	
 	<div class="item">
+      <!-- the weather API -->
 		<div align="center" class="item-name">
 		Hong Kong<br>Weather Forecast
 		</div>
@@ -21,8 +23,6 @@ if (session_status() == PHP_SESSION_NONE) {
 		    alt="Weather temperature in Hong Kong, Hong Kong" width="80%" style="border:0" align="center" /></div> 
 
 		</a><br/></p></p></div>
-
-
 		<div class="button" type="button" onclick="window.open('http://weathertemperature.com/')">
 			More about weather in Hong Kong...
 		</div>
@@ -35,7 +35,7 @@ if (session_status() == PHP_SESSION_NONE) {
 		foreach($events as $event){ 
 	?>
 
-   <!--翔 this is the tox for 1 event, write a while loop to show all the events with this item-->
+   <!-- use a while loop to show first 8 ongoing events-->
    <div class="item">
    		<div class="item-name" onclick="loadEvent( <?php echo $event['eid'].', '.$_SESSION['id']; ?> )">
    			<?php echo $event['title'] ?>
@@ -47,7 +47,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
    		<div class="item-infomation">
    			<h2>Date:</h2> <?php echo $event['eDate']; ?><br/>
-   			<!-- <h2>Time:</h2><?php echo $event['lastEditTime']; ?><br/> -->
    			<h2>Venue:</h2><?php echo $event['venue']; ?><br/>
    			<h2>Description:</h2><?php echo $event['eDescription']; ?><br/>
             <div align="right">
@@ -62,9 +61,9 @@ if (session_status() == PHP_SESSION_NONE) {
    			<div class="button" type="button" onclick="loadEvent( <?php echo $event['eid'].', '.$_SESSION['id']; ?> )">
    				More Infomation
    			</div>
+            <!-- click tihs button will display the event detail -->
    		</div>		   		
    </div>
-   <!--end 1 event--> 
    <?php } ?>
 
 </div>

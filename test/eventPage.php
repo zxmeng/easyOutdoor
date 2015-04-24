@@ -17,14 +17,18 @@
 	$isPar = 0;
 	$isLike = 0;
 
+	// check the permission of the viewer
 	if($uid == $eInfo['uid']){
+		// viewer is the owner
 		$isOwner = 1;
 	}
 	else {
 		if($event->checkLike($eid, $uid) > 0){
+			// viewer liked this event
 			$isLike = 1;
 		}
 		if($event->checkJoin($eid, $uid) > 0){
+			// viewer joined this event
 			$isPar = 1;
 		}
 	}
@@ -34,6 +38,7 @@
 	<img src="images/cuhk.jpg">
 </div>
 
+<!-- display the detail information of this event -->
 <div class="eventinfo" style="margin:10px 0 0 0;">
 	<div class="eventdetail" style="display:inline">
 		<h2><?php echo $eInfo['title']; ?></h2>
@@ -58,7 +63,7 @@
 
 <div class="eb">
 	<div>
-		<!--button-->
+		<!--button, user can (un)like, (un)join or edit accroding to their different permissions -->
 		<div style="margin:1em 0 0 0;bottom:0px;">
 			<div class="mode-button" >
 				<div class="btn-group" role="group" aria-label="...">
@@ -122,7 +127,7 @@
 				</div>
 			</div>
 		</div>
-	<!--end buttom-->
+	<!--end button-->
 	</div>
 </div>
 <hr>
@@ -134,7 +139,7 @@
 		$event->db->close();
 		foreach($users as $user){ 
 	?>
-<!--while loop to list every participant (limit to 9) -->
+<!--while loop to list participants (limit to 8) -->
 	<div class="participantcontainer"  type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$user['uid']; ?>)">
 		<img src="<?php echo $user['uPhoto']; ?>" alt="file not found">
 	</div>

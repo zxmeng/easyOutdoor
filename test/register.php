@@ -1,5 +1,4 @@
 <?php
-// include_once("scripts/global.php");
 
 include_once("connect.php");
 $message="";
@@ -21,8 +20,6 @@ if(isset($_POST['Register'])){
 			$message='Your password fields do not match!';
 		}else{
 			//securing the data
-			//$password1=md5($password1);
-		
 			$email=mysql_real_escape_string($email);
 			
 			//check for dublicates of email
@@ -40,9 +37,9 @@ if(isset($_POST['Register'])){
 				require 'PHPmailer/Send_Mail.php';
 				$to = "$email";
 				$subject = "EasyOutdoor: Activate Your Account and Join Awesome Activities Now!";
-				$body = "Hello $nickname,\n\nYou registered and need to activate your account. Click the link below or paste it into the URL bar of your browser\n\n 192.168.208.8/easyOutdoor/test/activate.php?code=$code\n\nThanks!";
+				$body = "Hello $nickname,\n\nYou registered and need to activate your account. Click the link below or paste it into the URL bar of your browser\n\n localhost:8080/easyOutdoor/test/activate.php?code=$code\n\nThanks!";
 				Send_Mail($to,$subject,$body);
-				//end email (HAVE TO CHANGE THE LINK IN BODY SINCE THE SERVER SET UP IS DIFFERENT IN EVERY PC) lawrence!!!!!!!!!!!!!!
+				//end email (HAVE TO CHANGE THE LINK IN BODY SINCE THE SERVER SET UP IS DIFFERENT IN EVERY PC)
 
 				if(!mail($to,$subject,$body)){
 					$message = "We couldn't sign you up at this time. Please try again later.";
@@ -62,12 +59,8 @@ if(isset($_POST['Register'])){
 		}
 	}
 }
-			
-			
-			
-
-
 ?>
+
 <!doctype html>
 <html>
 <head>

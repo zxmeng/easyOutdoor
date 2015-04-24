@@ -25,9 +25,11 @@
 	</div>
 
 	<div id="change"><?php include_once('eventList.php'); ?></div>
+	<!-- innerHTML of this div will be updated by user's actions -->
 
 	<div class="homebutton">
 		<button type="button" class="btn btn-default btn-circle btn-lg"  id="back" onclick="goToTop()"><i class="glyphicon glyphicon-home"></i></button>
+		<!-- click this button to go to home page -->
 	</div>
 <?php
 
@@ -36,6 +38,7 @@
 	}
 	
 	if($logged==1){
+		// if logged in, then user can create events/reviews
 ?>
 
 		<div class="createbutton">

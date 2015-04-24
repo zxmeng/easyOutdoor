@@ -9,6 +9,7 @@
    	$notification = new Notification();
  	$uid = $_SESSION['id'];
 
+ 	// retrieve data from database
 	$commentNoti = $notification->getCommentNoti($uid);
 	$cno = mysqli_num_rows($commentNoti);
 
@@ -23,7 +24,7 @@
 
 ?>
 
-<!--while loop to list all comment-->
+<!--while loop to list all notifications -->
 <div>
 
 
@@ -41,11 +42,8 @@
 	<div class="notification-header"></div>
 <?php
 		if($cno != 0) {
-	?>
-			<!-- <div class="notification-header">Comment</div> -->
-	<?php
 			foreach($commentNoti as $noti){ 
-	?>
+?>
 
 				<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
 					<div class="commentcontent">
@@ -55,20 +53,12 @@
 					<?php echo $noti['time']; ?>
 					</div>
 				</div>
-	<?php 
+<?php 
 			}
-	?>
-			<!-- </div> -->
-	<?php
 		} 
-	?>
-	<?php 
 		if($mno != 0) {
-	?>
-			<!-- <div class="notification-header">Mention</div> -->
-	<?php
 			foreach($mentionNoti as $noti){ 
-	?>
+?>
 
 				<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
 					<div class="commentcontent">
@@ -78,22 +68,12 @@
 					<?php echo $noti['time']; ?>
 					</div>
 				</div>
-	<?php 
+<?php 
 			}
-	?>
-			<!-- </div> -->
-	<?php
-		} 
-	?>
-
-	<?php 
-
+		}
 		if($fno != 0) {
-	?>
-			<!-- <div class="notification-header">Follow</div> -->
-	<?php
 			foreach($followNoti as $noti){ 
-	?>
+?>
 				<div class="notification">
 					<div class="commentcontent" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$uid.', '.$noti['uid'].', 1'; ?>)">
 						<?php echo $noti['nickname']." followed you"; ?>
@@ -102,22 +82,12 @@
 					<?php echo $noti['time']; ?>
 					</div>
 				</div>
-	<?php 
+<?php 
 			}
-	?>
-			<!-- </div> -->
-	<?php
-		} 
-	?>
-
-	<?php 
-
+		}
 		if($jno != 0) {
-	?>
-			<!-- <div class="notification-header">Participate</div> -->
-	<?php
 			foreach($joinNoti as $noti){ 
-	?>
+?>
 
 			<div class="notification" type="button" onclick="clickNotification(<?php echo $noti['nid'].','.$noti['eid'].','.$uid.', 0'; ?>)">
 				<div class="commentcontent">
@@ -127,11 +97,8 @@
 				<?php echo $noti['time']; ?>
 				</div>
 			</div>
-	<?php 
+<?php 
 			}
-	?>
-			<!-- </div> -->
-	<?php
 		} 
 	}
 ?>

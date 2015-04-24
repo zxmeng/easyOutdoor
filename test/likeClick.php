@@ -3,6 +3,7 @@
  	require_once('EventClass.php');
  	require_once('ReviewClass.php');
  	
+ 	// handle user clicking (un)like button
  	if($flag < 2){
 	 	$event = new Event();
 

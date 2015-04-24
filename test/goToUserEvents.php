@@ -2,6 +2,7 @@
 <?php
  	require_once('Page.php');
 
+	// the interface to change the page content to userEvents
 	$auid = $_GET['auid'];
 	$uid = $_GET['uid'];
 	$flag = $_GET['flag'];

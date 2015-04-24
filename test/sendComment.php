@@ -37,7 +37,6 @@
 		$res = $db->query($notifyMention);
 		if(!res) die;
 	}
-	echo "succeed";
 
 	$db->close();
 ?>

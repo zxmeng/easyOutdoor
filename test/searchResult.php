@@ -20,10 +20,9 @@ else if($flag == 'map'){
 <?php
 }
 $et->db->close();
-// echo "here";
 ?>
 
-
+<!-- display the search results by map/calendar -->
 <div class="masonry" id="searchResults">
 
    <?php if(empty($events)){ ?>
@@ -54,6 +53,5 @@ $et->db->close();
    			</div>
    		</div>		   		
    </div>
-   <!--end 1 event--> 
    <?php }} ?>
 </div>

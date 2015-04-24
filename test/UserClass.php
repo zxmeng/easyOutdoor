@@ -1,9 +1,8 @@
 <?php
 
 require_once('DBClass.php');
-// DB interface for event
-class User{
 
+class User{
     public $db;
 
     public function __construct(){
@@ -11,6 +10,7 @@ class User{
         $this->db = new Database();
     }
 
+    // get the information of this user
 	public function getInfo($uid) {
 		$sql = "SELECT user.*
 				FROM user
@@ -20,7 +20,7 @@ class User{
 		return $infoArray;
 	}
 
-
+	// update database
     public function editProfile($uid, $nickname, $phone, $description, $image){
     	if($image!=""){
 	    	$sql = "UPDATE user
@@ -38,6 +38,7 @@ class User{
     	return;
     }
 
+    // get its nickname only
     public function getUserName($uid) {
 		$sql = "SELECT nickname
 				FROM user
@@ -47,6 +48,7 @@ class User{
 		return $nameArray['nickname'];
 	}
 
+	// get its friends
 	public function getFriends($uid) {
 		$sqlB = "SELECT user.*
 				 FROM friend, user
@@ -65,16 +67,17 @@ class User{
 		return $result;
 	}
 
+    // get the information of this user
 	public function getUser($uid) {
 		$sql = "SELECT *
 				FROM user
 				WHERE uid = $uid";
 		$res = $this->db->query($sql);
 		$Array = mysqli_fetch_array($res);
-		// echo $Array['uPhoto'];
 		return $Array;
 	}
 
+    // check whether user A(uid) followed user B(auid)
 	public function checkFollow($uid, $auid){
         $sql = "SELECT COUNT(*) AS total
                 FROM follow
