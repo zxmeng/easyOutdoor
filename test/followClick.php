@@ -1,5 +1,4 @@
 <?php
-
 	require_once('DBClass.php');
 
 	// Create connection
@@ -46,7 +45,7 @@
 		}
 	}
 
-	// flag = 0 ->unfollow
+	// flag = 0 -> unfollow
 	else { 
 		// In the database, userA follows userB
 		$sql = "DELETE FROM follow

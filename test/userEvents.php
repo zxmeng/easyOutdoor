@@ -5,20 +5,23 @@
 	$et = new Event();
 	$rw = new Review();
 
+	// flag 1 is to show created event
 	if ($flag == 1)
 		$events = $et->getEventsCreatedByUser($auid);
+	// flag 2 is to show joined event
 	else if ($flag == 2)
 		$events = $et->getEventsJoinedByUser($auid);
+	// flag 3 is to show created review
 	else // if ($flag == 3)
-
 		$events = $rw->getReviewsByUser($auid);
-	// echo $auid;
 
 ?>
 
 
 <div>
-	<?php if(empty($events)) { 
+	<?php
+	// if empty, show prompt message
+	if(empty($events)) { 
 		if($flag == 1 || $flag == 2) {
 	?>
 			<div align="center"><p><h2>No event now</h2></p></div>
@@ -30,7 +33,7 @@
 		}else{
 			foreach ($events as $event) {
 	?>
-		 <!-- this is the tox for 1 event, write a while loop to show all the events with this item-->
+		 <!-- use a foreach loop to show all the events-->
 	   <div class="item">
 	   		<div class="item-name"><?php echo $event['title']; ?></div>
 	   		<div class="item-picture"><img class="item-picture" src="<?php echo $event['ePhoto']; ?>"></div>

@@ -1,5 +1,5 @@
 function calendarSearch(){
-
+    // if the date has not been chosen, show error message
     if(document.getElementById("dateSearch").value == ""){
         alert("Please choose one day to search");
         return;
@@ -15,7 +15,7 @@ function calendarSearch(){
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("searchResult").innerHTML= xmlhttp.responseText;
-            var mapResult = document.getElementById("mapResult")
+            var mapResult = document.getElementById("mapResult");
             var rect = mapResult.getBoundingClientRect();
             window.scrollTo(rect.left, rect.top + window.scrollY);
         }

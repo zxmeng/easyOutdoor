@@ -14,41 +14,30 @@
 	$owner = $ev->getOwner($eid);
 	$ownerID = $owner['uid'];
 
-	// if($ruid != 0){
-		$sql = "INSERT INTO comment (content, suid, ruid, eid, time)
-				VALUES ('{$content}', '{$suid}', '{$ruid}', '{$eid}', now())";
-		$res = $db->query($sql);
-		if(!$res){
-			die; //Sending failed
-		}
+	$sql = "INSERT INTO comment (content, suid, ruid, eid, time)
+			VALUES ('{$content}', '{$suid}', '{$ruid}', '{$eid}', now())";
+	$res = $db->query($sql);
+	if(!$res){
+		die; //Sending failed
+	}
 
-		$cid = $db->getInsertedID();
+	$cid = $db->getInsertedID();
 
-		// Insert notification
-		if($suid != $ownerID){
-			$notifyOwner = "INSERT INTO notification (type, fid)
-							VALUES ('comment', '{$cid}')";
-			$res = $db->query($notifyOwner);
-			if(!res) die;
-		}
+	// Insert notification
+	if($suid != $ownerID){
+		$notifyOwner = "INSERT INTO notification (type, fid)
+						VALUES ('comment', '{$cid}')";
+		$res = $db->query($notifyOwner);
+		if(!res) die;
+	}
 
-		if ($ruid != 0){
-			$notifyMention = "INSERT INTO notification (type, fid)
-							  VALUES ('mention', '{$cid}')";
-			$res = $db->query($notifyMention);
-			if(!res) die;
-		}
-		echo "succeed";
+	if ($ruid != 0){
+		$notifyMention = "INSERT INTO notification (type, fid)
+						  VALUES ('mention', '{$cid}')";
+		$res = $db->query($notifyMention);
+		if(!res) die;
+	}
+	echo "succeed";
 
-	// }
-	// else {
-	// 	$sql = "INSERT INTO comment (content, suid, eid, time)
-	// 			VALUES ('{$content}', '{$suid}', '{$eid}', now())";
-	// 	$res = $db->query($sql);
-	// 	if(!$res){
-	// 		die; //Sending failed
-	// 	}
-	// 	echo "succeed";
-	// }
 	$db->close();
 ?>

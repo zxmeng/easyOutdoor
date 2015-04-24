@@ -18,13 +18,14 @@
 			return $resultArray;
 		}
 		
+		// Used to get nickname of the person be mentioned
 		public function getUserName($uid) {
 			$sql = "SELECT nickname
 					FROM user
 					WHERE uid = $uid";
 			$res = $this->db->query($sql);
 			$nameArray = mysqli_fetch_array($res);
-		return $nameArray['nickname'];
-	}
+			return $nameArray['nickname'];
+		}
 	}
 ?>

@@ -1,15 +1,12 @@
 <?php 
-require_once('EventClass.php'); 
-require_once('CommentClass.php');
+	require_once('EventClass.php'); 
+	require_once('CommentClass.php');
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
 
-?>
-
-
-<?php 
+	// Create a new event object and get the detailed information
 	$event = new Event();
 	$eInfo = $event->getEvent($eid); 
 
@@ -19,7 +16,6 @@ if (session_status() == PHP_SESSION_NONE) {
 	$isOwner = 0;
 	$isPar = 0;
 	$isLike = 0;
-
 
 	if($uid == $eInfo['uid']){
 		$isOwner = 1;
@@ -62,7 +58,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <div class="eb">
 	<div>
-				<!--button-->
+		<!--button-->
 		<div style="margin:1em 0 0 0;bottom:0px;">
 			<div class="mode-button" >
 				<div class="btn-group" role="group" aria-label="...">
@@ -145,38 +141,48 @@ if (session_status() == PHP_SESSION_NONE) {
 	 <?php } ?>
 </div>
 
+
+<!-- Comment area -->
 <hr>
 <div class="eventcomment">
 	<h2>Comments   <button class="btn btn-default btn-circle btn"id="refreshComment" type="button" value="refresh" onclick="refreshComment(<?php echo $uid.','.$eid; ?>)"><i class="glyphicon glyphicon-refresh"></i></button></h2>
 	<div id="commentList">
-		<!--while loop to list all comment-->
+		<!--foreach loop to list all comment-->
 		<?php
-			$cNums = mysqli_num_rows($comments);
+			$cNums = mysqli_num_rows($comments); // Get the number of comments
+
 			if($cNums == 0){ ?>
+			<!-- If there is no comment now, show a prompt message -->
 				<div><h2>No comment now</br></h2></div>
-		<?php } else {
+		<?php
+			} else {
+			// else, there are some comments, foreach loop to list all comment
 			foreach($comments as $comment){ 
 		?>
-				<div class="commentcontainer">
-					<div class="commentheader" type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$comment['suid']; ?>)">
-						<img src="<?php echo $comment['uPhoto']; ?>"><br>
-						<h5><?php echo $comment['nickname'] ?><h5>
-					</div>
-					<div class="commentcontent">
-						<h3 style="line-height: 40px;"><?php echo $comment['content']; ?></H3>
-					</div>
-					<div class="commentinfo" style="margin-left:70px;">
-						<h6>
-						<?php echo $comment['time'] ?>   <?php if($comment['ruid'] != 0) { ?>mentioned: <?php echo $commentList->getUserName($comment['ruid']); } ?>
-			   			<br></h6>
-			   		</div>
+			<!-- every commentcontainer contains a comment -->
+			<div class="commentcontainer">
+				<!-- comment header contains user photo and nickname -->
+				<div class="commentheader" type="button" onclick="loadPersonalHomepage(<?php echo $uid.','.$comment['suid']; ?>)">
+					<img src="<?php echo $comment['uPhoto']; ?>"><br>
+					<h5><?php echo $comment['nickname'] ?><h5>
 				</div>
-			<?php }} ?>
-		<!--endwhile-->
+				<div class="commentcontent">
+					<h3 style="line-height: 40px;"><?php echo $comment['content']; ?></H3>
+				</div>
+				<!-- comment time and mention information -->
+				<div class="commentinfo" style="margin-left:70px;">
+					<h6>
+					<?php echo $comment['time'] ?>   <?php if($comment['ruid'] != 0) { ?>mentioned: <?php echo $commentList->getUserName($comment['ruid']); } ?>
+		   			<br></h6>
+		   		</div>
+			</div>
+		<?php }} ?>
+		<!--end loop and else-->
 	</div>
 	
 	<hr>
 <?php
+	// Only after login the user will be able to write a comment
 	if (isset($_SESSION["logged"])){
 ?>
 	<div class="writecomment">

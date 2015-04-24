@@ -26,7 +26,6 @@
 				<?php } ?>
 				<?php echo $message['time']; ?> <br>
 				<?php echo $message['content']; ?>
-				<!-- USERNAME:Message!! -->
 				</p>
 			</div>
 		</div>

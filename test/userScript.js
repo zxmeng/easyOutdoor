@@ -6,7 +6,8 @@ function clickFriend(uid){
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            var main = document.getElementById("change")
+            // Change scroll position
+            var main = document.getElementById("change");
             var rect = main.getBoundingClientRect();
             window.scrollTo(rect.left, rect.top + window.scrollY);
         }
@@ -26,7 +27,8 @@ function showFriendDetail(uid, auid){
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("frienddetail").innerHTML= xmlhttp.responseText;
-            var main = document.getElementById("frienddetail")
+            // Change scroll position
+            var main = document.getElementById("frienddetail");
             var rect = main.getBoundingClientRect();
             window.scrollTo(rect.left, rect.top + window.scrollY);
         }
@@ -46,6 +48,7 @@ function clickFollow(uid, auid){
 	if(document.getElementById("follow").value == "Follow"){
 		xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                // follow succeed, change the button value
 	            document.getElementById("follow").value = "Unfollow";
                 document.getElementById("follow").innerHTML = "Unfollow";
 	        }
@@ -55,6 +58,7 @@ function clickFollow(uid, auid){
     else {
     	xmlhttp.onreadystatechange=function() {
 	        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                // unfollow succeed, change the button value
 	            document.getElementById("follow").value = "Follow";
                 document.getElementById("follow").innerHTML = "Follow";
 	        }
@@ -76,7 +80,8 @@ function showUserEvents(auid, uid, flag) {
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("userEvent").innerHTML= xmlhttp.responseText;
-            var main = document.getElementById("userEvent")
+            // Change scroll position
+            var main = document.getElementById("userEvent");
             var rect = main.getBoundingClientRect();
             window.scrollTo(rect.right, rect.top + window.scrollY);
         }
@@ -96,7 +101,8 @@ function clickEditProfile(uid){
 	xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            var main = document.getElementById("change")
+            // Change scroll position
+            var main = document.getElementById("change");
             var rect = main.getBoundingClientRect();
             window.scrollTo(rect.left, rect.top + window.scrollY);
 
@@ -173,7 +179,8 @@ function loadPersonalHomepage(uid, auid){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById("change").innerHTML= xmlhttp.responseText;
-            var main = document.getElementById("change")
+            // Change scroll position
+            var main = document.getElementById("change");
             var rect = main.getBoundingClientRect();
             window.scrollTo(rect.left, rect.top + window.scrollY);
         }

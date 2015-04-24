@@ -3,6 +3,7 @@
 	require_once("UserClass.php");
 	require_once("EventClass.php");
 
+	// Create new user and event objects and get some information
 	$ur = new User();
 	$et = new Event();
 	$friends = $ur->getFriends($uid);
@@ -15,7 +16,7 @@
 	<div class="friendlist">
 		<h2 align="center" style="padding:5px;">Friends</h2>
 		<hr style="margin:2% 0 2% 0;">
-	<!--each participant-->
+	<!--each friend-->
 	<?php
 		foreach($friends as $friend){
 	?>
@@ -28,13 +29,14 @@
 				</div>
 			</div>
 		</div>
-	<!--end message-->
+	<!--end friend-->
 	<?php
 		}
 	?>
 	</div>
 
 	<div id="frienddetail" class="frienddetail" >
+	<!-- the friend list is default to show the information of the user himself -->
 		<div align="center">
 			<p><div class="loginicon" onclick="loadPersonalHomepage(<?php echo $uid.','.$uid; ?>)">
 			<img src="<?php echo $userDetail['uPhoto']; ?>">
@@ -66,13 +68,14 @@
 
 		<div id="userEvent">
 			<?php if(empty($events)) { ?>
-			<div align="center"><p><h2>No event now</h2></p></div>
+				<!-- if no default created event, show prompt message -->
+				<div align="center"><p><h2>No event now</h2></p></div>
 			<?php 
 				}else{
 				foreach ($events as $event) {
 			?>
-				 <!-- this is the tox for 1 event, write a while loop to show all the events with this item-->
-			   <div class="item">
+				<!-- this is the tox for 1 event, use a foreach loop to show all the events -->
+				<div class="item">
 			   		<div class="item-name"><?php echo $event['title']; ?></div>
 			   		<div class="item-picture"><img class="item-picture" src="<?php echo $event['ePhoto']; ?>"></div>
 			   		<div class="item-infomation">
@@ -87,7 +90,7 @@
 			<?php
 				}}
 			?>
-			   <!--end 1 event-->
+			   <!--end event and else-->
 		</div>
 	</div>
 	
